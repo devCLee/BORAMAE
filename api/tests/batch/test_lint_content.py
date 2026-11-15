@@ -105,6 +105,7 @@ VALID_SET = {
                 "scan_set": True,
                 "share_scale": None,
                 "nearest_available": None,
+                "season_starts": {"first_date": "08-01"},
             }
         ],
         "metrics": [

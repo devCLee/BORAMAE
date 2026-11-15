@@ -175,6 +175,7 @@ def _variable(
         scan_set=item.scan_set and default_freq in carried,
         share_scale=item.share_scale,
         kind=item.kind,
+        season_starts=item.season_starts,
     )
 
 

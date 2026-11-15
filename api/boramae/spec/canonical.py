@@ -9,7 +9,7 @@ from decimal import Decimal
 from typing import Literal
 
 from boramae.constants import KEY_HEX_LEN
-from boramae.contracts.results_catalog import Catalog
+from boramae.contracts.results_catalog import Catalog, CatalogMetric, CatalogVariable
 from boramae.contracts.spec import (
     CanonicalSpec,
     ContractModel,
@@ -38,7 +38,9 @@ def canonicalize(
         ds=dataset.ds,
         eng=ENGINE_VERSION,
         var=spec.var,
-        metric=canonical_metric(spec.metric, validated.metric.defaults),
+        metric=canonical_metric(
+            spec.metric, metric_defaults(validated.variable, validated.metric)
+        ),
         cells=[list(cell) for cell in validated.cells],
         window=(
             spec.window.start,
@@ -46,6 +48,14 @@ def canonicalize(
         ),
         content=content_mark,
     )
+
+
+def metric_defaults(variable: CatalogVariable, metric: CatalogMetric) -> MetricSettings:
+    """The defaults of a metric on a variable. The season start of the variable for
+    the metric wins over the default of the metric. Every caller of canonical_metric
+    takes its defaults from here, so a parsed and a hand-picked spec share a key."""
+    season_start = variable.season_starts.get(metric.id) or metric.defaults.season_start
+    return metric.defaults.model_copy(update={"season_start": season_start})
 
 
 def canonical_metric(metric: SpecMetric, defaults: MetricSettings) -> SpecMetric:

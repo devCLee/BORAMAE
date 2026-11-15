@@ -58,11 +58,18 @@ def _seed(definition_ko="눈 형태로 내린 강수량이에요."):
                 "scan_set": True,
                 "share_scale": None,
                 "nearest_available": None,
+                "season_starts": {"first_date": "08-01"},
             }
         ],
         "metrics": [],
         "unavailable": [],
     }
+
+
+def _seed_with_season_starts(season_starts):
+    data = _seed()
+    data["variables"][0]["season_starts"] = season_starts
+    return data
 
 
 def _board(drivers):
@@ -153,6 +160,36 @@ def test_catalog_variable_with_complete_text_passes():
 def test_catalog_variable_with_empty_korean_definition_fails():
     with pytest.raises(ValidationError):
         CatalogSeed.model_validate(_seed(definition_ko=""))
+
+
+def test_seed_variable_keeps_its_season_starts():
+    variable = CatalogSeed.model_validate(_seed()).variables[0]
+    assert variable.season_starts == {"first_date": "08-01"}
+
+
+def test_seed_variable_with_no_season_starts_passes():
+    seed = CatalogSeed.model_validate(_seed_with_season_starts({}))
+    assert seed.variables[0].season_starts == {}
+
+
+@pytest.mark.parametrize("season_start", ["8-01", "08-1", "13-01", "08-32", "0801"])
+def test_seed_variable_with_a_malformed_season_start_fails(season_start):
+    data = _seed_with_season_starts({"first_date": season_start})
+    with pytest.raises(ValidationError):
+        CatalogSeed.model_validate(data)
+
+
+def test_seed_variable_with_a_season_start_of_an_unknown_metric_fails():
+    data = _seed_with_season_starts({"first_snow": "08-01"})
+    with pytest.raises(ValidationError):
+        CatalogSeed.model_validate(data)
+
+
+def test_seed_variable_without_a_season_starts_field_fails():
+    data = _seed()
+    del data["variables"][0]["season_starts"]
+    with pytest.raises(ValidationError):
+        CatalogSeed.model_validate(data)
 
 
 @pytest.mark.parametrize(

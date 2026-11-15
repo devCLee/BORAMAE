@@ -27,6 +27,13 @@ REQUIRED_FIELDS = (
     "min_record_years",
     "is_trend_ready",
 )
+SNOW_VARIABLES = ("PRECSNO", "SNODP", "FRSNO")
+SNOW_SEASON_STARTS = {
+    "first_date": "08-01",
+    "last_date": "08-01",
+    "snow_free_date": "08-01",
+    "season_length": "08-01",
+}
 
 
 class MonthlyLacksT2M(FakeReader):
@@ -182,6 +189,20 @@ def test_metric_is_available_only_with_a_registered_reducer(
 def test_metric_defaults_come_from_the_seed(catalog):
     expected = MetricSettings(threshold="0.1", op=">=")
     assert by_id(catalog.metrics)["first_date"].defaults == expected
+
+
+def test_no_metric_has_a_default_season_start(catalog):
+    assert {item.defaults.season_start for item in catalog.metrics} == {None}
+
+
+@pytest.mark.parametrize("var_id", SNOW_VARIABLES)
+def test_snow_variable_starts_its_date_metrics_on_1_august(catalog, var_id):
+    assert by_id(catalog.variables)[var_id].season_starts == SNOW_SEASON_STARTS
+
+
+def test_only_the_snow_variables_hold_a_season_start(catalog):
+    held = {item.id for item in catalog.variables if item.season_starts}
+    assert held == set(SNOW_VARIABLES)
 
 
 def test_unavailable_list_comes_from_the_seed(catalog):

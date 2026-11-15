@@ -304,6 +304,9 @@ export interface CatalogVariable {
   scan_set: boolean;
   share_scale: ("fraction" | "percent") | null;
   kind: "model";
+  season_starts: {
+    [k: string]: string;
+  };
 }
 /**
  * This interface was referenced by `BoramaeContract`'s JSON-Schema
@@ -570,6 +573,9 @@ export interface SeedVariable {
         | "PBLTOP"
       )
     | null;
+  season_starts: {
+    [k: string]: string;
+  };
 }
 /**
  * This interface was referenced by `BoramaeContract`'s JSON-Schema

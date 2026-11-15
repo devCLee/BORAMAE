@@ -10,7 +10,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "T2M_MAX",
@@ -22,7 +23,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "T2M_MIN",
@@ -34,7 +36,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "PRECTOTCORR",
@@ -46,7 +49,8 @@
       "default_metric": "annual_total",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "PRECSNO",
@@ -58,7 +62,8 @@
       "default_metric": "annual_total",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": { "first_date": "08-01", "last_date": "08-01", "snow_free_date": "08-01", "season_length": "08-01" }
     },
     {
       "id": "SNODP",
@@ -70,7 +75,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": { "first_date": "08-01", "last_date": "08-01", "snow_free_date": "08-01", "season_length": "08-01" }
     },
     {
       "id": "FRSNO",
@@ -82,7 +88,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": "fraction",
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": { "first_date": "08-01", "last_date": "08-01", "snow_free_date": "08-01", "season_length": "08-01" }
     },
     {
       "id": "RH2M",
@@ -94,7 +101,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": "percent",
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "TQV",
@@ -106,7 +114,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "GWETTOP",
@@ -118,7 +127,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": "fraction",
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "GWETROOT",
@@ -130,7 +140,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": "fraction",
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "EVLAND",
@@ -142,7 +153,8 @@
       "default_metric": "annual_total",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "FROST_DAYS",
@@ -154,7 +166,8 @@
       "default_metric": "annual_total",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "WS10M",
@@ -166,7 +179,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "TS",
@@ -178,7 +192,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "CDD18_3",
@@ -190,7 +205,8 @@
       "default_metric": "annual_total",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "HDD18_3",
@@ -202,7 +218,8 @@
       "default_metric": "annual_total",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "FRSEAICE",
@@ -214,7 +231,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": "fraction",
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "TO3",
@@ -226,7 +244,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     },
     {
       "id": "PBLTOP",
@@ -238,7 +257,8 @@
       "default_metric": "annual_mean",
       "scan_set": true,
       "share_scale": null,
-      "nearest_available": null
+      "nearest_available": null,
+      "season_starts": {}
     }
   ],
   "metrics": [
