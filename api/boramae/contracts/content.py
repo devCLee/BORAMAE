@@ -24,6 +24,7 @@ from boramae.contracts.spec import (
     Latitude,
     LocalizedText,
     Longitude,
+    MonthDay,
     Months,
     Op,
     RequestSpec,
@@ -72,6 +73,9 @@ class SeedVariable(ContractModel):
     scan_set: bool
     share_scale: Literal["fraction", "percent"] | None
     nearest_available: VariableId | None
+    # Season start of a metric on this variable, such as a snow winter from 08-01.
+    # A metric not listed keeps the engine rule (spec/canonical.metric_defaults).
+    season_starts: dict[MetricId, MonthDay]
 
 
 class SeedMetric(ContractModel):

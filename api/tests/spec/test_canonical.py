@@ -230,6 +230,24 @@ def test_omitted_settings_and_the_default_settings_give_one_key(sample_catalog):
     assert key_of(bare, sample_catalog) == key_of(FIRST_SNOW, sample_catalog)
 
 
+@pytest.mark.parametrize(
+    ("var", "metric", "season_start"),
+    [
+        ("PRECSNO", {"id": "first_date"}, "08-01"),
+        ("SNODP", {"id": "season_length"}, "08-01"),
+        ("T2M_MAX", {"id": "first_date", "threshold": "33"}, None),
+        ("PRECSNO", {"id": "annual_mean"}, None),
+        ("PRECSNO", {"id": "first_date", "season_start": "01-01"}, "01-01"),
+    ],
+    ids=["first snow", "snow season", "first hot day", "snowfall mean", "spec wins"],
+)
+def test_season_start_comes_from_the_spec_then_from_the_variable(
+    sample_catalog, var, metric, season_start
+):
+    spec = FIRST_SNOW | {"var": var, "metric": metric}
+    assert canonical_of(spec, sample_catalog).metric.season_start == season_start
+
+
 def test_canonical_metric_of_a_canonical_metric_is_unchanged():
     defaults = MetricSettings(threshold="0.10", op=">=", months=[8, 6, 7])
     once = canonical_metric(SpecMetric(id="threshold_days"), defaults)

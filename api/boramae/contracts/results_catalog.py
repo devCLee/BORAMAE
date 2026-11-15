@@ -10,6 +10,7 @@ from boramae.contracts.spec import (
     ContractModel,
     LocalizedText,
     MetricSettings,
+    MonthDay,
     YearMonth,
 )
 from boramae.engine.types import GridDef
@@ -48,6 +49,8 @@ class CatalogVariable(ContractModel):
     scan_set: bool
     share_scale: ShareScale | None
     kind: Literal["model"]
+    # Metric ID -> season start on this variable; it wins over the metric default.
+    season_starts: dict[str, MonthDay]
 
 
 class CatalogMetric(ContractModel):
