@@ -32,6 +32,22 @@
     "is_verified": true
   },
   {
+    "name": "NASA Giovanni",
+    "kind": "data",
+    "license": "NASA EOSDIS data use guidance: \"Unless the content is marked with a use restriction or license, data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0).\" The CMR record of M2SDNXSLV V5.12.4 points to this guidance and marks no other restriction.",
+    "url": "https://giovanni.gsfc.nasa.gov/giovanni/",
+    "citation": "NASA Giovanni, used to cross-check the Phoenix demo series with MERRA-2 daily statistics over the demo's grid cell: variable T2MMAX of Global Modeling and Assimilation Office (GMAO) (2015), MERRA-2 statD_2d_slv_Nx: 2d,Daily,Aggregated Statistics,Single-Level,Assimilation,Single-Level Diagnostics V5.12.4 (M2SDNXSLV), Greenbelt, MD, USA, Goddard Earth Sciences Data and Information Services Center (GES DISC), doi:10.5067/9SC1VNTWGWV3.",
+    "is_verified": true
+  },
+  {
+    "name": "GHCN-Daily",
+    "kind": "data",
+    "license": "Not confirmed: the NCEI metadata of GHCN-Daily states no license, only no-warranty and liability terms and a request to cite the dataset.",
+    "url": "https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily",
+    "citation": "Non-NASA station data. Menne, M. J., et al. (2012), Global Historical Climatology Network - Daily (GHCN-Daily), Version 3, NOAA National Climatic Data Center, doi:10.7289/V5D21VHZ. Subset used: station USW00023183 (Phoenix Sky Harbor), daily TMAX 1981–2025, read through the NCEI Access Data Service (https://www.ncei.noaa.gov/support/access-data-service-api-user-documentation), dataset daily-summaries, the Daily Summaries dataset of Climate Data Online. Used as a non-NASA station check of the Phoenix demo trend; never used in a verdict.",
+    "is_verified": false
+  },
+  {
     "name": "Pretendard",
     "kind": "font",
     "license": "OFL-1.1",
@@ -318,5 +334,13 @@
     "url": "https://doi.org/10.1029/2003GL018624",
     "citation": "Kunkel et al. 2004, doi:10.1029/2003GL018624. The case board cites it for its links.",
     "is_verified": false
+  },
+  {
+    "name": "Acker et al. 2009",
+    "kind": "literature",
+    "license": "Cited by URL; no text, figure or data is reused. NASA NTRS lists it for public distribution, with public use permitted.",
+    "url": "https://ntrs.nasa.gov/api/citations/20090042747/downloads/20090042747.pdf",
+    "citation": "Acker, J. G., et al. (2009), \"Time-Series Analysis of Remotely-Sensed SeaWiFS Chlorophyll in River-Influenced Coastal Regions\", EARSeL eProceedings 8(2), NASA NTRS 20090042747. The worked example of the NASA Space Apps challenge. BORAMAE starts from its box-average-then-regress workflow, which survives as the OLS cross-check; verdicts use Mann–Kendall with a lag-1 Hamed–Rao correction, a Theil–Sen confidence interval and a 20-year minimum record, which the paper did not apply.",
+    "is_verified": true
   }
 ]
