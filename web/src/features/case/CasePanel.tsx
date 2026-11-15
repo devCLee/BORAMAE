@@ -1,18 +1,24 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { ExternalLinkIcon } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 
 import { EmptyState } from "@/components/EmptyState";
 import { Skeleton } from "@/components/ui/skeleton";
+import { IS_NEWS_SHOWN } from "@/config/flags";
+import type { Lang } from "@/contracts/types";
 import { CaseBoard } from "@/features/board/CaseBoard";
 import { TrendChart } from "@/features/chart/TrendChart";
 import { FallbackPanel } from "@/features/fallback/FallbackPanel";
+import { NewsPanel } from "@/features/news/NewsPanel";
 import { Suggestions } from "@/features/suggestions/Suggestions";
 import { outcomeOf } from "@/features/verdict/outcome";
 import { VerdictCard } from "@/features/verdict/VerdictCard";
 import { useCatalog, useTrend } from "@/hooks/queries";
 import { useAppStore } from "@/state/store";
+
+import { toScholarUrl } from "./scholar-url";
 
 /**
  * The right case panel: the verdict card, the chart, then the case board for a
@@ -43,9 +49,16 @@ export function CasePanel() {
 
 function TrendCase({ onFocusPanel }: { onFocusPanel: () => void }) {
   const t = useTranslations("case");
+  const lang = useLocale() as Lang;
   const trend = useTrend();
   const catalog = useCatalog();
   const gate = useAppStore((state) => state.verdictGate);
+  // A pin moved off the parsed place leaves its name out of the Scholar search.
+  const placeName = useAppStore(({ proposal, area }) => {
+    const place = proposal?.spec.place ?? null;
+    const isPinned = place !== null && area.pin?.lat === place.lat && area.pin.lon === place.lon;
+    return isPinned ? place.name : null;
+  });
   // The last answer stays while a new request loads, and after it fails.
   const [last, setLast] = useState(trend.data);
   if (trend.data !== undefined && trend.data !== last) {
@@ -107,6 +120,25 @@ function TrendCase({ onFocusPanel }: { onFocusPanel: () => void }) {
         <Suggestions
           outcome={outcome}
           recordStartYear={Number.parseInt(variable.record_start, 10)}
+        />
+      )}
+      {isRevealed && variable && (
+        <a
+          href={toScholarUrl(variable.name.en, placeName, result.spec.window)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 self-start text-sm underline underline-offset-4"
+        >
+          {t("scholar")}
+          <ExternalLinkIcon aria-hidden className="size-3.5 shrink-0" />
+          <span className="sr-only">{t("new_tab")}</span>
+        </a>
+      )}
+      {IS_NEWS_SHOWN && isRevealed && variable && (
+        <NewsPanel
+          variableName={variable.name[lang]}
+          placeName={placeName}
+          window={result.spec.window}
         />
       )}
     </>

@@ -1,5 +1,14 @@
 {
   "idle": "Pick a place on the map, or ask a question, to see a tested trend here.",
   "loading": "Loading the result",
-  "updating": "Loading the result of the new request"
+  "updating": "Loading the result of the new request",
+  "scholar": "Search papers in Google Scholar (non-NASA site)",
+  "new_tab": "(opens in a new tab)",
+  "news": {
+    "heading": "News",
+    "label": "Non-NASA news sources, shown as context only.",
+    "loading": "Loading news",
+    "empty": "No news found for this place and time window.",
+    "error": "News could not load. The trend result is not affected."
+  }
 }

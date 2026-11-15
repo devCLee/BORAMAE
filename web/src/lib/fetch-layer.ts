@@ -27,6 +27,7 @@ import {
   type ScanResult,
   type TrendResult,
 } from "@/contracts/types";
+import type { NewsParams, NewsResult } from "@/features/news/news-params";
 import type { FetchSource } from "@/state/types";
 
 import { FetchError, request } from "./fetch-layer-request";
@@ -153,6 +154,19 @@ export async function fetchResult<K extends ResultKind>(
     { timeoutMs: TIMEOUT_MS.stored },
   );
   return { body, meta: toMeta(kind, headers, key) };
+}
+
+/**
+ * Lists news for a case: GET /api/v1/context/news. The bundled demo has no news, so
+ * the caller never asks with the fixture source. No retry: a feed that fails is
+ * already a status in the answer.
+ */
+export async function fetchNews(params: NewsParams): Promise<NewsResult> {
+  const reply = await request<NewsResult>(
+    `${API_BASE}/api/v1/context/news?${new URLSearchParams({ ...params })}`,
+    { timeoutMs: TIMEOUT_MS.context, canRetry: false },
+  );
+  return reply.body;
 }
 
 /** The demo manifest. It loads one time, and a failed load is tried again. */

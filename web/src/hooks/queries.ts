@@ -15,11 +15,14 @@ import {
 } from "@tanstack/react-query";
 import { useEffect } from "react";
 
+import { IS_NEWS_SHOWN } from "@/config/flags";
 import type { Catalog, ParseProposal } from "@/contracts/types";
+import type { NewsParams, NewsResult } from "@/features/news/news-params";
 import {
   type Answer,
   fetchCatalog,
   type FetchError,
+  fetchNews,
   fetchParse,
   type ResultByKind,
 } from "@/lib/fetch-layer";
@@ -58,6 +61,23 @@ export function useParse(): UseMutationResult<ParseProposal, FetchError, string>
       );
     },
     retry: false,
+  });
+}
+
+/**
+ * News for the case on screen (FR-20). It never asks with the flag off, with no
+ * params (no result on screen), or with the bundled demo source.
+ */
+export function useNews(
+  params: NewsParams | null,
+): UseQueryResult<NewsResult, FetchError> {
+  const source = useAppStore((state) => state.fetchSource);
+  const isAsking = IS_NEWS_SHOWN && source === "live" && params !== null;
+  return useQuery<NewsResult, FetchError>({
+    queryKey: ["news", params],
+    queryFn: isAsking && params !== null ? () => fetchNews(params) : skipToken,
+    retry: false,
+    staleTime: Infinity,
   });
 }
 

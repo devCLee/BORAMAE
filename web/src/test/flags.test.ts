@@ -21,6 +21,14 @@ test("should turn the live board and the chat off when both variables are 'off'"
   });
 });
 
+test("should hide the news panel when NEXT_PUBLIC_SHOW_NEWS is unset", async () => {
+  vi.stubEnv("NEXT_PUBLIC_SHOW_NEWS", undefined);
+
+  const { IS_NEWS_SHOWN } = await import("@/config/flags");
+
+  expect(IS_NEWS_SHOWN).toBe(false);
+});
+
 test("should leave the live board and the chat on when both variables are unset", async () => {
   vi.stubEnv("NEXT_PUBLIC_LIVE_BOARD", undefined);
   vi.stubEnv("NEXT_PUBLIC_SHOW_CHAT", undefined);

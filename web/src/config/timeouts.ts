@@ -8,6 +8,8 @@ export const TIMEOUT_MS = {
   stored: 10_000,
   analysis: 60_000,
   meta: 10_000,
+  /** The news path reads three feeds, each with a 5 s socket timeout on the service. */
+  context: 30_000,
 } as const;
 
 // ponytail: fixed waits, and the Retry-After header of a 503 answer is not read. The
