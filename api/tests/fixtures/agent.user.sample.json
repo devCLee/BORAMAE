@@ -1,0 +1,36 @@
+{
+  "type": "user",
+  "session_id": "0b9f6c1e-7d2a-4c53-9e21-5a1f0c7d8e42",
+  "message_id": "m-1",
+  "lang": "ko",
+  "app_state": {
+    "mode": "guided",
+    "units": "metric",
+    "draft": {
+      "var": "PRECSNO",
+      "metric": {
+        "threshold": "0.1",
+        "op": ">=",
+        "months": null,
+        "season_start": "08-01",
+        "id": "first_date"
+      }
+    },
+    "is_confirmed": true,
+    "area": {
+      "lat": 37.5665,
+      "lon": 126.978,
+      "radius_km": 25.0
+    },
+    "window": {
+      "start": 1981,
+      "end": "latest"
+    },
+    "result_keys": {
+      "trend": "b5bae5463e95eff888bca78a896bf62a",
+      "caseboard": null,
+      "scan": null
+    }
+  },
+  "text": "서울 첫눈이 늦어지고 있나요?"
+}

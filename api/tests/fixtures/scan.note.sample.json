@@ -1,0 +1,165 @@
+{
+  "spec": {
+    "v": 1,
+    "kind": "scan",
+    "ds": "power-merra2-monthly@2026-09",
+    "eng": "1.0.0",
+    "var": "GWETTOP",
+    "metric": {
+      "threshold": null,
+      "op": null,
+      "months": null,
+      "season_start": null,
+      "id": "annual_mean"
+    },
+    "cells": [
+      [
+        255,
+        491
+      ]
+    ],
+    "window": [
+      1981,
+      "2026-09"
+    ],
+    "content": "a41d0c77e9b2"
+  },
+  "hits": [],
+  "checked": [
+    {
+      "var": "T2M",
+      "status": "tested",
+      "reason": null,
+      "p": 0.5,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "T2M_MAX",
+      "status": "tested",
+      "reason": null,
+      "p": 0.52,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "T2M_MIN",
+      "status": "tested",
+      "reason": null,
+      "p": 0.54,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "PRECTOTCORR",
+      "status": "tested",
+      "reason": null,
+      "p": 0.56,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "PRECSNO",
+      "status": "tested",
+      "reason": null,
+      "p": 0.58,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "SNODP",
+      "status": "tested",
+      "reason": null,
+      "p": 0.6,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "FRSNO",
+      "status": "tested",
+      "reason": null,
+      "p": 0.62,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "RH2M",
+      "status": "tested",
+      "reason": null,
+      "p": 0.64,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "TQV",
+      "status": "tested",
+      "reason": null,
+      "p": 0.66,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "GWETROOT",
+      "status": "tested",
+      "reason": null,
+      "p": 0.6799999999999999,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "EVLAND",
+      "status": "tested",
+      "reason": null,
+      "p": 0.7,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "FROST_DAYS",
+      "status": "tested",
+      "reason": null,
+      "p": 0.72,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "WS10M",
+      "status": "tested",
+      "reason": null,
+      "p": 0.74,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "TS",
+      "status": "tested",
+      "reason": null,
+      "p": 0.76,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "CDD18_3",
+      "status": "tested",
+      "reason": null,
+      "p": 0.78,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "HDD18_3",
+      "status": "tested",
+      "reason": null,
+      "p": 0.8,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "FRSEAICE",
+      "status": "not_testable",
+      "reason": "no_data",
+      "p": null,
+      "q": null
+    },
+    {
+      "var": "TO3",
+      "status": "tested",
+      "reason": null,
+      "p": 0.8200000000000001,
+      "q": 0.8400000000000001
+    },
+    {
+      "var": "PBLTOP",
+      "status": "tested",
+      "reason": null,
+      "p": 0.8400000000000001,
+      "q": 0.8400000000000001
+    }
+  ],
+  "nearby": [],
+  "nearby_note": "no_grid"
+}

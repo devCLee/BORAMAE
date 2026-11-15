@@ -1,0 +1,17 @@
+{
+  "lang": "ko",
+  "intent": "timing",
+  "place": { "name": "서울", "lat": 37.5665, "lon": 126.978, "radius_km": 25 },
+  "metric": {
+    "id": "first_date",
+    "var": "PRECSNO",
+    "op": ">=",
+    "value": 0.1,
+    "unit": "mm/day",
+    "season_start": "08-01"
+  },
+  "window": { "start": 1981, "end": "latest" },
+  "compare_to": null,
+  "board": "CB-01",
+  "clarify": null
+}

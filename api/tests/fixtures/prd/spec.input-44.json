@@ -1,0 +1,24 @@
+{
+  "lang": "en",
+  "intent": "extremes_count",
+  "place": {
+    "name": "Phoenix",
+    "lat": 33.4484,
+    "lon": -112.074,
+    "radius_km": 25
+  },
+  "metric": {
+    "id": "threshold_days",
+    "var": "T2M_MAX",
+    "op": ">=",
+    "value": 43.3,
+    "unit": "°C",
+    "typed": "110 °F",
+    "months": [5, 6, 7, 8, 9, 10]
+  },
+  "display_units": "imperial",
+  "window": { "start": 1981, "end": "latest" },
+  "compare_to": null,
+  "board": "CB-02",
+  "clarify": null
+}
