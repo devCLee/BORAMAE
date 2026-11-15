@@ -9,6 +9,7 @@ from boramae.routers import (
     analysis_caseboard,
     analysis_scan,
     analysis_trend,
+    context_news,
     health,
     meta,
     parse,
@@ -23,6 +24,7 @@ ROUTER_MODULES = (
     analysis_trend,
     analysis_caseboard,
     analysis_scan,
+    context_news,
     agent,
 )
 DEV_CORS_METHODS = ("GET", "POST")
