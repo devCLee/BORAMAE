@@ -24,8 +24,9 @@ from boramae.deps import get_catalog, get_model_parser, get_store
 from boramae.errors import ProblemError
 from boramae.ports import ObjectStore
 from boramae.services import parse_cache
+from boramae.services.content import load_content
 from boramae.services.parser_llm import ModelParser
-from boramae.services.parser_rules import parse_rules
+from boramae.services.parser_rules import normalize, parse_rules
 
 router = APIRouter()
 log = logging.getLogger(__name__)
@@ -114,10 +115,37 @@ def _ask_model(
     except Exception as error:  # noqa: BLE001
         log.warning("parse: the model parser failed (%s)", type(error).__name__)
         return None
-    if not _is_in_catalog(proposal, catalog):
-        log.warning("parse: the model output names an ID outside the catalog")
+    if not _is_backed(proposal, parse_request, catalog):
+        log.warning("parse: the model output fails the catalog check")
         return None
     return proposal
+
+
+def _is_backed(
+    proposal: ParseProposal, parse_request: ParseRequest, catalog: Catalog
+) -> bool:
+    """Every ID is in the catalog or the board file, the language is the request
+    language, and an unavailable request is backed (UnavailableNote prints it)."""
+    boards = {board.id for board in load_content("boards")}
+    return (
+        _is_in_catalog(proposal, catalog)
+        and proposal.spec.lang == parse_request.lang
+        and proposal.spec.board in {None, *boards}
+        and _is_backed_request(proposal, parse_request.text, catalog)
+    )
+
+
+def _is_backed_request(proposal: ParseProposal, text: str, catalog: Catalog) -> bool:
+    """No unavailable request, or one that names a catalog entry or the question."""
+    if proposal.unavailable is None:
+        return True
+    requested = normalize(proposal.unavailable.requested)
+    names = {
+        normalize(name)
+        for item in catalog.unavailable
+        for name in (item.id, *item.names.en, *item.names.ko)
+    }
+    return requested in names or (bool(requested) and requested in normalize(text))
 
 
 def _is_in_catalog(proposal: ParseProposal, catalog: Catalog) -> bool:

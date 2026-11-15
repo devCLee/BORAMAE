@@ -1,1 +1,16 @@
-{}
+{
+  "search": {
+    "label": "Find a place",
+    "placeholder": "Seoul, Phoenix, Jeju…",
+    "results": "Matching places",
+    "no_match": "No place in the list is called “{query}”. Click the map to pin the place instead."
+  },
+  "kind": {
+    "city": "City",
+    "region": "Region"
+  },
+  "radius": {
+    "label": "Radius",
+    "value": "{radius} km"
+  }
+}

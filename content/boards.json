@@ -11,7 +11,7 @@
     "title": { "en": "Heat", "ko": "더위" },
     "focus": [
       { "var": "T2M_MAX", "metric_id": "threshold_days" },
-      { "var": "CDD18_3", "metric_id": "degree_days" }
+      { "var": "CDD18_3", "metric_id": "seasonal_total" }
     ],
     "drivers": ["summer-root-zone-hot-days"],
     "responses": ["hot-days-summer-humidity"]

@@ -1,11 +1,43 @@
-from fastapi import APIRouter
+"""GET /api/v1/caseboard?s=: the case board of a focus spec (TDD.md Flow C).
 
-from boramae.errors import ProblemError
+The router hands the request facts to the request-log middleware on request.state
+(docs/BUILD_CONTRACT.md "Request facts and headers") and answers the stored bytes.
+"""
+
+from typing import Annotated
+
+from fastapi import APIRouter, Depends, Request, Response
+
+from boramae.contracts.results_catalog import Catalog
+from boramae.deps import get_catalog, get_reader, get_results
+from boramae.ports import SeriesReader
+from boramae.services.caseboard import CASEBOARD_KIND, get_caseboard
+from boramae.spec.validate import decode_s
+from boramae.store.results import ResultService
 
 router = APIRouter()
 
+JSON_MEDIA_TYPE = "application/json"
 
-# Stub until W4-CASEBOARD-API replaces this file.
+
+# A missing s decodes as an invalid spec, so it gets the 400 problem body and not the
+# 422 of FastAPI.
 @router.get("/api/v1/caseboard")
-def get_caseboard() -> None:
-    raise ProblemError(501, "not_built")
+def get_caseboard_result(
+    request: Request,
+    reader: Annotated[SeriesReader, Depends(get_reader)],
+    results: Annotated[ResultService, Depends(get_results)],
+    catalog: Annotated[Catalog, Depends(get_catalog)],
+    s: str = "",
+) -> Response:
+    body, key, cache, facts = get_caseboard(
+        decode_s(s), reader=reader, results=results, catalog=catalog
+    )
+    state = request.state
+    state.kind = CASEBOARD_KIND
+    state.result_key = key
+    state.cache = cache
+    state.bytes_fetched = facts.bytes_fetched
+    state.timings = facts.timings
+    state.used_containing_cell = facts.used_containing_cell
+    return Response(body, media_type=JSON_MEDIA_TYPE)

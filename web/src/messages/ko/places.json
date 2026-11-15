@@ -1,1 +1,16 @@
-{}
+{
+  "search": {
+    "label": "장소 찾기",
+    "placeholder": "서울, 피닉스, 제주…",
+    "results": "일치하는 장소",
+    "no_match": "목록에 “{query}”(이)라는 장소가 없어요. 대신 지도를 눌러 핀을 꽂으세요."
+  },
+  "kind": {
+    "city": "도시",
+    "region": "지역"
+  },
+  "radius": {
+    "label": "반경",
+    "value": "{radius}km"
+  }
+}

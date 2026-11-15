@@ -1,1 +1,29 @@
-{}
+{
+  "label": "데모 플레이어",
+  "step": "{total}단계 중 {current}단계",
+  "controls": {
+    "label": "데모 조작",
+    "pause": "일시 정지",
+    "play": "재생",
+    "next": "다음 단계",
+    "skip": "결과로 건너뛰기",
+    "leave": "데모 나가기"
+  },
+  "overlay": {
+    "language": "언어 선택",
+    "closing": "BORAMAE 소개"
+  },
+  "closing": {
+    "sources": "NASA POWER · MERRA-2",
+    "about": "영어와 한국어 · 오픈 소스"
+  },
+  "cases": {
+    "heading": "데모 보기",
+    "loading": "데모를 불러오는 중이에요…",
+    "missing": "이 빌드에는 아직 데모 파일이 없어요.",
+    "plays_in": {
+      "en": "영어로 재생",
+      "ko": "한국어로 재생"
+    }
+  }
+}

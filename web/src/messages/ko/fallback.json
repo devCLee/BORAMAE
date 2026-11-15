@@ -1,1 +1,45 @@
-{}
+{
+  "title": "다음에 살펴볼 곳",
+  "loading": "다른 변수와 주변 지역을 훑어보는 중",
+  "nothing_found": "찾은 것이 없어요",
+  "hits": {
+    "heading": "이곳의 다른 변수",
+    "empty": "다중 검정 보정을 통과한 다른 변수가 이곳에는 없어요.",
+    "choose": "이곳에서 {variable} 검정하기"
+  },
+  "nearby": {
+    "heading": "주변 지역의 같은 변수",
+    "distance": "{distance, number}km 거리",
+    "grid_window": "격자 추세 {start}~{end}",
+    "opposite": "같은 과정, 반대 방향",
+    "run": "{distance, number}km 떨어진 지역에서 분석하기",
+    "empty": "유의한 추세를 보이는 주변 지역이 없어요.",
+    "notes": {
+      "no_grid": "이 변수의 추세 격자가 아직 없어서 주변 지역은 확인하지 않았어요.",
+      "outside_grid": "이 지역은 동아시아 추세 격자 밖에 있어서 주변 지역은 확인하지 않았어요.",
+      "grid_window_differs": "추세 격자가 다른 기간을 다뤄서 이 기간의 주변 지역은 확인하지 않았어요."
+    }
+  },
+  "years": {
+    "heading": "이 변화율을 잡아내기까지 걸리는 시간",
+    "more": "이 변화율이라면 자료가 <num></num>년 더 쌓여야 추세를 잡아낼 수 있어요.",
+    "estimate": "검출에 대한 추정이지 예보가 아니에요.",
+    "reasons": {
+      "within_record": "기록이 이미 추정에 필요한 길이만큼 길어서, 해를 더 쌓는 것만으로는 판가름 나지 않을 수 있어요.",
+      "zero_slope": "변화율이 전혀 없어서, 기록이 아무리 길어도 잡아낼 추세가 없어요.",
+      "no_scatter": "해마다의 값이 추세선 주위로 흩어지지 않아서 추정을 할 수 없어요.",
+      "phi_out_of_range": "해마다의 값이 다음 해로 너무 강하게 이어져서 추정을 할 수 없어요."
+    }
+  },
+  "checked": {
+    "heading": "훑어보기에서 확인한 변수",
+    "item": "<name></name>: {status}",
+    "tested": "검정함",
+    "not_testable": "여기서는 검정할 수 없음",
+    "not_testable_because": "여기서는 검정할 수 없음, {reason}",
+    "reasons": {
+      "no_data": "이 지역과 기간에 자료가 없음",
+      "record_too_short": "기록이 너무 짧음"
+    }
+  }
+}

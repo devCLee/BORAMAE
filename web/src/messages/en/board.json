@@ -1,1 +1,63 @@
-{}
+{
+  "title": "Case board",
+  "intro": "Each arrow tests whether a linked change is consistent with this trend, in the same place and the same years. A consistent link is no proof of a cause.",
+  "loading": "Loading the case board",
+  "retry": "Load the case board again",
+  "no_board": "No case board exists for this variable yet.",
+  "live_off": "The live case board is off for now. The two demo cases still show their boards.",
+  "focus": "Focus",
+  "groups": {
+    "driver": "Drivers",
+    "response": "Responses"
+  },
+  "none": "None on this board",
+  "labels": {
+    "consistent": "Consistent",
+    "weak": "Weak",
+    "contradicts": "Contradicts",
+    "not_testable_here": "Not testable here"
+  },
+  "statuses": {
+    "robust": "Robust",
+    "contested": "Contested",
+    "weak": "Weak",
+    "not_testable_here": "Not testable here",
+    "unsourced": "Unsourced"
+  },
+  "reasons": {
+    "registry_status": "The registry marks this link as one that NASA POWER cannot test.",
+    "remote_area": "This link names a remote area, which this version does not test yet.",
+    "focus_differs": "This link is written for another measure of the focus variable.",
+    "too_few_overlap_years": "The two series share too few years for the test.",
+    "constant_series": "One of the two series does not change, so it gives no correlation.",
+    "n_eff_out_of_range": "The years carry over so strongly that too few independent values remain for the test.",
+    "metric_switched": "One side switched to counting event days, so the test would not compare like with like.",
+    "other": "This link cannot be tested here."
+  },
+  "fields": {
+    "link": "Link test",
+    "scale": "Scale",
+    "status": "Evidence",
+    "source": "Source",
+    "pair": "Tested pair",
+    "direction": "Expected direction",
+    "lag": "Lag",
+    "overlap": "Shared years",
+    "n_eff": "Effective sample size",
+    "node_rate": "Trend of {name}"
+  },
+  "directions": {
+    "same": "Both change in the same direction",
+    "opposite": "The two change in opposite directions"
+  },
+  "years": "<num></num> {count, plural, one {year} other {years}}",
+  "open_inputs": "Inputs of {name}",
+  "node_loading": "Loading the trend of {name}",
+  "new_tab": "(opens in a new tab)",
+  "numbers": {
+    "r": "r <num></num>",
+    "p": "p <num></num>"
+  },
+  "pair_value": "{driver} → {response}",
+  "doi": "DOI {doi}"
+}

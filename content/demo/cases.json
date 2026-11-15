@@ -1,0 +1,121 @@
+[
+  {
+    "id": "first-snow-seoul",
+    "input_id": 1,
+    "lang": "ko",
+    "question": {
+      "en": "Is Seoul's first snow coming later?",
+      "ko": "서울 첫눈이 늦어지고 있나요?"
+    },
+    "area": { "lat": 37.5665, "lon": 126.978, "radius_km": 25 },
+    "window": { "start": 1981, "end": "latest" },
+    "specs": {
+      "trend": {
+        "v": 1,
+        "kind": "trend",
+        "var": "PRECSNO",
+        "metric": {
+          "id": "first_date",
+          "threshold": "0.1",
+          "op": ">=",
+          "season_start": "08-01"
+        },
+        "area": { "lat": 37.5665, "lon": 126.978, "radius_km": 25 },
+        "window": { "start": 1981, "end": "latest" }
+      },
+      "caseboard": null,
+      "scan": {
+        "v": 1,
+        "kind": "scan",
+        "var": "PRECSNO",
+        "metric": {
+          "id": "first_date",
+          "threshold": "0.1",
+          "op": ">=",
+          "season_start": "08-01"
+        },
+        "area": { "lat": 37.5665, "lon": 126.978, "radius_km": 25 },
+        "window": { "start": 1981, "end": "latest" }
+      }
+    },
+    "prompts": [
+      {
+        "id": "first-snow-measure",
+        "text": {
+          "en": "How does the app measure the first snow?",
+          "ko": "첫눈은 어떻게 재나요?"
+        }
+      },
+      {
+        "id": "no-trend-meaning",
+        "text": {
+          "en": "What does no trend mean here?",
+          "ko": "여기서 추세가 없다는 건 무슨 뜻이에요?"
+        }
+      },
+      {
+        "id": "where-next",
+        "text": {
+          "en": "Where should I look next?",
+          "ko": "다음에는 어디를 보면 좋을까요?"
+        }
+      }
+    ]
+  },
+  {
+    "id": "hot-days-phoenix",
+    "input_id": 44,
+    "lang": "en",
+    "question": {
+      "en": "Is Phoenix getting more 110-degree days?",
+      "ko": "피닉스에 43.3 °C 넘는 날이 늘었나요?"
+    },
+    "area": { "lat": 33.4484, "lon": -112.074, "radius_km": 25 },
+    "window": { "start": 1981, "end": "latest" },
+    "specs": {
+      "trend": {
+        "v": 1,
+        "kind": "trend",
+        "var": "T2M_MAX",
+        "metric": {
+          "id": "threshold_days",
+          "threshold": "43.3",
+          "op": ">=",
+          "months": [5, 6, 7, 8, 9, 10]
+        },
+        "area": { "lat": 33.4484, "lon": -112.074, "radius_km": 25 },
+        "window": { "start": 1981, "end": "latest" }
+      },
+      "caseboard": {
+        "v": 1,
+        "kind": "caseboard",
+        "var": "T2M_MAX",
+        "metric": {
+          "id": "threshold_days",
+          "threshold": "43.3",
+          "op": ">=",
+          "months": [5, 6, 7, 8, 9, 10]
+        },
+        "area": { "lat": 33.4484, "lon": -112.074, "radius_km": 25 },
+        "window": { "start": 1981, "end": "latest" }
+      },
+      "scan": null
+    },
+    "prompts": [
+      {
+        "id": "hot-day-count",
+        "text": {
+          "en": "What counts as a hot day here?",
+          "ko": "여기서 더운 날은 어떻게 세나요?"
+        }
+      },
+      {
+        "id": "board-meaning",
+        "text": {
+          "en": "What does the case board show?",
+          "ko": "사례 보드는 무엇을 보여 주나요?"
+        }
+      }
+    ]
+  }
+]

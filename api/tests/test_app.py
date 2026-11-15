@@ -5,10 +5,7 @@ from starlette.websockets import WebSocketDisconnect
 from boramae.main import create_app
 
 DEV_ORIGIN = "http://localhost:3000"
-STUB_PATHS = [
-    ("GET", "/api/v1/caseboard"),
-    ("GET", "/api/v1/scan"),
-]
+STUB_PATHS = []
 
 
 @pytest.fixture

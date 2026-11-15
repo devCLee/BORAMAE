@@ -1,0 +1,114 @@
+{
+  "id": "hot-days-phoenix",
+  "case_id": "hot-days-phoenix",
+  "steps": [
+    {
+      "id": "choose-language",
+      "action": "choose_language",
+      "args": { "lang": "en" },
+      "caption": {
+        "en": "Ask NASA data a question about your place",
+        "ko": "내가 사는 곳에 대해 NASA 자료에 물어보세요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "type-question",
+      "action": "type_question",
+      "args": { "text": "Is Phoenix getting more 110-degree days?" },
+      "caption": {
+        "en": "Type the question in your own words",
+        "ko": "궁금한 것을 내 말로 적어요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "submit-question",
+      "action": "submit_question",
+      "args": {},
+      "caption": {
+        "en": "The app suggests NASA variables; you decide",
+        "ko": "앱이 NASA 변수를 제안하고, 고르는 건 나예요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "confirm-variables",
+      "action": "confirm_variables",
+      "args": {
+        "var": "T2M_MAX",
+        "metric": {
+          "id": "threshold_days",
+          "threshold": "43.3",
+          "op": ">=",
+          "months": [5, 6, 7, 8, 9, 10]
+        }
+      },
+      "caption": {
+        "en": "Confirm the variable to test",
+        "ko": "검정할 변수를 확인해요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "set-pin",
+      "action": "set_pin",
+      "args": { "lat": 33.4484, "lon": -112.074, "radius_km": 25 },
+      "caption": {
+        "en": "Pin the place and the area around it",
+        "ko": "장소와 그 둘레를 지도에 고정해요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "set-window",
+      "action": "set_window",
+      "args": { "start": 1981, "end": "latest" },
+      "caption": {
+        "en": "Use the whole NASA POWER record",
+        "ko": "NASA POWER 기록 전체를 써요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "confirm-spec",
+      "action": "confirm_spec",
+      "args": {},
+      "caption": {
+        "en": "Nothing runs until you confirm",
+        "ko": "확인하기 전에는 아무것도 실행하지 않아요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "show-verdict",
+      "action": "show_verdict",
+      "args": {},
+      "caption": {
+        "en": "NASA POWER data, tested for a trend",
+        "ko": "NASA POWER 자료로 추세를 검정했어요"
+      },
+      "is_verdict_step": true
+    },
+    {
+      "id": "open-board",
+      "action": "open_board",
+      "args": {},
+      "caption": {
+        "en": "Each cause and effect is tested on the same data",
+        "ko": "원인과 결과도 하나하나 같은 자료로 검정해요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "closing-card",
+      "action": "closing_card",
+      "args": {},
+      "caption": {
+        "en": "NASA POWER · MERRA-2 · English and Korean · open source",
+        "ko": "NASA POWER · MERRA-2 · 영어와 한국어 · 오픈 소스"
+      },
+      "is_verdict_step": false
+    }
+  ]
+}

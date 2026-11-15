@@ -1,1 +1,7 @@
-{}
+{
+  "start_thumb": "Start year",
+  "end_thumb": "End year",
+  "latest": "{month} (latest)",
+  "beyond_coverage": "Years outside {start} to {end} have no data for this variable and are grayed out.",
+  "record_guard": "This window holds {years, plural, one {# year} other {# years}}. A trend needs at least {min}, so the result shows the statistics and gives no verdict."
+}

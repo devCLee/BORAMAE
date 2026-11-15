@@ -134,7 +134,7 @@ def test_input_44_gives_the_prd_spec(sample_catalog):
     )
 
 
-@pytest.mark.parametrize(("field", "expected"), [("typed", "43 °C"), ("value", 43.0)])
+@pytest.mark.parametrize(("field", "expected"), [("typed", "43.3 °C"), ("value", 43.3)])
 def test_input_44_in_korean_keeps_the_typed_celsius(sample_catalog, field, expected):
     proposal = parse_rules(INPUTS[44].text.ko, "ko", sample_catalog, _at(PHOENIX))
     assert getattr(proposal.spec.metric, field) == expected

@@ -134,8 +134,8 @@
         "var": "T2M",
         "metric_id": "season_length",
         "months": null,
-        "threshold": null,
-        "op": null,
+        "threshold": "5",
+        "op": "<",
         "window_start": null,
         "supported": true
       }
@@ -274,7 +274,7 @@
       "power_only": true,
       "expected": {
         "var": "CDD18_3",
-        "metric_id": "degree_days",
+        "metric_id": "seasonal_total",
         "months": [
           5,
           6,
@@ -1406,7 +1406,7 @@
       "id": 44,
       "theme": "Heat",
       "text": {
-        "ko": "피닉스에 43 °C 넘는 날이 늘었나요?",
+        "ko": "피닉스에 43.3 °C 넘는 날이 늘었나요?",
         "en": "Is Phoenix getting more 110-degree days?"
       },
       "intent": "extremes_count",

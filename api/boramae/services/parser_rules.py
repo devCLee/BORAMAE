@@ -31,6 +31,19 @@ from boramae.contracts.spec import (
 from boramae.services import places
 from boramae.services.catalog import find_metric, find_variable
 from boramae.services.content import load_content
+
+# The unit tables were public here before the split, so they stay importable.
+from boramae.services.parser_terms import (  # noqa: F401
+    BARE_UNIT,
+    CONVERTED_DIGITS,
+    IMPERIAL_COUNTRIES,
+    IMPERIAL_UNITS,
+    THRESHOLD,
+    TO_DATA_UNIT,
+    UNIT_WORDS,
+    Typed,
+    typed_threshold,
+)
 from boramae.spec.canonical import metric_defaults
 
 PlaceFinder = Callable[[str, Lang], Place | None]
@@ -45,27 +58,9 @@ PLACE_DEFAULT_VAR = "T2M"
 PLACE_FIRST = "place_first"
 # A typed season turns a yearly metric into the seasonal one.
 SEASONAL_OF = {"annual_mean": "seasonal_mean", "annual_total": "seasonal_total"}
-# FR-38: a bare number takes the unit of the place.
-IMPERIAL_COUNTRIES = frozenset({"US"})
-# PRD input 44 reads 110 °F as 43.3 °C.
-CONVERTED_DIGITS = 1
-
-# Typed unit -> (catalog unit, offset, factor): data value = (typed + offset) x factor.
-TO_DATA_UNIT = {
-    "°C": ("C", 0.0, 1.0),
-    "°F": ("C", -32.0, 5 / 9),
-    "mm": ("mm/day", 0.0, 1.0),
-    "inch": ("mm/day", 0.0, 25.4),
-}
-IMPERIAL_UNITS = frozenset({"°F", "inch"})
-# Catalog unit -> the typed unit of a bare number: (metric place, imperial place).
-BARE_UNIT = {"C": ("°C", "°F"), "mm/day": ("mm", "inch")}
-# Written unit -> typed unit. A degree with no scale, or 도, is a bare number.
-UNIT_WORDS = {"°c": "°C", "°f": "°F", "mm": "mm", "inch": "inch", "inches": "inch"}
-
-_THRESHOLD = re.compile(
-    r"(?<![\d.a-z])(\d+(?:\.\d+)?)\s*(°c|°f|-?degrees?|도|mm|inch(?:es)?)(?![a-z])"
-)
+# A date metric counts over its whole season year (value_kind of the catalog metric),
+# so a typed season or month does not cut that year short.
+DATE_KIND = "date"
 _YEAR = re.compile(r"(?<![\d.])((?:19|20)\d{2})(?![\d.])")
 SEASON_MONTHS = ((3, 4, 5), (6, 7, 8), (9, 10, 11), (12, 1, 2))
 # ponytail: "may" also reads as the month May; no question in the catalog uses the verb.
@@ -91,13 +86,6 @@ class _Hit:
     item: object
 
 
-@dataclass(frozen=True)
-class _Typed:
-    value: float
-    text: str
-    is_imperial: bool
-
-
 def normalize(text: str) -> str:
     """NFKC, lower case and single spaces: the form the rules and the cache key read."""
     return " ".join(unicodedata.normalize("NFKC", text).lower().split())
@@ -115,8 +103,8 @@ def parse_rules(
     place = find_place(text, lang) or find_place(text, OTHER_LANG[lang])
     asked = _ranked(normal, catalog.unavailable, lambda item: item.names)
     hits = _ranked(normal, load_content("keywords"), lambda item: item.keywords)
-    threshold = _THRESHOLD.search(normal)
-    spans = [hit.span for hit in (*asked, *hits)]
+    threshold = THRESHOLD.search(normal)
+    spans = [hit.span for hit in (*asked, *hits)] + _place_spans(normal, place)
     rest = _blank(normal, spans + ([threshold.span()] if threshold else []))
     years = [int(year) for year in _YEAR.findall(rest)]
     months = _read_months(rest)
@@ -139,7 +127,7 @@ def parse_rules(
         missing, proposed = _unavailable(asked[0].item, catalog)
     elif picks := _picks(hits, catalog, months, place):
         entry, variable, metric = picks[0]
-        typed = threshold and _typed_threshold(threshold, variable.unit, place)
+        typed = threshold and typed_threshold(threshold, variable.unit, place)
         spec = spec.model_copy(
             update={
                 "intent": entry.intent if entry else PLACE_FIRST,
@@ -198,6 +186,17 @@ def _blank(text: str, spans: Iterable[tuple[int, int]]) -> str:
     return "".join(chars)
 
 
+def _place_spans(text: str, place: Place | None) -> list[tuple[int, int]]:
+    """Where the names of the place stand, so that a season word inside a name, as in
+    Winter Haven, gives no months."""
+    names = (place.name.en, place.name.ko, *place.alt) if place else ()
+    return [
+        match.span()
+        for name in names
+        for match in re.finditer(_term_pattern(normalize(name)), text)
+    ]
+
+
 def _picks(
     hits: list[_Hit], catalog: Catalog, months: list[int] | None, place: Place | None
 ) -> list[Pick]:
@@ -225,10 +224,11 @@ def _spec_metric(
     metric: CatalogMetric,
     entry: KeywordEntry | None,
     months: list[int] | None,
-    typed: _Typed | None,
+    typed: Typed | None,
 ) -> InvestigationMetric:
     """Typed values first, then the keyword defaults, then the catalog defaults."""
     defaults = metric_defaults(variable, metric)
+    typed_months = None if metric.value_kind == DATE_KIND else months
     op = (entry and entry.op) or defaults.op
     threshold = (entry and entry.default_threshold) or defaults.threshold
     value = typed.value if typed and op else (float(threshold) if threshold else None)
@@ -239,28 +239,9 @@ def _spec_metric(
         value=value,
         unit=variable.unit,
         typed=typed.text if typed and op else None,
-        months=months or (entry and entry.default_months) or defaults.months,
+        months=typed_months or (entry and entry.default_months) or defaults.months,
         season_start=defaults.season_start,
     )
-
-
-def _typed_threshold(
-    match: re.Match[str], data_unit: str, place: Place | None
-) -> _Typed | None:
-    """The typed threshold in the unit of the data, or None for another unit."""
-    number, word = match.groups()
-    unit = UNIT_WORDS.get(word)
-    if unit is None:
-        is_us = place is not None and place.country in IMPERIAL_COUNTRIES
-        unit = BARE_UNIT.get(data_unit, (None, None))[is_us]
-    if unit is None or TO_DATA_UNIT[unit][0] != data_unit:
-        return None
-    _, offset, factor = TO_DATA_UNIT[unit]
-    value = (float(number) + offset) * factor
-    is_imperial = unit in IMPERIAL_UNITS
-    if is_imperial:
-        value = round(value, CONVERTED_DIGITS)
-    return _Typed(value, f"{number} {unit}", is_imperial)
 
 
 def _read_months(text: str) -> list[int] | None:

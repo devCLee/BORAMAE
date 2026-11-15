@@ -1,1 +1,7 @@
-{}
+{
+  "start_thumb": "시작 연도",
+  "end_thumb": "끝 연도",
+  "latest": "{month}(최신)",
+  "beyond_coverage": "{start}–{end}년 밖은 이 변수의 자료가 없어서 회색으로 표시돼요.",
+  "record_guard": "이 기간은 {years}년이에요. 추세를 판정하려면 최소 {min}년이 필요해서, 결과에는 통계만 나오고 판정은 나오지 않아요."
+}
