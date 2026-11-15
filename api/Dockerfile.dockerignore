@@ -1,0 +1,17 @@
+# The build context is the repository root. Allow only what the image needs; infra/lib/service.ts
+# passes these same lines to the CDK asset, which copies the context into cdk.out.
+*
+!api/Dockerfile
+!api/Dockerfile.dockerignore
+!api/pyproject.toml
+!api/uv.lock
+!api/.python-version
+!api/boramae
+!content
+api/.venv
+api/.data*
+api/tests
+api/.pytest_cache
+api/.ruff_cache
+**/__pycache__
+**/*.pyc

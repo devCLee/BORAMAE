@@ -1,0 +1,22 @@
+{
+  "name": "boramae-infra",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "synth": "cdk synth --quiet && cdk list",
+    "diff": "cdk diff",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.277.0",
+    "constructs": "10.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "aws-cdk": "2.1148.1",
+    "typescript": "5.9.3",
+    "vitest": "5.1.0"
+  }
+}
