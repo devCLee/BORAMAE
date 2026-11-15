@@ -3,6 +3,7 @@ from pathlib import Path
 import pytest
 
 from boramae import deps
+from boramae.batch import build_catalog as build_catalog_module
 from boramae.batch.build_catalog import build_catalog, main
 from boramae.constants import METRIC_IDS, VARIABLE_IDS
 from boramae.contracts.content import CatalogSeed
@@ -71,6 +72,20 @@ def seed_without_variable(var_id):
 def seed_with_metric_twice(metric_id):
     metrics = [*SEED.metrics, by_id(SEED.metrics)[metric_id]]
     return SEED.model_copy(update={"metrics": metrics})
+
+
+def default_identity(freq):
+    return f"default-id-{freq}", "default-version"
+
+
+def store_identity(freq):
+    return f"power_merra2_{freq}_temporal_utc", "10.0.0"
+
+
+@pytest.fixture(autouse=True)
+def no_store_identity_read(monkeypatch):
+    """No unit test reads the real stores: the default identity is a fake."""
+    monkeypatch.setattr(build_catalog_module, "read_store_identity", default_identity)
 
 
 @pytest.fixture
@@ -268,3 +283,28 @@ def test_main_puts_the_catalog_in_the_store(stores):
 
 def test_main_exits_with_code_0(stores):
     assert main([]) == 0
+
+
+@pytest.mark.parametrize("freq", ["daily", "monthly"])
+def test_dataset_id_comes_from_the_store_identity(freq):
+    catalog = build_catalog(FakeReader(PIN), SEED, store_identity)[0]
+    expected = f"power_merra2_{freq}_temporal_utc"
+    assert getattr(catalog.datasets, freq).dataset_id == expected
+
+
+@pytest.mark.parametrize("freq", ["daily", "monthly"])
+def test_dataset_version_comes_from_the_store_identity(freq):
+    catalog = build_catalog(FakeReader(PIN), SEED, store_identity)[0]
+    assert getattr(catalog.datasets, freq).dataset_version == "10.0.0"
+
+
+@pytest.mark.parametrize("freq", ["daily", "monthly"])
+def test_store_identity_leaves_ds_as_the_store_and_the_pinned_month(freq):
+    catalog = build_catalog(FakeReader(PIN), SEED, store_identity)[0]
+    assert getattr(catalog.datasets, freq).ds == f"power-merra2-{freq}@{PIN}"
+
+
+def test_main_takes_the_identity_from_the_store_reader(stores):
+    main([])
+    stored = Catalog.model_validate_json(stores.files[CATALOG_PATH])
+    assert stored.datasets.monthly.dataset_id == "default-id-monthly"

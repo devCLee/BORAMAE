@@ -250,3 +250,5 @@ function splitArgs(args: ListenerArgs) {
     ? { listener: args[0] }
     : { layerIds: [args[0]].flat(), listener: args[1] };
 }
+
+export const setWorkerUrl = vi.fn();

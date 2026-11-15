@@ -1,1 +1,17 @@
-{}
+{
+  "title": "How do you want to start?",
+  "doors": {
+    "guided": {
+      "label": "Start investigating",
+      "description": "Ask a question about a place and test it step by step."
+    },
+    "explore": {
+      "label": "Explore freely",
+      "description": "Move around the map and click any point for a quick trend."
+    },
+    "demo": {
+      "label": "Watch a demo",
+      "description": "Watch a finished case play from the question to the verdict."
+    }
+  }
+}

@@ -1,1 +1,86 @@
-{}
+{
+  "steps": {
+    "label": "단계",
+    "names": {
+      "1": "조사할 내용",
+      "2": "변수",
+      "3": "장소",
+      "4": "기간"
+    }
+  },
+  "back": "이전",
+  "skip": "건너뛰고 둘러보기",
+  "next": "다음",
+  "explore_hint": "둘러보기 모드: 지도의 아무 지점이나 누르면 추세를 바로 볼 수 있어요.",
+  "question": {
+    "label": "무엇을 조사하고 싶나요?",
+    "placeholder": "예: 서울 첫눈이 늦어지고 있나요?",
+    "submit": "질문하기",
+    "pending": "질문을 읽고 있어요…",
+    "chips": "예시 질문"
+  },
+  "variables": {
+    "list": "제안된 변수",
+    "none": "질문에 맞는 변수가 없어요. 카탈로그에서 골라 주세요.",
+    "unavailable": "{requested}: 이 버전에는 없어요.",
+    "nearest": "가장 가까운 변수: {name}",
+    "no_nearest": "이 버전에는 비슷한 변수가 없어요.",
+    "confirm": "확인",
+    "confirm_name": "{name} 확인",
+    "swap": "바꾸기",
+    "swap_name": "{name} 바꾸기",
+    "add": "카탈로그에서 추가",
+    "unit": "단위",
+    "dataset": "데이터셋",
+    "record": "기록 기간",
+    "record_years": "{start}–{end}",
+    "trend_ready": "추세 분석 가능",
+    "reasons": {
+      "direct_match": "질문에서 직접 말한 양이에요.",
+      "closest_measure": "질문한 내용에 가장 가까운 카탈로그 측정값이에요.",
+      "related_driver": "등록부가 질문한 양과 연결하는 변수예요.",
+      "place_default": "장소만 묻는 질문의 기본 변수예요.",
+      "nearest_available": "이 버전에 없는 변수와 가장 가까운 변수예요."
+    }
+  },
+  "picker": {
+    "title": "카탈로그에서 변수 고르기",
+    "description": "모든 변수는 NASA POWER에서 와요.",
+    "close": "닫기"
+  },
+  "metric": {
+    "heading": "측정 방법",
+    "threshold": "기준값({unit})"
+  },
+  "op": {
+    "gte": "이상",
+    "gt": "초과",
+    "lte": "이하",
+    "lt": "미만"
+  },
+  "place": {
+    "pin": "핀 위치: {point}",
+    "radius": "반경 {radius} km",
+    "cells": "{count, plural, other {원 안의 격자 #개}}",
+    "containing_cell": "원 안에 격자 중심이 없어서 핀이 있는 격자를 써요.",
+    "no_pin": "아직 고정한 장소가 없어요. 장소를 검색하거나 지도를 눌러 주세요. 핀이 없으면 현재 지도 화면으로 분석해요."
+  },
+  "window": {
+    "latest": "{start}년부터 최신 유효 월까지",
+    "range": "{start}~{end}년",
+    "hint": "지도 아래 기간 슬라이더로 바꿀 수 있어요."
+  },
+  "read_back": {
+    "heading": "조사 내용",
+    "sentence": "{area}, {window} {months}{variable} {metric}{condition}의 추세를 볼까요?",
+    "area_pin": "{place} 반경 {radius} km",
+    "area_view": "현재 지도 화면",
+    "condition": "({value} {unit} {op})",
+    "months_range": "{from}~{to} ",
+    "months_one": "{from} ",
+    "window_latest": "{start}년 이후",
+    "window_range": "{start}~{end}년",
+    "confirm": "확인하고 분석하기",
+    "confirmed": "확인했어요. 결과는 결과 패널에 열려요."
+  }
+}

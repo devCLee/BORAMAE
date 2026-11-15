@@ -18,7 +18,10 @@ from boramae.contracts.spec import (
     canonical_json,
 )
 from boramae.engine.definitions import ENGINE_VERSION
-from boramae.spec.validate import ValidatedRequest
+
+# source_freq lives in validate.py, because that module cannot import this one.
+# Callers still import it from here.
+from boramae.spec.validate import ValidatedRequest, source_freq
 
 GRID_METRIC_KEY_HEX_LEN = 16
 
@@ -31,7 +34,9 @@ def canonicalize(
     `content_mark` is the mark of the board or scan content. A trend passes none.
     """
     spec = validated.spec
-    dataset = getattr(catalog.datasets, validated.metric.source_freq)
+    dataset = getattr(
+        catalog.datasets, source_freq(validated.variable, validated.metric)
+    )
     return CanonicalSpec(
         v=spec.v,
         kind=spec.kind,

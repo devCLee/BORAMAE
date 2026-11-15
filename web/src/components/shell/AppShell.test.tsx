@@ -5,6 +5,7 @@ import { beforeEach, expect, test, vi } from "vitest";
 
 import { AppShell } from "@/components/shell/AppShell";
 import { LANGUAGE_STORAGE_KEY } from "@/components/shell/language-choice";
+import { Providers } from "@/components/shell/Providers";
 import { messages } from "@/i18n/messages";
 
 const CURRENT_ROUTE = "/methods";
@@ -33,7 +34,9 @@ function renderShell(locale: "en" | "ko" = "en") {
       messages={messages[locale]}
       timeZone="UTC"
     >
-      <AppShell />
+      <Providers>
+        <AppShell />
+      </Providers>
     </NextIntlClientProvider>,
   );
 }

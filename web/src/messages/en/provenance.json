@@ -23,7 +23,7 @@
     "request_id": "Request ID"
   },
   "methods": {
-    "sen_mk_hamed_rao_lag1": "Sen slope and the Mann–Kendall test with the lag-1 Hamed–Rao correction"
+    "sen_mk_hamed_rao_lag1": "Sen slope and the Mann–Kendall test with the lag-1 Hamed–Rao correction. Each value is read at the decimal precision that the NASA POWER store declares for its variable."
   },
   "day_basis_utc": "Days run from 00:00 to 24:00 UTC.",
   "model": {

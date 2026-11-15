@@ -1,0 +1,189 @@
+[
+  {
+    "id": "winter-t2m-snow-share",
+    "driver": { "var": "T2M", "metric": { "id": "seasonal_mean", "months": [12, 1, 2], "threshold": null, "op": null } },
+    "response": { "var": "PRECSNO", "metric": { "id": "snow_share", "months": [12, 1, 2], "threshold": null, "op": null } },
+    "expected_sign": "-",
+    "mechanism": {
+      "en": "Warmer wet days turn snow into rain, so a smaller share of the precipitation falls as snow.",
+      "ko": "젖은 날이 따뜻하면 눈 대신 비가 내려 강수 중 눈의 비율이 줄어든다."
+    },
+    "scale": "Western US stations, 1949–2004",
+    "area": "user",
+    "lag_years": 0,
+    "status": "not_testable_here",
+    "doi": "10.1175/JCLI3850.1",
+    "url": null,
+    "citation": "Knowles et al. 2006"
+  },
+  {
+    "id": "autumn-t2m-first-snow",
+    "driver": { "var": "T2M", "metric": { "id": "seasonal_mean", "months": [11, 12], "threshold": null, "op": null } },
+    "response": { "var": "PRECSNO", "metric": { "id": "first_date", "months": null, "threshold": null, "op": null } },
+    "expected_sign": "+",
+    "mechanism": {
+      "en": "Warmer late-autumn and early-winter air turns the first snowfalls into rain, so the first snow comes later.",
+      "ko": "늦가을과 초겨울이 따뜻하면 첫 강설이 비로 바뀌어 첫눈이 늦어진다."
+    },
+    "scale": "Western US stations, 1949–2004 (share of precipitation falling as snow)",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.1175/JCLI3850.1",
+    "url": null,
+    "citation": "Knowles et al. 2006"
+  },
+  {
+    "id": "first-snow-winter-snow-cover",
+    "driver": { "var": "PRECSNO", "metric": { "id": "first_date", "months": null, "threshold": null, "op": null } },
+    "response": { "var": "FRSNO", "metric": { "id": "seasonal_mean", "months": [12, 1, 2], "threshold": null, "op": null } },
+    "expected_sign": "-",
+    "mechanism": {
+      "en": "A later first snow leaves fewer days with snow on the ground, so winter snow cover shrinks.",
+      "ko": "첫눈이 늦을수록 땅에 눈이 덮인 날이 줄어 겨울 눈 덮임 비율이 낮아진다."
+    },
+    "scale": "Northern Hemisphere spring snow cover, CMIP6 models",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.5194/tc-14-2495-2020",
+    "url": null,
+    "citation": "Mudryk et al. 2020"
+  },
+  {
+    "id": "first-snow-spring-topsoil",
+    "driver": { "var": "PRECSNO", "metric": { "id": "first_date", "months": null, "threshold": null, "op": null } },
+    "response": { "var": "GWETTOP", "metric": { "id": "seasonal_mean", "months": [3, 4, 5], "threshold": null, "op": null } },
+    "expected_sign": "-",
+    "mechanism": {
+      "en": "Less snow means less snowmelt, so the topsoil is drier the next spring.",
+      "ko": "눈이 적으면 녹는 눈도 적어 이듬해 봄 표층 토양이 더 마른다."
+    },
+    "scale": "Sierra Nevada, shallow soil only",
+    "area": "user",
+    "lag_years": 1,
+    "status": "weak",
+    "doi": "10.1002/2013WR014541",
+    "url": null,
+    "citation": "Blankinship et al. 2014"
+  },
+  {
+    "id": "summer-root-zone-hot-days",
+    "driver": { "var": "GWETROOT", "metric": { "id": "seasonal_mean", "months": [6, 7, 8], "threshold": null, "op": null } },
+    "response": { "var": "T2M_MAX", "metric": { "id": "threshold_days", "months": null, "threshold": null, "op": null } },
+    "expected_sign": "-",
+    "mechanism": {
+      "en": "Where soil water limits evaporation, a drier root zone leaves more of the sun's energy to heat the air.",
+      "ko": "토양 수분이 증발을 제한하는 곳에서는 뿌리층이 마를수록 햇빛 에너지가 공기를 더 많이 데운다."
+    },
+    "scale": "Regions where soil water limits evaporation",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.1016/j.earscirev.2010.02.004",
+    "url": null,
+    "citation": "Seneviratne et al. 2010"
+  },
+  {
+    "id": "hot-days-summer-humidity",
+    "driver": { "var": "T2M_MAX", "metric": { "id": "threshold_days", "months": null, "threshold": null, "op": null } },
+    "response": { "var": "RH2M", "metric": { "id": "seasonal_mean", "months": [6, 7, 8], "threshold": null, "op": null } },
+    "expected_sign": "-",
+    "mechanism": {
+      "en": "Moisture from the slower-warming ocean does not keep pace with land warming, so relative humidity over land falls.",
+      "ko": "느리게 데워지는 바다에서 오는 수분이 육지의 온난화를 따라가지 못해 육지의 상대습도가 낮아진다."
+    },
+    "scale": "Over land, regionally, since 1979",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.5194/esd-9-915-2018",
+    "url": null,
+    "citation": "Vicente-Serrano et al. 2018"
+  },
+  {
+    "id": "summer-t2m-wettest-day",
+    "driver": { "var": "T2M", "metric": { "id": "seasonal_mean", "months": [6, 7, 8, 9], "threshold": null, "op": null } },
+    "response": { "var": "PRECTOTCORR", "metric": { "id": "rx1day", "months": null, "threshold": null, "op": null } },
+    "expected_sign": "+",
+    "mechanism": {
+      "en": "Warmer air holds more water vapour, the moisture that heavy rain draws on.",
+      "ko": "따뜻한 공기는 수증기를 더 많이 품고, 호우는 이 수증기로 내린다."
+    },
+    "scale": "Global, climate models",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.1175/JCLI3990.1",
+    "url": null,
+    "citation": "Held & Soden 2006"
+  },
+  {
+    "id": "summer-vapour-wettest-day",
+    "driver": { "var": "TQV", "metric": { "id": "seasonal_mean", "months": [6, 7, 8, 9], "threshold": null, "op": null } },
+    "response": { "var": "PRECTOTCORR", "metric": { "id": "rx1day", "months": null, "threshold": null, "op": null } },
+    "expected_sign": "+",
+    "mechanism": {
+      "en": "More water vapour in the air feeds heavier downpours.",
+      "ko": "대기 중 수증기가 많을수록 더 센 비가 내린다."
+    },
+    "scale": "Tropics, satellite observations and climate models",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.1126/science.1160787",
+    "url": null,
+    "citation": "Allan & Soden 2008"
+  },
+  {
+    "id": "wettest-day-summer-topsoil",
+    "driver": { "var": "PRECTOTCORR", "metric": { "id": "rx1day", "months": null, "threshold": null, "op": null } },
+    "response": { "var": "GWETTOP", "metric": { "id": "seasonal_mean", "months": [6, 7, 8, 9], "threshold": null, "op": null } },
+    "expected_sign": "+",
+    "mechanism": {
+      "en": "Water balance: more rain going in leaves the topsoil wetter.",
+      "ko": "물수지: 들어오는 비가 많을수록 표층 토양이 더 젖는다."
+    },
+    "scale": "River-basin water balance",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.1029/2004GL020873",
+    "url": null,
+    "citation": "Rodell et al. 2004"
+  },
+  {
+    "id": "t2m-frost-free-season",
+    "driver": { "var": "T2M", "metric": { "id": "annual_mean", "months": null, "threshold": null, "op": null } },
+    "response": { "var": "T2M_MIN", "metric": { "id": "frost_free_length", "months": null, "threshold": null, "op": null } },
+    "expected_sign": "+",
+    "mechanism": {
+      "en": "Warmer air moves the last spring frost earlier and the first autumn frost later.",
+      "ko": "기온이 오르면 봄의 마지막 서리는 빨라지고 가을의 첫서리는 늦어진다."
+    },
+    "scale": "United States, 1895–2000",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.1029/2003GL018624",
+    "url": null,
+    "citation": "Kunkel et al. 2004"
+  },
+  {
+    "id": "frost-free-season-first-snow",
+    "driver": { "var": "T2M_MIN", "metric": { "id": "frost_free_length", "months": null, "threshold": null, "op": null } },
+    "response": { "var": "PRECSNO", "metric": { "id": "first_date", "months": null, "threshold": null, "op": null } },
+    "expected_sign": "+",
+    "mechanism": {
+      "en": "An autumn warm enough to delay the first frost also turns the first snowfalls into rain, so the first snow comes later.",
+      "ko": "첫서리를 늦출 만큼 가을이 따뜻하면 첫 강설도 비로 바뀌어 첫눈이 늦어진다."
+    },
+    "scale": "Western US stations, 1949–2004 (share of precipitation falling as snow)",
+    "area": "user",
+    "lag_years": 0,
+    "status": "robust",
+    "doi": "10.1175/JCLI3850.1",
+    "url": null,
+    "citation": "Knowles et al. 2006"
+  }
+]

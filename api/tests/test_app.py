@@ -6,8 +6,6 @@ from boramae.main import create_app
 
 DEV_ORIGIN = "http://localhost:3000"
 STUB_PATHS = [
-    ("POST", "/api/v1/parse"),
-    ("GET", "/api/v1/trend"),
     ("GET", "/api/v1/caseboard"),
     ("GET", "/api/v1/scan"),
 ]

@@ -1,1 +1,36 @@
-{}
+{
+  "title": "{variable}: {metric}",
+  "loading": "Loading the chart",
+  "no_values": "This area has no yearly value to draw for this window.",
+  "description": {
+    "yearly": "Each point is one year. The line is the Sen trend, and the shaded band spans the 95% confidence interval of its slope.",
+    "yearly_no_trend": "Each point is one year. The result holds no trend line for this series.",
+    "monthly": "The line joins the monthly values. A gap is a missing month.",
+    "anomalies": "The line joins the monthly anomalies: each month minus its usual value over the record. A gap is a missing month."
+  },
+  "forms": {
+    "label": "Chart form",
+    "yearly": "Yearly",
+    "monthly": "Monthly",
+    "anomalies": "Monthly anomalies"
+  },
+  "legend": {
+    "value": "Yearly value",
+    "censored": "Censored year: no event by the end of the season, so the value is the season's end",
+    "trend": "Sen trend line",
+    "band": "95% interval of the trend"
+  },
+  "table": {
+    "caption": "Yearly values of the chart",
+    "year": "Year",
+    "value": "Value ({unit})",
+    "note": "Note",
+    "censored": "Censored"
+  },
+  "tap": {
+    "question": "Does this look like a trend?",
+    "yes": "Yes",
+    "no": "No",
+    "skip": "Skip"
+  }
+}

@@ -66,7 +66,9 @@ def get_pool() -> "WorkerPool":
     from boramae.store.pool import WorkerPool
 
     settings = get_settings()
-    return WorkerPool(settings.pool_size, settings.pool_wait_s)
+    return WorkerPool(
+        settings.pool_size, settings.pool_wait_s, settings.request_timeout_s
+    )
 
 
 def get_results(

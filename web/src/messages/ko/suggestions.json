@@ -1,1 +1,9 @@
-{}
+{
+  "title": "다음 단계",
+  "actions": {
+    "open_board": "사례 보드 열기",
+    "try_nearby": "가까운 지역 살펴보기",
+    "widen_window": "기간을 전체 기록으로 넓히기",
+    "pick_variable": "다른 변수 고르기"
+  }
+}

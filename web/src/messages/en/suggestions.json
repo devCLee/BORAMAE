@@ -1,1 +1,9 @@
-{}
+{
+  "title": "Next steps",
+  "actions": {
+    "open_board": "Open the case board",
+    "try_nearby": "Try a nearby area",
+    "widen_window": "Widen the time window to the full record",
+    "pick_variable": "Pick another variable"
+  }
+}
