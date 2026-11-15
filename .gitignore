@@ -60,3 +60,4 @@ TODOS.md
 /test-results/
 /playwright-report/
 /playwright/.cache/
+web/src/contracts/schema.json

@@ -1,0 +1,250 @@
+{
+  "spec": {
+    "v": 1,
+    "kind": "scan",
+    "ds": "power-merra2-daily@2026-09",
+    "eng": "1.0.0",
+    "var": "PRECTOTCORR",
+    "metric": {
+      "threshold": null,
+      "op": null,
+      "months": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "season_start": null,
+      "id": "rx1day"
+    },
+    "cells": [
+      [
+        255,
+        491
+      ]
+    ],
+    "window": [
+      1981,
+      "2026-09"
+    ],
+    "content": "5f2c9a1e07b4"
+  },
+  "hits": [
+    {
+      "var": "T2M",
+      "metric_id": "annual_mean",
+      "trend_key": "97e20bc8f65a4830b1f98f8fd01fb264",
+      "p": 0.0004,
+      "q": 0.0068000000000000005,
+      "rate_per_decade": 0.31,
+      "rate_unit": "C",
+      "sign": 1,
+      "label": "found_by_scan"
+    },
+    {
+      "var": "TQV",
+      "metric_id": "annual_mean",
+      "trend_key": "ad7f725c5f21b4d6692dd8dddc6b8484",
+      "p": 0.006,
+      "q": 0.051000000000000004,
+      "rate_per_decade": 0.42,
+      "rate_unit": "kg/m^2",
+      "sign": 1,
+      "label": "found_by_scan"
+    },
+    {
+      "var": "TS",
+      "metric_id": "annual_mean",
+      "trend_key": "d1859ccd1730b7d9acf1bc14794d07d8",
+      "p": 0.011,
+      "q": 0.06233333333333333,
+      "rate_per_decade": 0.27,
+      "rate_unit": "C",
+      "sign": 1,
+      "label": "found_by_scan"
+    }
+  ],
+  "checked": [
+    {
+      "var": "T2M",
+      "status": "tested",
+      "reason": null,
+      "p": 0.0004,
+      "q": 0.0068000000000000005
+    },
+    {
+      "var": "T2M_MAX",
+      "status": "tested",
+      "reason": null,
+      "p": 0.52,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "T2M_MIN",
+      "status": "tested",
+      "reason": null,
+      "p": 0.09,
+      "q": 0.3825
+    },
+    {
+      "var": "PRECSNO",
+      "status": "tested",
+      "reason": null,
+      "p": 0.56,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "SNODP",
+      "status": "tested",
+      "reason": null,
+      "p": 0.58,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "FRSNO",
+      "status": "tested",
+      "reason": null,
+      "p": 0.6,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "RH2M",
+      "status": "tested",
+      "reason": null,
+      "p": 0.62,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "TQV",
+      "status": "tested",
+      "reason": null,
+      "p": 0.006,
+      "q": 0.051000000000000004
+    },
+    {
+      "var": "GWETTOP",
+      "status": "tested",
+      "reason": null,
+      "p": 0.66,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "GWETROOT",
+      "status": "tested",
+      "reason": null,
+      "p": 0.6799999999999999,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "EVLAND",
+      "status": "tested",
+      "reason": null,
+      "p": 0.7,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "FROST_DAYS",
+      "status": "not_testable",
+      "reason": "no_data",
+      "p": null,
+      "q": null
+    },
+    {
+      "var": "WS10M",
+      "status": "tested",
+      "reason": null,
+      "p": 0.72,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "TS",
+      "status": "tested",
+      "reason": null,
+      "p": 0.011,
+      "q": 0.06233333333333333
+    },
+    {
+      "var": "CDD18_3",
+      "status": "tested",
+      "reason": null,
+      "p": 0.76,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "HDD18_3",
+      "status": "tested",
+      "reason": null,
+      "p": 0.78,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "FRSEAICE",
+      "status": "not_testable",
+      "reason": "no_data",
+      "p": null,
+      "q": null
+    },
+    {
+      "var": "TO3",
+      "status": "tested",
+      "reason": null,
+      "p": 0.8,
+      "q": 0.8200000000000001
+    },
+    {
+      "var": "PBLTOP",
+      "status": "tested",
+      "reason": null,
+      "p": 0.8200000000000001,
+      "q": 0.8200000000000001
+    }
+  ],
+  "nearby": [
+    {
+      "lat_i": 253,
+      "lon_i": 493,
+      "lat": 36.5,
+      "lon": 128.125,
+      "distance_km": 156.3,
+      "sign": 1,
+      "is_opposite": false,
+      "mechanism": null,
+      "grid_window": [
+        1981,
+        "2026-09"
+      ]
+    },
+    {
+      "lat_i": 258,
+      "lon_i": 489,
+      "lat": 39.0,
+      "lon": 125.625,
+      "distance_km": 198.4,
+      "sign": -1,
+      "is_opposite": true,
+      "mechanism": {
+        "en": "Warmer air holds more water vapour, so the wettest day can grow while a drier region sees it shrink",
+        "ko": "따뜻한 공기는 수증기를 더 많이 머금어, 한 지역의 최다 강수량이 늘 때 건조해지는 지역에서는 줄 수 있다"
+      },
+      "grid_window": [
+        1981,
+        "2026-09"
+      ]
+    },
+    {
+      "lat_i": 250,
+      "lon_i": 496,
+      "lat": 35.0,
+      "lon": 130.0,
+      "distance_km": 393.4,
+      "sign": 1,
+      "is_opposite": false,
+      "mechanism": null,
+      "grid_window": [
+        1981,
+        "2026-09"
+      ]
+    }
+  ],
+  "nearby_note": null
+}

@@ -1,0 +1,50 @@
+{
+  "spec": {
+    "lang": "en",
+    "intent": "timing",
+    "place": {
+      "name": "Seoul",
+      "lat": 37.5665,
+      "lon": 126.978,
+      "radius_km": 25.0
+    },
+    "metric": {
+      "id": "first_date",
+      "var": "PRECSNO",
+      "op": ">=",
+      "value": 0.1,
+      "unit": "mm/day",
+      "typed": null,
+      "months": null,
+      "season_start": "08-01"
+    },
+    "display_units": null,
+    "window": {
+      "start": 1981,
+      "end": "latest"
+    },
+    "compare_to": null,
+    "board": "CB-01",
+    "clarify": null
+  },
+  "variables": [
+    {
+      "var": "PRECSNO",
+      "metric_id": "first_date",
+      "reason_code": "direct_match"
+    },
+    {
+      "var": "SNODP",
+      "metric_id": "seasonal_mean",
+      "reason_code": "closest_measure"
+    },
+    {
+      "var": "T2M",
+      "metric_id": "seasonal_mean",
+      "reason_code": "related_driver"
+    }
+  ],
+  "source": "rules",
+  "unavailable": null,
+  "clarify": null
+}

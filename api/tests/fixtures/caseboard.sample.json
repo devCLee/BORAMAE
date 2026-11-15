@@ -1,0 +1,293 @@
+{
+  "spec": {
+    "v": 1,
+    "kind": "caseboard",
+    "ds": "power-merra2-daily@2026-09",
+    "eng": "1.0.0",
+    "var": "PRECSNO",
+    "metric": {
+      "threshold": "0.1",
+      "op": ">=",
+      "months": null,
+      "season_start": "08-01",
+      "id": "first_date"
+    },
+    "cells": [
+      [
+        255,
+        491
+      ]
+    ],
+    "window": [
+      1981,
+      "2026-09"
+    ],
+    "content": "ad5e8601df2b"
+  },
+  "board_id": "CB-01",
+  "focus_key": "b5bae5463e95eff888bca78a896bf62a",
+  "nodes": [
+    {
+      "role": "driver",
+      "row": {
+        "id": "sample-link-1",
+        "driver": {
+          "var": "T2M",
+          "metric": {
+            "threshold": null,
+            "op": null,
+            "months": [
+              11,
+              12
+            ],
+            "season_start": null,
+            "id": "seasonal_mean"
+          }
+        },
+        "response": {
+          "var": "PRECSNO",
+          "metric": {
+            "threshold": "0.1",
+            "op": ">=",
+            "months": null,
+            "season_start": null,
+            "id": "first_date"
+          }
+        },
+        "expected_sign": "+",
+        "mechanism": {
+          "en": "A warmer early winter delays the first snow",
+          "ko": "초겨울이 따뜻하면 첫눈이 늦어진다"
+        },
+        "scale": "regional",
+        "area": "user",
+        "lag_years": 0,
+        "status": "robust",
+        "doi": "10.5555/boramae.sample.1",
+        "url": null,
+        "citation": "Sample source 1 (test fixture, not a real citation)"
+      },
+      "trend_key": "3ddaedfb254c067d0e08f4f86bc48d0a",
+      "link": {
+        "r": 0.52,
+        "p": 0.0004,
+        "n_eff": 41.3,
+        "lag_years": 0,
+        "n_overlap": 45,
+        "sign": 1,
+        "label": "consistent",
+        "reason": null
+      }
+    },
+    {
+      "role": "driver",
+      "row": {
+        "id": "sample-link-2",
+        "driver": {
+          "var": "TQV",
+          "metric": {
+            "threshold": null,
+            "op": null,
+            "months": [
+              11,
+              12
+            ],
+            "season_start": null,
+            "id": "seasonal_mean"
+          }
+        },
+        "response": {
+          "var": "PRECSNO",
+          "metric": {
+            "threshold": "0.1",
+            "op": ">=",
+            "months": null,
+            "season_start": null,
+            "id": "first_date"
+          }
+        },
+        "expected_sign": "-",
+        "mechanism": {
+          "en": "More water vapour brings earlier snowfall",
+          "ko": "수증기가 많으면 눈이 더 일찍 내린다"
+        },
+        "scale": "regional",
+        "area": "user",
+        "lag_years": 0,
+        "status": "contested",
+        "doi": "10.5555/boramae.sample.2",
+        "url": null,
+        "citation": "Sample source 2 (test fixture, not a real citation)"
+      },
+      "trend_key": "d80f0ab5330b2fc45ab359960deb4a67",
+      "link": {
+        "r": 0.36,
+        "p": 0.018,
+        "n_eff": 42.8,
+        "lag_years": 0,
+        "n_overlap": 45,
+        "sign": 1,
+        "label": "contradicts",
+        "reason": null
+      }
+    },
+    {
+      "role": "driver",
+      "row": {
+        "id": "sample-link-3",
+        "driver": {
+          "var": "TS",
+          "metric": {
+            "threshold": null,
+            "op": null,
+            "months": [
+              11,
+              12
+            ],
+            "season_start": null,
+            "id": "seasonal_mean"
+          }
+        },
+        "response": {
+          "var": "PRECSNO",
+          "metric": {
+            "threshold": "0.1",
+            "op": ">=",
+            "months": null,
+            "season_start": null,
+            "id": "first_date"
+          }
+        },
+        "expected_sign": "+",
+        "mechanism": {
+          "en": "A warmer surface melts early snow",
+          "ko": "지표면이 따뜻하면 이른 눈이 녹는다"
+        },
+        "scale": "regional",
+        "area": "user",
+        "lag_years": 0,
+        "status": "weak",
+        "doi": null,
+        "url": "https://example.org/boramae-sample-3",
+        "citation": "Sample source 3 (test fixture, not a real citation)"
+      },
+      "trend_key": "6f8d7c637ec56246b1f7802d15f776ff",
+      "link": {
+        "r": 0.14,
+        "p": 0.37,
+        "n_eff": 43.9,
+        "lag_years": 0,
+        "n_overlap": 45,
+        "sign": 1,
+        "label": "weak",
+        "reason": null
+      }
+    },
+    {
+      "role": "response",
+      "row": {
+        "id": "sample-link-4",
+        "driver": {
+          "var": "PRECSNO",
+          "metric": {
+            "threshold": "0.1",
+            "op": ">=",
+            "months": null,
+            "season_start": null,
+            "id": "first_date"
+          }
+        },
+        "response": {
+          "var": "SNODP",
+          "metric": {
+            "threshold": null,
+            "op": null,
+            "months": [
+              12,
+              1,
+              2
+            ],
+            "season_start": null,
+            "id": "seasonal_mean"
+          }
+        },
+        "expected_sign": "-",
+        "mechanism": {
+          "en": "A later first snow leaves a thinner winter snowpack",
+          "ko": "첫눈이 늦으면 겨울 적설이 얇아진다"
+        },
+        "scale": "regional",
+        "area": "user",
+        "lag_years": 0,
+        "status": "robust",
+        "doi": "10.5555/boramae.sample.4",
+        "url": null,
+        "citation": "Sample source 4 (test fixture, not a real citation)"
+      },
+      "trend_key": "1dee35258169934429d318a038b85b16",
+      "link": {
+        "r": 0.09,
+        "p": 0.56,
+        "n_eff": 44.2,
+        "lag_years": 0,
+        "n_overlap": 45,
+        "sign": 1,
+        "label": null,
+        "reason": null
+      }
+    },
+    {
+      "role": "response",
+      "row": {
+        "id": "sample-link-5",
+        "driver": {
+          "var": "PRECSNO",
+          "metric": {
+            "threshold": "0.1",
+            "op": ">=",
+            "months": null,
+            "season_start": null,
+            "id": "first_date"
+          }
+        },
+        "response": {
+          "var": "FRSNO",
+          "metric": {
+            "threshold": null,
+            "op": null,
+            "months": [
+              12,
+              1,
+              2
+            ],
+            "season_start": null,
+            "id": "seasonal_mean"
+          }
+        },
+        "expected_sign": "-",
+        "mechanism": {
+          "en": "A later first snow shortens the snow-cover season",
+          "ko": "첫눈이 늦으면 눈 덮임 기간이 짧아진다"
+        },
+        "scale": "regional",
+        "area": "user",
+        "lag_years": 0,
+        "status": "not_testable_here",
+        "doi": "10.5555/boramae.sample.5",
+        "url": null,
+        "citation": "Sample source 5 (test fixture, not a real citation)"
+      },
+      "trend_key": null,
+      "link": {
+        "r": null,
+        "p": null,
+        "n_eff": null,
+        "lag_years": 0,
+        "n_overlap": 0,
+        "sign": null,
+        "label": "not_testable_here",
+        "reason": "registry_status"
+      }
+    }
+  ]
+}

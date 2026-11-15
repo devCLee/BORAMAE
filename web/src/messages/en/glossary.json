@@ -1,0 +1,92 @@
+{
+  "meaning_label": "What this means:",
+  "verdicts": {
+    "significant_rise": "Rising, significant",
+    "significant_fall": "Falling, significant",
+    "not_yet": "Not yet significant",
+    "no_trend": "No trend detected",
+    "record_too_short": "Record too short"
+  },
+  "terms": {
+    "sen_slope": {
+      "name": "Sen slope",
+      "definition": "The median of the slopes between every pair of years, so a few unusual years barely move it.",
+      "meaning": "The typical change per year, shown here per decade."
+    },
+    "mann_kendall": {
+      "name": "Mann–Kendall test",
+      "definition": "A test that counts how often later years sit above or below earlier years, corrected for one year carrying over into the next (Hamed–Rao, lag 1).",
+      "meaning": "It decides whether a rise or fall is clear enough to call significant."
+    },
+    "p_value": {
+      "name": "p-value",
+      "definition": "How likely a trend at least this strong would be by chance if nothing were changing; not the chance that the trend is real.",
+      "meaning": "Below 0.05, and with a confidence interval that leaves out zero, the app calls the trend significant."
+    },
+    "confidence_interval": {
+      "name": "Confidence interval",
+      "definition": "The range of rates the data support; across repeated studies, 95% of such ranges would hold the true rate.",
+      "meaning": "When the range includes zero, the data cannot rule out no change."
+    },
+    "ols_cross_check": {
+      "name": "OLS cross-check",
+      "definition": "A straight line fitted by least squares, with its interval widened for autocorrelation.",
+      "meaning": "A second method. When it disagrees with the Mann–Kendall test, the card says so."
+    },
+    "autocorrelation": {
+      "name": "Autocorrelation",
+      "definition": "One year's value carrying over into the next, which makes chance trends look stronger.",
+      "meaning": "The tests correct for it, so a run of similar years alone does not make a trend."
+    },
+    "anomaly": {
+      "name": "Anomaly",
+      "definition": "The difference between a month's value and the usual value of that month over the record.",
+      "meaning": "It takes out the seasonal cycle, so the chart shows the change and not summer and winter."
+    },
+    "scatter": {
+      "name": "Scatter",
+      "definition": "How far the yearly values spread around the trend line, as a standard deviation.",
+      "meaning": "A large scatter needs a longer record before a trend shows, and a small change can matter little against it."
+    },
+    "years_needed": {
+      "name": "Years needed",
+      "definition": "An estimate of how many years of data a test would need to detect a trend of this size, given the scatter and the autocorrelation.",
+      "meaning": "A detection estimate, not a forecast: it says nothing about what will happen."
+    },
+    "found_by_scan": {
+      "name": "Found by a scan",
+      "definition": "A result that came up when the app tested many variables at once, corrected for multiple testing (Benjamini–Hochberg).",
+      "meaning": "Treat it as a lead to check, not as a finding on its own."
+    },
+    "record_too_short": {
+      "name": "Record too short",
+      "definition": "The series holds fewer years than the minimum record of the variable, 20 years by default.",
+      "meaning": "The app shows the statistics and gives no verdict."
+    },
+    "model_data": {
+      "name": "Model data",
+      "definition": "Values computed by a weather model that blends in observations, not readings from instruments at this place.",
+      "meaning": "Read them as estimates. Cards label them “model”, not “observation”."
+    },
+    "power_merra2": {
+      "name": "NASA POWER and MERRA-2",
+      "definition": "NASA POWER serves analysis-ready meteorology and solar data for any place on Earth, mostly derived from MERRA-2, from 1981. MERRA-2 is NASA's reanalysis, which blends satellite and ground observations with a weather model to rebuild past weather, from 1980.",
+      "meaning": "Every number in this app comes from these data."
+    },
+    "area_mean": {
+      "name": "Area mean and cells",
+      "definition": "POWER divides the Earth into grid cells of ½° latitude by ⅝° longitude. The value of an area is the mean of the cells whose centers fall inside it, weighted by the cosine of latitude.",
+      "meaning": "When no cell center falls inside a small area, the app uses the one cell that contains it."
+    },
+    "data_moved": {
+      "name": "Data moved",
+      "definition": "How much stored data the analysis read, and whether the answer came from the cache of stored results.",
+      "meaning": "The analysis runs next to the data in the cloud, and your browser receives only the result."
+    },
+    "not_independent": {
+      "name": "Yearly values are not independent",
+      "definition": "The climate of one year often carries over into the next, so the yearly values are not separate draws.",
+      "meaning": "Treating them as independent would call chance trends significant too often, so the tests correct for it."
+    }
+  }
+}

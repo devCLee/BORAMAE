@@ -1,0 +1,13 @@
+{
+  "app_name": "BORAMAE",
+  "language_name": "한국어",
+  "gate": {
+    "prompt": "언어를 선택하세요"
+  },
+  "shell": {
+    "skip_to_main": "본문으로 건너뛰기",
+    "rail": "안내 단계",
+    "case": "결과",
+    "window": "기간"
+  }
+}

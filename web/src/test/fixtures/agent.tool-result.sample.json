@@ -1,0 +1,8 @@
+{
+  "type": "tool_result",
+  "call_id": "c-1",
+  "ok": false,
+  "result": {
+    "code": "declined"
+  }
+}

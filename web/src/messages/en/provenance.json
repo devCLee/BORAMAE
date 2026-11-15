@@ -1,0 +1,34 @@
+{
+  "open": "Source of {value}",
+  "title": "Where this number comes from",
+  "description": "The data and the method behind the number.",
+  "close": "Close",
+  "fields": {
+    "dataset": "Dataset",
+    "access_path": "Access path",
+    "period": "Period",
+    "cells": "Cells used",
+    "method": "Method",
+    "data_moved": "Data moved",
+    "compute_location": "Computed in",
+    "day_basis": "Day basis"
+  },
+  "dataset_version": "Version {version}",
+  "period_range": "{start} to {end}",
+  "cell_count": "{count, plural, one {# grid cell} other {# grid cells}}",
+  "footprint": "The computation needs {chunks, plural, one {# chunk} other {# chunks}} of the POWER store ({size}).",
+  "request": {
+    "bytes_fetched": "This request read {bytes, number} bytes from POWER.",
+    "cache": "Cache: {status, select, hit {hit, a stored result} miss {miss, computed for this request} other {{status}}}",
+    "request_id": "Request ID"
+  },
+  "methods": {
+    "sen_mk_hamed_rao_lag1": "Sen slope and the Mann–Kendall test with the lag-1 Hamed–Rao correction"
+  },
+  "day_basis_utc": "Days run from 00:00 to 24:00 UTC.",
+  "model": {
+    "label": "Model data, not observation",
+    "observing_system": "MERRA-2 is a reanalysis: a weather model that blends in satellite and ground observations to rebuild past weather. The observations it blends in changed over the record, for example when new satellite instruments arrived in the late 1990s and the 2000s. So part of a long-term change can come from changes in the observing system and not from the climate."
+  },
+  "download": "Download the analysis JSON"
+}

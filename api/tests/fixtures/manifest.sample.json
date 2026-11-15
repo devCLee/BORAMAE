@@ -1,0 +1,60 @@
+{
+  "catalog": "catalog.json",
+  "cases": [
+    {
+      "case_id": "first-snow-seoul",
+      "parse": {
+        "en": "first-snow-seoul/parse.en.json",
+        "ko": "first-snow-seoul/parse.ko.json"
+      },
+      "kinds": {
+        "trend": {
+          "file": "first-snow-seoul/trend.json",
+          "key": "b5bae5463e95eff888bca78a896bf62a",
+          "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6InRyZW5kIiwibWV0cmljIjp7ImlkIjoiZmlyc3RfZGF0ZSIsIm9wIjoiPj0iLCJzZWFzb25fc3RhcnQiOiIwOC0wMSIsInRocmVzaG9sZCI6IjAuMSJ9LCJ2IjoxLCJ2YXIiOiJQUkVDU05PIiwid2luZG93Ijp7ImVuZCI6ImxhdGVzdCIsInN0YXJ0IjoxOTgxfX0"
+        },
+        "caseboard": {
+          "file": "first-snow-seoul/caseboard.json",
+          "key": "85fb6675de50f5c9424c2aa158a0dbd6",
+          "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6ImNhc2Vib2FyZCIsIm1ldHJpYyI6eyJpZCI6ImZpcnN0X2RhdGUiLCJvcCI6Ij49Iiwic2Vhc29uX3N0YXJ0IjoiMDgtMDEiLCJ0aHJlc2hvbGQiOiIwLjEifSwidiI6MSwidmFyIjoiUFJFQ1NOTyIsIndpbmRvdyI6eyJlbmQiOiJsYXRlc3QiLCJzdGFydCI6MTk4MX19"
+        }
+      },
+      "referenced": {
+        "trend": {
+          "3ddaedfb254c067d0e08f4f86bc48d0a": "first-snow-seoul/trend.3ddaedfb254c067d0e08f4f86bc48d0a.json",
+          "d80f0ab5330b2fc45ab359960deb4a67": "first-snow-seoul/trend.d80f0ab5330b2fc45ab359960deb4a67.json",
+          "6f8d7c637ec56246b1f7802d15f776ff": "first-snow-seoul/trend.6f8d7c637ec56246b1f7802d15f776ff.json",
+          "1dee35258169934429d318a038b85b16": "first-snow-seoul/trend.1dee35258169934429d318a038b85b16.json"
+        }
+      },
+      "answers": {
+        "ko": null,
+        "en": null
+      }
+    },
+    {
+      "case_id": "wettest-day-seoul",
+      "parse": {
+        "en": "wettest-day-seoul/parse.en.json",
+        "ko": "wettest-day-seoul/parse.ko.json"
+      },
+      "kinds": {
+        "trend": {
+          "file": "wettest-day-seoul/trend.json",
+          "key": "c93a84f2414f21a1dfab3bed341abfd7",
+          "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6InRyZW5kIiwibWV0cmljIjp7ImlkIjoicngxZGF5IiwibW9udGhzIjpbNiw3LDgsOV19LCJ2IjoxLCJ2YXIiOiJQUkVDVE9UQ09SUiIsIndpbmRvdyI6eyJlbmQiOiJsYXRlc3QiLCJzdGFydCI6MTk4MX19"
+        },
+        "scan": {
+          "file": "wettest-day-seoul/scan.json",
+          "key": "ec8994c5f690fd0c314da0e4ffbcd3b3",
+          "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6InNjYW4iLCJtZXRyaWMiOnsiaWQiOiJyeDFkYXkiLCJtb250aHMiOls2LDcsOCw5XX0sInYiOjEsInZhciI6IlBSRUNUT1RDT1JSIiwid2luZG93Ijp7ImVuZCI6ImxhdGVzdCIsInN0YXJ0IjoxOTgxfX0"
+        }
+      },
+      "referenced": {},
+      "answers": {
+        "ko": null,
+        "en": null
+      }
+    }
+  ]
+}
