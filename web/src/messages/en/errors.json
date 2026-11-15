@@ -1,0 +1,11 @@
+{
+  "retry": "Try again",
+  "messages": {
+    "zoom_in_or_pin": "This view covers too large an area. Zoom in, or pin a place on the map.",
+    "not_in_offline_demo": "The offline demo holds only the results of the demo. Set the window back to the demo, or use the live app.",
+    "timeout": "The server took too long to answer.",
+    "network": "The app cannot reach the server. Check the connection.",
+    "unavailable": "NASA POWER data cannot be read right now.",
+    "server": "The server could not answer this request."
+  }
+}

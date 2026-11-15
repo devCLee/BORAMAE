@@ -1,0 +1,13 @@
+{
+  "app_name": "BORAMAE",
+  "language_name": "English",
+  "gate": {
+    "prompt": "Choose your language"
+  },
+  "shell": {
+    "skip_to_main": "Skip to main content",
+    "rail": "Guided steps",
+    "case": "Result",
+    "window": "Time window"
+  }
+}

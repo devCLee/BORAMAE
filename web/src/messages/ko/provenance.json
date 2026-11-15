@@ -1,0 +1,34 @@
+{
+  "open": "{value}의 출처",
+  "title": "이 숫자의 출처",
+  "description": "숫자 뒤에 있는 자료와 방법",
+  "close": "닫기",
+  "fields": {
+    "dataset": "데이터셋",
+    "access_path": "접근 경로",
+    "period": "기간",
+    "cells": "사용한 격자",
+    "method": "방법",
+    "data_moved": "옮긴 데이터",
+    "compute_location": "계산한 곳",
+    "day_basis": "하루의 기준"
+  },
+  "dataset_version": "버전 {version}",
+  "period_range": "{start}부터 {end}까지",
+  "cell_count": "격자 {count, number}개",
+  "footprint": "계산에 필요한 POWER 저장소 청크 {chunks, number}개({size})",
+  "request": {
+    "bytes_fetched": "이 요청이 POWER에서 읽은 양: {bytes, number}바이트",
+    "cache": "캐시: {status, select, hit {hit, 저장된 결과} miss {miss, 이번 요청에서 계산} other {{status}}}",
+    "request_id": "요청 ID"
+  },
+  "methods": {
+    "sen_mk_hamed_rao_lag1": "센 기울기와 맨-켄달 검정, 시차 1 자기상관 보정(Hamed–Rao)"
+  },
+  "day_basis_utc": "하루는 UTC 기준 0시부터 24시까지다.",
+  "model": {
+    "label": "모델 자료(관측값 아님)",
+    "observing_system": "MERRA-2는 재분석 자료다. 기상 모델에 위성과 지상 관측을 섞어 과거 날씨를 다시 계산한다. 섞어 넣는 관측은 기록 기간 동안 바뀌었다. 1990년대 말과 2000년대에 새 위성 관측 장비가 더해진 것이 그 예다. 그래서 긴 기간의 변화 가운데 일부는 기후가 아니라 관측 체계의 변화에서 올 수 있다."
+  },
+  "download": "분석 JSON 내려받기"
+}

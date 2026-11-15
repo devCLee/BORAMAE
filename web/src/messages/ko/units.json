@@ -1,0 +1,16 @@
+{
+  "per_decade": "10년당 {value}{unit}",
+  "label": {
+    "percent_points": "%p",
+    "days": "일",
+    "C": "°C",
+    "mm/day": "mm/일",
+    "mm": "mm",
+    "cm": "cm",
+    "kg/m^2": "kg/m²",
+    "m/s": "m/s",
+    "degree-day": "도일",
+    "Dobson Units": "DU",
+    "hPa": "hPa"
+  }
+}

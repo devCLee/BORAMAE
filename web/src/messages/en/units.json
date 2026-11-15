@@ -1,0 +1,16 @@
+{
+  "per_decade": "{value} {unit} per decade",
+  "label": {
+    "percent_points": "points",
+    "days": "days",
+    "C": "°C",
+    "mm/day": "mm/day",
+    "mm": "mm",
+    "cm": "cm",
+    "kg/m^2": "kg/m²",
+    "m/s": "m/s",
+    "degree-day": "degree-days",
+    "Dobson Units": "DU",
+    "hPa": "hPa"
+  }
+}

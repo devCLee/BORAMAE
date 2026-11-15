@@ -1,0 +1,37 @@
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import type { ReactNode } from "react";
+
+import { routing } from "@/i18n/routing";
+
+import { fontClassName } from "../fonts";
+
+import "../globals.css";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+  // A static export has no request, so next-intl takes the locale from this call.
+  setRequestLocale(locale);
+
+  return (
+    <html lang={locale} className={fontClassName}>
+      <body>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
