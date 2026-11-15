@@ -1,1 +1,45 @@
-{}
+{
+  "back": "Back to the app",
+  "title": "Methods and sources",
+  "intro": "How BORAMAE tests a trend, how often that test raises a false alarm, and where every piece of data and code comes from.",
+  "false_alarms": {
+    "heading": "False-alarm check",
+    "how": "How the check works: for each value of r₁, the lag-1 autocorrelation of a series, we generated {count} series with no trend, each with {length} yearly values, and ran the app's own trend test on every series: the Sen slope with its 95% interval and the Mann–Kendall test with the lag-1 Hamed–Rao correction. A series counts as a false alarm when the app would call it significant: p below {alpha} and a Sen interval that excludes zero. At this level, a perfect test would still raise a false alarm on {nominal} of trend-free series. The random seed, {seed}, was fixed before the run.",
+    "rule": "Pass rule: at most {max} false alarms for r₁ up to {gated}. Higher r₁ values are reported separately, with no pass rule.",
+    "as_measured": "Each rate is published as measured. A rate above the rule is marked as failed, and the check is never run again with another seed, length or estimator.",
+    "caption": "False alarms on trend-free series, {count} series for each r₁",
+    "columns": {
+      "r1": "r₁",
+      "rate": "False-alarm rate",
+      "interval": "95% interval",
+      "result": "Result"
+    },
+    "count": "({alarms} of {count})",
+    "interval": "{low} to {high}",
+    "results": {
+      "pass": "Pass",
+      "fail": "Fail",
+      "separate": "Reported separately"
+    },
+    "source": "Source: {file}, written by the simulate command with engine version {version}."
+  },
+  "data": {
+    "heading": "Data",
+    "model": "Every trend on this site is computed from NASA POWER. POWER is model data, not observation: its weather values come from MERRA-2, a reanalysis that blends satellite and ground observations into a weather model to rebuild past weather."
+  },
+  "sources": {
+    "heading": "Sources and licenses",
+    "intro": "Every dataset, font, code package and paper that the app uses, with its license and how to cite it.",
+    "kinds": {
+      "data": "Data",
+      "font": "Font",
+      "code": "Code",
+      "literature": "Papers"
+    },
+    "license": "License: {license}"
+  },
+  "ai": {
+    "heading": "How AI is used",
+    "note": "AI produces no number on this site: the analysis service computes every number from NASA data, and this page shows saved evidence files. For a typed question, a language model may propose the variables, using catalog IDs only. Nothing runs until you confirm the proposal, and with the model switched off, a keyword match in English and Korean makes it. Every sentence that AI writes carries an AI badge. The code of this app was written with an AI coding assistant, Claude Code by Anthropic, and is checked by automated tests."
+  }
+}

@@ -33,6 +33,9 @@ export function useCatalog(): UseQueryResult<Catalog, FetchError> {
     // The source is part of the key, so a switch of the source reads the catalog again.
     queryKey: ["catalog", source],
     queryFn: () => fetchCatalog(source),
+    // A judge link switches the source in a mount effect (DemoBar), after this
+    // render read it. A read for a source that the store has left never starts.
+    enabled: () => getState().fetchSource === source,
     retry: false,
     // ponytail: one read for each tab. A catalog that fell back to the bundle
     // stays until a reload; lower staleTime if the app must pick up the service again.

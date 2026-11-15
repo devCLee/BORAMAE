@@ -1,1 +1,8 @@
-{}
+{
+  "checking": "Checking the numbers in this answer…",
+  "withheld": "This answer was withheld because its numbers do not match the computed results. The results on screen stay as they are.",
+  "badge": "AI",
+  "badge_label": "Written by AI:",
+  "sources": "Sources",
+  "new_tab": "(opens in a new tab)"
+}
