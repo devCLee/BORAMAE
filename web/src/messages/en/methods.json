@@ -27,6 +27,26 @@
     "heading": "Data",
     "model": "Every trend on this site is computed from NASA POWER. POWER is model data, not observation: its weather values come from MERRA-2, a reanalysis that blends satellite and ground observations into a weather model to rebuild past weather."
   },
+  "station_check": {
+    "heading": "Station check: Phoenix hot days",
+    "label": "NOAA station data, not NASA. Shown here as context only and never used in a verdict.",
+    "how": "The Phoenix demo counts the days from May to October at or above 110 °F (43.3 °C) in one POWER grid cell. We counted the same days at the Phoenix Sky Harbor airport station (GHCN-Daily, {station}) for {first} to {last}, with no day missing, and ran the app's own trend test on both series.",
+    "caption": "Days at or above 110 °F, May to October, {first} to {last}",
+    "columns": {
+      "series": "Series",
+      "rate": "Sen slope",
+      "interval": "95% interval",
+      "mean": "Mean days per year"
+    },
+    "rows": {
+      "station": "Sky Harbor station (NOAA)",
+      "grid_cell": "POWER grid cell (NASA)"
+    },
+    "interval": "{low} to {high}",
+    "agreement": "Both trends rise, and the yearly counts correlate at r = {r}. With the trend line taken out of each series, r is still {detrended}, so the cell follows the station from year to year, not only in its trend.",
+    "gap": "The cell counts about {gap} fewer such days a year than the station. One grid cell covers the city and the desert around it, so it cannot resolve a city's heat island.",
+    "source": "Source: {file}, from GHCN-Daily station {station} (NOAA NCEI), computed with engine version {version}."
+  },
   "sources": {
     "heading": "Sources and licenses",
     "intro": "Every dataset, font, code package and paper that the app uses, with its license and how to cite it.",

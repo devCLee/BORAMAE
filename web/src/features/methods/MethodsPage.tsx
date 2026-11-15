@@ -7,9 +7,11 @@ import { Link } from "@/i18n/navigation";
 
 import { FalseAlarmSection } from "./FalseAlarmSection";
 import { SourceList } from "./SourceList";
+import { StationCheckSection } from "./StationCheckSection";
 
 /**
- * The Methods page (DES-023): the measured false-alarm rates, the data note, one
+ * The Methods page (DES-023): the measured false-alarm rates, the data note, the
+ * station check, one
  * attribution per inventory entry and the AI-use note, in the UI language.
  */
 export function MethodsPage() {
@@ -32,6 +34,7 @@ export function MethodsPage() {
       </div>
       <FalseAlarmSection />
       <TextSection heading={t("data.heading")} body={t("data.model")} />
+      <StationCheckSection />
       <SourceList />
       <TextSection heading={t("ai.heading")} body={t("ai.note")} />
     </main>
