@@ -1,0 +1,13 @@
+{"utc": "13:06:23Z", "status": 429, "ms": 65, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:06:43Z", "status": 429, "ms": 35, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:07:03Z", "status": 429, "ms": 223, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:07:24Z", "status": 429, "ms": 60, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:07:44Z", "status": 429, "ms": 53, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:08:04Z", "status": 429, "ms": 42, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:08:24Z", "status": 429, "ms": 68, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:08:44Z", "status": 429, "ms": 48, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:09:04Z", "status": 429, "ms": 39, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:09:24Z", "status": 429, "ms": 64, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:09:44Z", "status": 429, "ms": 48, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:10:04Z", "status": 429, "ms": 51, "x_cache": "Error from cloudfront", "content_type": null, "body_head": ""}
+{"utc": "13:10:24Z", "status": 200, "ms": 487, "x_cache": "Miss from cloudfront", "content_type": "application/json", "body_head": null}

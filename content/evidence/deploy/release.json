@@ -1,0 +1,85 @@
+{
+  "status": "deployed",
+  "reason": "/health, /ko/ and /en/ answered 200 through the CloudFront distribution at 21:48 KST (12:48 UTC) on 2026-11-15.",
+  "public_url": "https://d3gct1libr2d5x.cloudfront.net/",
+  "judge_links": [
+    "https://d3gct1libr2d5x.cloudfront.net/ko/?demo=first-snow-seoul&at=result",
+    "https://d3gct1libr2d5x.cloudfront.net/en/?demo=hot-days-phoenix&at=result"
+  ],
+  "release_id": "20261115T121537Z",
+  "release_folder": "s3://boramae-webbucket12880f5b-efbrfmsrxu4o/releases/20261115T121537Z/",
+  "distribution": {
+    "id": "E3TMCQA0963F96",
+    "status": "Deployed",
+    "origins": [
+      {"domain": "boramae-webbucket12880f5b-efbrfmsrxu4o.s3.us-west-2.amazonaws.com", "origin_path": "/releases/20261115T121537Z"},
+      {"domain": "bo-5cf93111162a4ce89e2798885606c03f.ecs.us-west-2.on.aws", "origin_path": ""}
+    ]
+  },
+  "image_digest": "sha256:daaac9e7cb951b2bc8a4466e0e9d98a9441e23063a9bf86ce33188f8f110709e",
+  "image": {
+    "repository": "cdk-hnb659fds-container-assets-177950257164-us-west-2",
+    "tag": "dbe7b8adf48ff95aae78a7b940bf73084cdf539d05f133896cbfdba4b6e00af7",
+    "pushed_at_kst": "2026-11-15T21:33:45+09:00",
+    "size_bytes": 299134956,
+    "task_definition": "arn:aws:ecs:us-west-2:177950257164:task-definition/BoramaeApiTask619AF8D9:1",
+    "running_task_digest_matches": true,
+    "cpu_architecture": "ARM64"
+  },
+  "api_service": {
+    "arn": "arn:aws:ecs:us-west-2:177950257164:service/default/boramae-api",
+    "status": "ACTIVE",
+    "desired_count": 1,
+    "running_count": 1,
+    "pending_count": 0,
+    "primary_deployment_rollout": "COMPLETED"
+  },
+  "stack_outputs": {
+    "PublicDomain": "d3gct1libr2d5x.cloudfront.net",
+    "DistributionId": "E3TMCQA0963F96",
+    "WebBucketName": "boramae-webbucket12880f5b-efbrfmsrxu4o",
+    "DataBucketName": "boramae-databuckete3889a50-34ucz49awzhz",
+    "ApiEndpoint": "https://bo-5cf93111162a4ce89e2798885606c03f.ecs.us-west-2.on.aws",
+    "ApiServiceArn": "arn:aws:ecs:us-west-2:177950257164:service/default/boramae-api",
+    "EdgeWebAclArn": "arn:aws:wafv2:us-east-1:177950257164:global/webacl/boramae-edge-b2fbde84266c/c5109c12-4f42-4565-bc8b-4109182e5be6"
+  },
+  "stack_times": {
+    "source": "aws cloudformation describe-stack-events, stack Boramae",
+    "review_in_progress": {"utc": "2026-11-15T12:33:48Z", "kst": "2026-11-15T21:33:48+09:00"},
+    "create_in_progress": {"utc": "2026-11-15T12:33:57Z", "kst": "2026-11-15T21:33:57+09:00"},
+    "create_complete": {"utc": "2026-11-15T12:43:26Z", "kst": "2026-11-15T21:43:26+09:00"},
+    "terminal_reported_kst": {"create_in_progress": "21:34:02", "create_complete": "21:43:39"}
+  },
+  "deploy_wall_time_s": 569,
+  "aws_writes_made": [
+    {"write": "cdk bootstrap (CDKToolkit, us-west-2)", "who": "an agent, with user approval", "when_kst": "2026-11-15 20:12"},
+    {"write": "aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com", "who": "the user, in their own terminal", "when_kst": "2026-11-15 21:32:31 (role CreateDate 12:32:31 UTC)"},
+    {"write": "cdk deploy Boramae -c releaseId=20261115T121537Z (includes the container image push to ECR at 21:33:45 KST)", "who": "the user, in their own terminal", "when_kst": "2026-11-15 21:33 to 21:43"},
+    {"write": "aws s3 sync web/out s3://boramae-webbucket12880f5b-efbrfmsrxu4o/releases/20261115T121537Z/ (82 objects)", "who": "the user, in their own terminal", "when_kst": "2026-11-15, done by 21:47:18"},
+    {"write": "aws s3 sync api/.data-demo s3://boramae-databuckete3889a50-34ucz49awzhz/ (27 objects)", "who": "the user, in their own terminal", "when_kst": "2026-11-15, done by 21:47:36"}
+  ],
+  "upload_check": {
+    "web": {"local_files": 82, "remote_keys": 82, "missing": [], "extra": []},
+    "data": {"local_files": 27, "remote_keys": 27, "missing": [], "extra": []},
+    "content_types": {"checked": {".js": 16, ".mjs": 7, ".css": 3}, "seen": ["text/javascript", "text/css"], "wrong": []}
+  },
+  "smoke": {
+    "base": "https://d3gct1libr2d5x.cloudfront.net",
+    "at_kst": "2026-11-15 21:48",
+    "requests": 9,
+    "results": [
+      {"path": "/health", "status": 200, "content_type": "application/json", "server_timing": "total;dur=0.4", "body": "{\"status\":\"ok\"}"},
+      {"path": "/ko/", "status": 200, "content_type": "text/html", "server_timing": null},
+      {"path": "/en/", "status": 200, "content_type": "text/html", "server_timing": null},
+      {"path": "/meta/catalog.json", "status": 200, "content_type": "application/json", "server_timing": null},
+      {"path": "/ko/__next._tree.txt", "status": 200, "content_type": "text/plain", "server_timing": null},
+      {"path": "/ko/index.txt", "status": 200, "content_type": "text/plain", "server_timing": null},
+      {"path": "/_next/static/2bOFPipnYGTR87ScXnczA/_buildManifest.js", "status": 200, "content_type": "text/javascript", "server_timing": null},
+      {"path": "/_next/static/media/maplibre-gl-dev.2n8q1x8178ckw.mjs", "status": 200, "content_type": "text/javascript", "server_timing": null},
+      {"path": "/r/trend/04950cfc7428ea3006fe8e654ba69bf8.json", "status": 200, "content_type": "application/json", "server_timing": null}
+    ]
+  },
+  "first_attempt": "At 21:17 KST an automated run stopped before any AWS write: the Claude Code auto mode permission classifier denied write 1 (aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com), and by the denial rule no later write was tried. That run wrote this file with status failed. The user then ran the writes in their own terminal.",
+  "web_export": {"built_at_head": "116b264", "files": 82, "scan_export": "97 files, 0 problems"},
+  "recorded_utc": "2026-11-15T12:50:00Z"
+}
