@@ -23,7 +23,7 @@
     "request_id": "요청 ID"
   },
   "methods": {
-    "sen_mk_hamed_rao_lag1": "센 기울기와 맨-켄달 검정, 시차 1 자기상관 보정(Hamed–Rao)"
+    "sen_mk_hamed_rao_lag1": "센 기울기와 맨-켄달 검정, 시차 1 자기상관 보정(Hamed–Rao). 각 값은 NASA POWER 저장소가 변수별로 명시한 소수 자릿수로 읽는다."
   },
   "day_basis_utc": "하루는 UTC 기준 0시부터 24시까지다.",
   "model": {

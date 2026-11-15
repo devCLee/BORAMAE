@@ -1,1 +1,42 @@
-{}
+{
+  "sentences": {
+    "significant_rise": "The values in this area are rising, and the tests call the rise significant.",
+    "significant_fall": "The values in this area are falling, and the tests call the fall significant.",
+    "not_yet": "The values lean one way, but the tests cannot yet call it a trend.",
+    "no_trend": "The tests found no clear trend. This does not mean that no change is possible: the interval shows the rates that the data still allow.",
+    "record_too_short": "The record is shorter than the minimum for this variable, so the card shows the statistics and gives no verdict.",
+    "no_data": "No data for this area and time window, so the app tested nothing."
+  },
+  "fields": {
+    "change": "Change over the record",
+    "years_tested": "Years tested",
+    "values": "Yearly values",
+    "min_record": "Minimum record",
+    "threshold": "Threshold used",
+    "data_through": "Data through"
+  },
+  "range": "<from></from> to <to></to>",
+  "amount": "<num></num> {unit}",
+  "years": "<num></num> {count, plural, one {year} other {years}}",
+  "more_years": "<num></num> more {count, plural, one {year} other {years}}",
+  "month": "{month_name} <year></year>",
+  "detection_estimate": "A detection estimate, not a forecast.",
+  "years_needed_reasons": {
+    "within_record": "The record is already as long as the estimate needs, so more years alone may not settle it.",
+    "zero_slope": "The rate is exactly zero, so no record length would detect it.",
+    "no_scatter": "The yearly values do not scatter around the trend line, so the app cannot make the estimate.",
+    "phi_out_of_range": "The yearly values carry over from year to year too strongly for the estimate."
+  },
+  "stats_reasons": {
+    "too_few_values": "Fewer than three yearly values, so the app cannot compute the statistics."
+  },
+  "notes": {
+    "methods_disagree": "The OLS cross-check and the Mann–Kendall test disagree on this series.",
+    "ols_missing": {
+      "constant_series": "Every yearly value is the same, so the OLS cross-check has no p-value and no interval.",
+      "n_eff_out_of_range": "The yearly values carry over too strongly for the OLS cross-check to give a p-value and an interval.",
+      "other": "The OLS cross-check has no p-value for this series."
+    },
+    "containing_cell": "No grid cell center falls inside this area, so the result uses the one cell that contains it."
+  }
+}

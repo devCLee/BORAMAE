@@ -1,1 +1,42 @@
-{}
+{
+  "sentences": {
+    "significant_rise": "이 지역의 값이 오르고 있고, 검정 결과 이 상승은 유의해요.",
+    "significant_fall": "이 지역의 값이 내려가고 있고, 검정 결과 이 하강은 유의해요.",
+    "not_yet": "값이 한쪽으로 기울어 보이지만, 검정으로는 아직 추세라고 말할 수 없어요.",
+    "no_trend": "검정에서 뚜렷한 추세를 찾지 못했어요. 변화가 있을 수 없다는 뜻은 아니에요. 구간은 자료가 아직 허용하는 변화율의 범위예요.",
+    "record_too_short": "기록이 이 변수의 최소 기록보다 짧아서, 통계값만 보여 주고 판정은 내리지 않아요.",
+    "no_data": "이 지역과 기간에는 자료가 없어서 아무것도 검정하지 못했어요."
+  },
+  "fields": {
+    "change": "기록 기간 동안의 변화",
+    "years_tested": "검정한 연도",
+    "values": "연별 값의 수",
+    "min_record": "최소 기록",
+    "threshold": "적용한 기준",
+    "data_through": "자료의 마지막 달"
+  },
+  "range": "<from></from> ~ <to></to>",
+  "amount": "<num></num>{unit}",
+  "years": "<num></num>년",
+  "more_years": "<num></num>년 더",
+  "month": "<year></year>년 <month></month>월",
+  "detection_estimate": "검출에 대한 추정이지 예보가 아니에요.",
+  "years_needed_reasons": {
+    "within_record": "기록이 이미 추정에 필요한 길이만큼 길어서, 해를 더 쌓는 것만으로는 판가름 나지 않을 수 있어요.",
+    "zero_slope": "변화율이 전혀 없어서, 기록이 아무리 길어도 잡아낼 추세가 없어요.",
+    "no_scatter": "해마다의 값이 추세선 주위로 흩어지지 않아서 추정을 할 수 없어요.",
+    "phi_out_of_range": "해마다의 값이 다음 해로 너무 강하게 이어져서 추정을 할 수 없어요."
+  },
+  "stats_reasons": {
+    "too_few_values": "연별 값이 세 개보다 적어서 통계값을 계산할 수 없어요."
+  },
+  "notes": {
+    "methods_disagree": "OLS 교차 확인과 맨-켄달 검정의 결과가 서로 달라요.",
+    "ols_missing": {
+      "constant_series": "해마다의 값이 모두 같아서, OLS 교차 확인에는 p값도 구간도 없어요.",
+      "n_eff_out_of_range": "해마다의 값이 너무 강하게 이어져서, OLS 교차 확인이 p값과 구간을 낼 수 없어요.",
+      "other": "이 계열에는 OLS 교차 확인의 p값이 없어요."
+    },
+    "containing_cell": "이 지역 안에 중심이 드는 격자가 없어서, 지역을 품은 격자 하나로 계산했어요."
+  }
+}

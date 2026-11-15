@@ -1,1 +1,86 @@
-{}
+{
+  "steps": {
+    "label": "Steps",
+    "names": {
+      "1": "What to investigate",
+      "2": "Variables",
+      "3": "Place",
+      "4": "Time window"
+    }
+  },
+  "back": "Back",
+  "skip": "Skip to explore",
+  "next": "Next",
+  "explore_hint": "Explore mode: click any point on the map for a quick trend.",
+  "question": {
+    "label": "What do you want to investigate?",
+    "placeholder": "For example: Is Seoul's first snow coming later?",
+    "submit": "Ask",
+    "pending": "Reading your question…",
+    "chips": "Example questions"
+  },
+  "variables": {
+    "list": "Proposed variables",
+    "none": "No variable matched your question. Pick one from the catalog.",
+    "unavailable": "{requested} is not in this version.",
+    "nearest": "The nearest variable is {name}.",
+    "no_nearest": "No variable in this version comes close.",
+    "confirm": "Confirm",
+    "confirm_name": "Confirm {name}",
+    "swap": "Swap",
+    "swap_name": "Swap {name}",
+    "add": "Add from the catalog",
+    "unit": "Unit",
+    "dataset": "Dataset",
+    "record": "Record",
+    "record_years": "{start}–{end}",
+    "trend_ready": "Trend-ready",
+    "reasons": {
+      "direct_match": "Your question names this quantity.",
+      "closest_measure": "The closest measure the catalog has for what you asked.",
+      "related_driver": "The registry links it to what you asked.",
+      "place_default": "The default variable for a question that names only a place.",
+      "nearest_available": "The nearest variable to one that this version does not load."
+    }
+  },
+  "picker": {
+    "title": "Pick a variable from the catalog",
+    "description": "Every variable comes from NASA POWER.",
+    "close": "Close"
+  },
+  "metric": {
+    "heading": "How it is measured",
+    "threshold": "Threshold ({unit})"
+  },
+  "op": {
+    "gte": "at or above",
+    "gt": "above",
+    "lte": "at or below",
+    "lt": "below"
+  },
+  "place": {
+    "pin": "Pin at {point}",
+    "radius": "Radius {radius} km",
+    "cells": "{count, plural, one {# grid cell} other {# grid cells}} inside the circle",
+    "containing_cell": "No cell center falls inside the circle, so the app uses the cell that holds the pin.",
+    "no_pin": "No place is pinned yet. Search for a place or click the map. Without a pin, the analysis uses the current map view."
+  },
+  "window": {
+    "latest": "{start} to the latest valid month",
+    "range": "{start} to {end}",
+    "hint": "Change it with the time slider below the map."
+  },
+  "read_back": {
+    "heading": "Your investigation",
+    "sentence": "{area}: {metric} of {variable}{condition}{months}, {window}?",
+    "area_pin": "{place} within {radius} km",
+    "area_view": "The current map view",
+    "condition": ", {op} {value} {unit}",
+    "months_range": ", {from} to {to}",
+    "months_one": ", {from}",
+    "window_latest": "{start} onward",
+    "window_range": "{start} to {end}",
+    "confirm": "Confirm and run",
+    "confirmed": "Confirmed. The result opens in the result panel."
+  }
+}

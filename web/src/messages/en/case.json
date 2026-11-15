@@ -1,1 +1,5 @@
-{}
+{
+  "idle": "Pick a place on the map, or ask a question, to see a tested trend here.",
+  "loading": "Loading the result",
+  "updating": "Loading the result of the new request"
+}

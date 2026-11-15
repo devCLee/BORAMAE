@@ -1,1 +1,8 @@
-{}
+{
+  "label": "Map",
+  "canvas": "Globe with land and country outlines. Drag it, or use the arrow keys, to turn it.",
+  "pin": "Pinned place. Use the arrow keys to move it.",
+  "cell_count": "{count, plural, one {# grid cell} other {# grid cells}} in the area",
+  "containing_cell": "No grid cell center falls inside the area, so the app uses the cell that contains it.",
+  "nearby": "Nearby area: {verdict}, {distance, number} km away. Select it to run the analysis there."
+}

@@ -11,6 +11,14 @@
     "m/s": "m/s",
     "degree-day": "도일",
     "Dobson Units": "DU",
-    "hPa": "hPa"
+    "hPa": "hPa",
+    "day of season": "계절 시작 후 일수",
+    "1": "비율",
+    "%": "%",
+    "months": "개월",
+    "Days": "일",
+    "degree-day-c": "도일",
+    "kg m-2": "kg/m²",
+    "Dobsons": "DU"
   }
 }
