@@ -77,8 +77,8 @@ def build_board(
     results: ResultService,
     catalog: Catalog,
 ) -> tuple[bytes, str, CacheStatus, TrendFacts]:
-    """get_caseboard on the given content. A bad spec raises ProblemError 400, a
-    failing leaf 503; neither stores a board."""
+    """get_caseboard on the given content. A bad focus spec raises ProblemError 400,
+    a failing leaf 503; neither stores a board."""
     if request_spec.kind != CASEBOARD_KIND:
         raise ProblemError(BAD_REQUEST, INVALID_SPEC, "the spec kind is not caseboard")
     validated = validate_request(request_spec, catalog)
@@ -96,10 +96,16 @@ def build_board(
             (role, RegistryRow.model_validate(link.model_dump()))
             for role, link in links
         ]
-        reasons = [_untested(role, row, focus) for role, row in rows]
+        node_specs = [
+            _node_spec(request_spec, _node_side(role, row)) for role, row in rows
+        ]
+        reasons = [
+            _untested(role, row, focus) or _refusal(spec, catalog)
+            for (role, row), spec in zip(rows, node_specs, strict=True)
+        ]
         specs = [request_spec.model_copy(update={"kind": TREND_KIND})] + [
-            _node_spec(request_spec, _node_side(role, row))
-            for (role, row), reason in zip(rows, reasons, strict=True)
+            spec
+            for spec, reason in zip(node_specs, reasons, strict=True)
             if reason is None
         ]
         leaves = [
@@ -194,6 +200,16 @@ def _untested(role: NodeRole, row: RegistryRow, focus: Focus) -> str | None:
     focus_side = _focus_side(role, row)
     if (focus_side.var, focus_side.metric.id) != focus:
         return FOCUS_DIFFERS
+    return None
+
+
+def _refusal(spec: RequestSpec, catalog: Catalog) -> str | None:
+    """The problem code of a node spec that the validator refuses, as a scan lists
+    a refused leaf (user decision 5), or None. Only the refusal is caught."""
+    try:
+        validate_request(spec, catalog)
+    except ProblemError as exc:
+        return exc.code
     return None
 
 

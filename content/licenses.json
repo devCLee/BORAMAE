@@ -1,0 +1,322 @@
+[
+  {
+    "name": "NASA POWER",
+    "kind": "data",
+    "license": "There are no restrictions on the use, access, and/or download of data from the NASA POWER Project. We request that you cite the NASA POWER Project when using the data provided from NASA POWER Project. Creative Commons BY 4.0",
+    "url": "https://registry.opendata.aws/nasa-power/",
+    "citation": "The data was obtained from National Aeronautics and Space Administration (NASA) Langley Research Center's Prediction Of Worldwide Energy Resources (POWER) project funded through the NASA Earth Science Division. NASA Prediction of Worldwide Energy Resources (POWER) was accessed on 2026-11-15 from https://registry.opendata.aws/nasa-power. Data reference: POWER Version 10.0.0, the Zarr stores power_merra2_daily_temporal_utc.zarr and power_merra2_monthly_temporal_utc.zarr.",
+    "is_verified": true
+  },
+  {
+    "name": "MERRA-2",
+    "kind": "data",
+    "license": "Used only through NASA POWER, under the NASA POWER terms",
+    "url": "https://doi.org/10.1175/JCLI-D-16-0758.1",
+    "citation": "Gelaro, R., et al., 2017: The Modern-Era Retrospective Analysis for Research and Applications, Version 2 (MERRA-2). Journal of Climate, 30, 5419–5454, doi:10.1175/JCLI-D-16-0758.1. The POWER stores that this app reads are derived from MERRA-2.",
+    "is_verified": false
+  },
+  {
+    "name": "Natural Earth",
+    "kind": "data",
+    "license": "All versions of Natural Earth raster + vector map data found on this website are in the public domain.",
+    "url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "citation": "Made with Natural Earth. The base map uses the 1:50m land and country borders of Natural Earth version 4.1.0, through world-atlas 2.0.2. The place search uses the 1:10m populated places and states and provinces of Natural Earth version 5.1.2, whose names come from Wikidata under CC0.",
+    "is_verified": true
+  },
+  {
+    "name": "world-atlas",
+    "kind": "data",
+    "license": "ISC",
+    "url": "https://github.com/topojson/world-atlas",
+    "citation": "world-atlas 2.0.2, Copyright 2013-2019 Michael Bostock: a redistribution of Natural Earth's vector data, version 4.1.0, as TopoJSON.",
+    "is_verified": true
+  },
+  {
+    "name": "Pretendard",
+    "kind": "font",
+    "license": "OFL-1.1",
+    "url": "https://github.com/orioncactus/pretendard",
+    "citation": "Pretendard 1.3.9, Copyright (c) 2021, Kil Hyung-jin (https://github.com/orioncactus/pretendard), with Reserved Font Name Pretendard. The static export ships its variable WOFF2 file.",
+    "is_verified": true
+  },
+  {
+    "name": "@tanstack/react-query",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://tanstack.com/query",
+    "citation": "@tanstack/react-query 5.107.1, Copyright (c) 2021-present Tanner Linsley.",
+    "is_verified": true
+  },
+  {
+    "name": "class-variance-authority",
+    "kind": "code",
+    "license": "Apache-2.0",
+    "url": "https://github.com/joe-bell/cva",
+    "citation": "class-variance-authority 0.7.1, Copyright 2022 Joe Bell.",
+    "is_verified": true
+  },
+  {
+    "name": "cn",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://github.com/shadcn-ui/cn",
+    "citation": "cn 0.5.2, Copyright (c) 2026 shadcn.",
+    "is_verified": true
+  },
+  {
+    "name": "d3",
+    "kind": "code",
+    "license": "ISC",
+    "url": "https://d3js.org",
+    "citation": "d3 7.9.2, Copyright 2010-2026 Mike Bostock.",
+    "is_verified": true
+  },
+  {
+    "name": "lucide-react",
+    "kind": "code",
+    "license": "ISC; the icons derived from Feather are MIT",
+    "url": "https://lucide.dev",
+    "citation": "lucide-react 1.73.0, Copyright (c) 2026 Lucide Icons and Contributors. The icons derived from the Feather project: Copyright (c) 2013-present Cole Bemis.",
+    "is_verified": true
+  },
+  {
+    "name": "maplibre-gl",
+    "kind": "code",
+    "license": "BSD-3-Clause",
+    "url": "https://maplibre.org/",
+    "citation": "maplibre-gl 6.18.0, Copyright (c) 2023, MapLibre contributors. It contains code from mapbox-gl-js v1.13 and earlier, Copyright (c) 2020, Mapbox (BSD-3-Clause), from glfx.js, Copyright (C) 2011 by Evan Wallace (MIT), and a portion of d3-color, Copyright 2010-2016 Mike Bostock (BSD-3-Clause). The static export also holds its worker file, basemap/maplibre-gl-worker.mjs.",
+    "is_verified": true
+  },
+  {
+    "name": "next",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://nextjs.org",
+    "citation": "next 16.4.6, Copyright (c) 2025 Vercel, Inc.",
+    "is_verified": true
+  },
+  {
+    "name": "next-intl",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://next-intl.dev",
+    "citation": "next-intl 4.15.1, Copyright (c) 2024 Jan Amann.",
+    "is_verified": true
+  },
+  {
+    "name": "radix-ui",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://radix-ui.com/primitives",
+    "citation": "radix-ui 1.8.1, Copyright (c) 2022 WorkOS.",
+    "is_verified": true
+  },
+  {
+    "name": "react",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://react.dev/",
+    "citation": "react 19.3.1, Copyright (c) Meta Platforms, Inc. and affiliates.",
+    "is_verified": true
+  },
+  {
+    "name": "react-dom",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://react.dev/",
+    "citation": "react-dom 19.3.1, Copyright (c) Meta Platforms, Inc. and affiliates.",
+    "is_verified": true
+  },
+  {
+    "name": "shadcn",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://ui.shadcn.com",
+    "citation": "shadcn 4.23.0, Copyright (c) 2023 shadcn.",
+    "is_verified": true
+  },
+  {
+    "name": "tw-animate-css",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://github.com/Wombosvideo/tw-animate-css",
+    "citation": "tw-animate-css 1.4.0, Copyright (c) 2025 Wombosvideo.",
+    "is_verified": true
+  },
+  {
+    "name": "topojson-client",
+    "kind": "code",
+    "license": "ISC",
+    "url": "https://github.com/topojson/topojson-client",
+    "citation": "topojson-client 3.1.0, Copyright 2012-2019 Michael Bostock. It turns the world-atlas outlines into the GeoJSON files of the base map when those files are generated.",
+    "is_verified": true
+  },
+  {
+    "name": "fastapi",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://github.com/fastapi/fastapi",
+    "citation": "fastapi 0.162.7, Copyright (c) 2018 Sebastián Ramírez.",
+    "is_verified": true
+  },
+  {
+    "name": "uvicorn",
+    "kind": "code",
+    "license": "BSD-3-Clause",
+    "url": "https://uvicorn.dev/",
+    "citation": "uvicorn 0.54.0, Copyright © 2017-present, Encode OSS Ltd.",
+    "is_verified": true
+  },
+  {
+    "name": "websockets",
+    "kind": "code",
+    "license": "BSD-3-Clause",
+    "url": "https://github.com/python-websockets/websockets",
+    "citation": "websockets 17.4, Copyright (c) Aymeric Augustin and contributors.",
+    "is_verified": true
+  },
+  {
+    "name": "pydantic",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://github.com/pydantic/pydantic",
+    "citation": "pydantic 2.14.3, Copyright (c) 2017 to present Pydantic Services Inc. and individual contributors.",
+    "is_verified": true
+  },
+  {
+    "name": "numpy",
+    "kind": "code",
+    "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+    "url": "https://numpy.org",
+    "citation": "numpy 2.5.4, Copyright (c) 2005-2025, NumPy Developers.",
+    "is_verified": true
+  },
+  {
+    "name": "scipy",
+    "kind": "code",
+    "license": "BSD-3-Clause",
+    "url": "https://scipy.org/",
+    "citation": "scipy 1.18.1, Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers.",
+    "is_verified": true
+  },
+  {
+    "name": "xarray",
+    "kind": "code",
+    "license": "Apache-2.0",
+    "url": "https://xarray.dev/",
+    "citation": "xarray 2026.9.0, Copyright 2014-2024 xarray Developers.",
+    "is_verified": true
+  },
+  {
+    "name": "zarr",
+    "kind": "code",
+    "license": "MIT",
+    "url": "https://github.com/zarr-developers/zarr-python",
+    "citation": "zarr 3.4.2, Copyright (c) 2015-2025 Zarr Developers.",
+    "is_verified": true
+  },
+  {
+    "name": "fsspec",
+    "kind": "code",
+    "license": "BSD-3-Clause",
+    "url": "https://github.com/fsspec/filesystem_spec",
+    "citation": "fsspec 2026.9.0, Copyright (c) 2018, Martin Durant.",
+    "is_verified": true
+  },
+  {
+    "name": "aiohttp",
+    "kind": "code",
+    "license": "Apache-2.0 AND MIT",
+    "url": "https://github.com/aio-libs/aiohttp",
+    "citation": "aiohttp 3.14.5, Copyright aio-libs contributors. It contains llhttp, Copyright © 2018 Fedor Indutny (MIT).",
+    "is_verified": true
+  },
+  {
+    "name": "boto3",
+    "kind": "code",
+    "license": "Apache-2.0",
+    "url": "https://github.com/boto/boto3",
+    "citation": "boto3 1.44.3, Copyright 2013-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.",
+    "is_verified": true
+  },
+  {
+    "name": "strands-agents",
+    "kind": "code",
+    "license": "Apache-2.0",
+    "url": "https://github.com/strands-agents/harness-sdk",
+    "citation": "strands-agents 1.65.0, Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.",
+    "is_verified": true
+  },
+  {
+    "name": "Knowles et al. 2006",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.1175/JCLI3850.1",
+    "citation": "Knowles et al. 2006, doi:10.1175/JCLI3850.1. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Mudryk et al. 2020",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.5194/tc-14-2495-2020",
+    "citation": "Mudryk et al. 2020, doi:10.5194/tc-14-2495-2020. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Blankinship et al. 2014",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.1002/2013WR014541",
+    "citation": "Blankinship et al. 2014, doi:10.1002/2013WR014541. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Seneviratne et al. 2010",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.1016/j.earscirev.2010.02.004",
+    "citation": "Seneviratne et al. 2010, doi:10.1016/j.earscirev.2010.02.004. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Vicente-Serrano et al. 2018",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.5194/esd-9-915-2018",
+    "citation": "Vicente-Serrano et al. 2018, doi:10.5194/esd-9-915-2018. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Held & Soden 2006",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.1175/JCLI3990.1",
+    "citation": "Held & Soden 2006, doi:10.1175/JCLI3990.1. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Allan & Soden 2008",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.1126/science.1160787",
+    "citation": "Allan & Soden 2008, doi:10.1126/science.1160787. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Rodell et al. 2004",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.1029/2004GL020873",
+    "citation": "Rodell et al. 2004, doi:10.1029/2004GL020873. The case board cites it for its links.",
+    "is_verified": false
+  },
+  {
+    "name": "Kunkel et al. 2004",
+    "kind": "literature",
+    "license": "Cited by DOI; no text, figure or data is reused",
+    "url": "https://doi.org/10.1029/2003GL018624",
+    "citation": "Kunkel et al. 2004, doi:10.1029/2003GL018624. The case board cites it for its links.",
+    "is_verified": false
+  }
+]

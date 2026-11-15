@@ -5,29 +5,12 @@ from starlette.websockets import WebSocketDisconnect
 from boramae.main import create_app
 
 DEV_ORIGIN = "http://localhost:3000"
-STUB_PATHS = []
 
 
 @pytest.fixture
 def dev_client(monkeypatch):
     monkeypatch.setenv("BORAMAE_DEV_CORS_ORIGIN", DEV_ORIGIN)
     return TestClient(create_app())
-
-
-@pytest.mark.parametrize(("method", "path"), STUB_PATHS)
-def test_stub_path_answers_501(client, method, path):
-    assert client.request(method, path).status_code == 501
-
-
-@pytest.mark.parametrize(("method", "path"), STUB_PATHS)
-def test_stub_path_sends_the_not_built_problem(client, method, path):
-    assert client.request(method, path).json()["code"] == "not_built"
-
-
-@pytest.mark.parametrize(("method", "path"), STUB_PATHS)
-def test_stub_path_uses_the_problem_media_type(client, method, path):
-    response = client.request(method, path)
-    assert response.headers["content-type"] == "application/problem+json"
 
 
 def test_agent_socket_sends_a_not_built_error(client):

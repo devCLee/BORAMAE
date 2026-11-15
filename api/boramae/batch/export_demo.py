@@ -3,9 +3,9 @@
 Run: python -m boramae.batch export-demo [--out DIR] (default ../web/public/demo). Each
 case of content/demo/cases.json gets its parse proposal in each language, its stored
 trend, the stored board for a significant verdict or the stored scan for another
-tested verdict (TRD Q-12), the trend of each board node and the guide answers of
-content/demo/answers that exist; then the catalog and manifest.json. It computes
-nothing, so run warm first. Files hold stored bytes: a second export is equal.
+tested verdict (TRD Q-12), the trend of each board node and scan hit, and the guide
+answers of content/demo/answers that exist; then the catalog and manifest.json. It
+computes nothing, so run warm first. Files hold stored bytes: a second export is equal.
 """
 
 import argparse
@@ -14,6 +14,7 @@ from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
 
 from boramae import deps
+from boramae.batch.export_refs import hit_trends, node_trends
 from boramae.batch.warm import (
     CASEBOARD_KIND,
     SCAN_KIND,
@@ -30,7 +31,6 @@ from boramae.contracts.content import (
 )
 from boramae.contracts.http import CacheStatus
 from boramae.contracts.results import TrendResult
-from boramae.contracts.results_board import CaseBoard
 from boramae.contracts.results_catalog import Catalog
 from boramae.contracts.spec import (
     SPEC_VERSION,
@@ -167,8 +167,12 @@ def _export_case(
     if opened is not None:
         body, key = stored(opened)
         kinds[opened.kind] = _entry(case, opened, key, body, files)
-        if opened.kind == CASEBOARD_KIND:
-            referenced = _node_trends(case, body, results, files)
+        trends = (
+            node_trends(body, results.read)
+            if opened.kind == CASEBOARD_KIND
+            else hit_trends(case.id, body, results.store)
+        )
+        referenced = _referenced(case, trends, files)
     return ManifestCase(
         case_id=case.id,
         parse=parse,
@@ -246,18 +250,13 @@ def _opened_spec(case: DemoCase, trend: TrendResult) -> RequestSpec | None:
     return spec
 
 
-def _node_trends(
-    case: DemoCase, board_body: bytes, results: StoredResults, files: dict[str, bytes]
+def _referenced(
+    case: DemoCase, trends: Mapping[str, bytes], files: dict[str, bytes]
 ) -> dict[str, dict[str, str]]:
-    """referenced of a board: the stored trend of each node with a trend key."""
-    keys = [
-        node.trend_key
-        for node in CaseBoard.model_validate_json(board_body).nodes
-        if node.trend_key is not None
-    ]
+    """referenced of a case: the file of each trend that its board or scan names."""
     paths = {
-        key: _add(files, f"{case.id}/trend.{key}.json", results.read(TREND_KIND, key))
-        for key in keys
+        key: _add(files, f"{case.id}/trend.{key}.json", body)
+        for key, body in trends.items()
     }
     return {TREND_KIND: paths} if paths else {}
 
