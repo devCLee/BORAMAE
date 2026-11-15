@@ -1,0 +1,198 @@
+[
+  {
+    "spec": {
+      "area": {
+        "lat": 37.5665,
+        "lon": 126.978,
+        "radius_km": 25
+      },
+      "kind": "trend",
+      "metric": {
+        "id": "first_date",
+        "op": ">=",
+        "season_start": "08-01",
+        "threshold": "0.1"
+      },
+      "v": 1,
+      "var": "PRECSNO",
+      "window": {
+        "end": "latest",
+        "start": 1981
+      }
+    },
+    "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6InRyZW5kIiwibWV0cmljIjp7ImlkIjoiZmlyc3RfZGF0ZSIsIm9wIjoiPj0iLCJzZWFzb25fc3RhcnQiOiIwOC0wMSIsInRocmVzaG9sZCI6IjAuMSJ9LCJ2IjoxLCJ2YXIiOiJQUkVDU05PIiwid2luZG93Ijp7ImVuZCI6ImxhdGVzdCIsInN0YXJ0IjoxOTgxfX0"
+  },
+  {
+    "spec": {
+      "area": {
+        "lat": 37.5665,
+        "lon": 126.978,
+        "radius_km": 25
+      },
+      "kind": "caseboard",
+      "metric": {
+        "id": "first_date",
+        "op": ">=",
+        "season_start": "08-01",
+        "threshold": "0.1"
+      },
+      "v": 1,
+      "var": "PRECSNO",
+      "window": {
+        "end": "latest",
+        "start": 1981
+      }
+    },
+    "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6ImNhc2Vib2FyZCIsIm1ldHJpYyI6eyJpZCI6ImZpcnN0X2RhdGUiLCJvcCI6Ij49Iiwic2Vhc29uX3N0YXJ0IjoiMDgtMDEiLCJ0aHJlc2hvbGQiOiIwLjEifSwidiI6MSwidmFyIjoiUFJFQ1NOTyIsIndpbmRvdyI6eyJlbmQiOiJsYXRlc3QiLCJzdGFydCI6MTk4MX19"
+  },
+  {
+    "spec": {
+      "area": {
+        "lat": 37.5665,
+        "lon": 126.978,
+        "radius_km": 25
+      },
+      "kind": "trend",
+      "metric": {
+        "id": "rx1day",
+        "months": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "v": 1,
+      "var": "PRECTOTCORR",
+      "window": {
+        "end": "latest",
+        "start": 1981
+      }
+    },
+    "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6InRyZW5kIiwibWV0cmljIjp7ImlkIjoicngxZGF5IiwibW9udGhzIjpbNiw3LDgsOV19LCJ2IjoxLCJ2YXIiOiJQUkVDVE9UQ09SUiIsIndpbmRvdyI6eyJlbmQiOiJsYXRlc3QiLCJzdGFydCI6MTk4MX19"
+  },
+  {
+    "spec": {
+      "area": {
+        "lat": 37.5665,
+        "lon": 126.978,
+        "radius_km": 25
+      },
+      "kind": "scan",
+      "metric": {
+        "id": "rx1day",
+        "months": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "v": 1,
+      "var": "PRECTOTCORR",
+      "window": {
+        "end": "latest",
+        "start": 1981
+      }
+    },
+    "s": "eyJhcmVhIjp7ImxhdCI6MzcuNTY2NSwibG9uIjoxMjYuOTc4LCJyYWRpdXNfa20iOjI1fSwia2luZCI6InNjYW4iLCJtZXRyaWMiOnsiaWQiOiJyeDFkYXkiLCJtb250aHMiOls2LDcsOCw5XX0sInYiOjEsInZhciI6IlBSRUNUT1RDT1JSIiwid2luZG93Ijp7ImVuZCI6ImxhdGVzdCIsInN0YXJ0IjoxOTgxfX0"
+  },
+  {
+    "spec": {
+      "area": {
+        "lat": 33.4484,
+        "lon": -112.074,
+        "radius_km": 25
+      },
+      "kind": "trend",
+      "metric": {
+        "id": "threshold_days",
+        "months": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "op": ">=",
+        "threshold": "43.3"
+      },
+      "v": 1,
+      "var": "T2M_MAX",
+      "window": {
+        "end": "latest",
+        "start": 1981
+      }
+    },
+    "s": "eyJhcmVhIjp7ImxhdCI6MzMuNDQ4NCwibG9uIjotMTEyLjA3NCwicmFkaXVzX2ttIjoyNX0sImtpbmQiOiJ0cmVuZCIsIm1ldHJpYyI6eyJpZCI6InRocmVzaG9sZF9kYXlzIiwibW9udGhzIjpbNSw2LDcsOCw5LDEwXSwib3AiOiI-PSIsInRocmVzaG9sZCI6IjQzLjMifSwidiI6MSwidmFyIjoiVDJNX01BWCIsIndpbmRvdyI6eyJlbmQiOiJsYXRlc3QiLCJzdGFydCI6MTk4MX19"
+  },
+  {
+    "spec": {
+      "area": {
+        "lat": 35,
+        "lon": 139,
+        "radius_km": 10
+      },
+      "kind": "trend",
+      "metric": {
+        "id": "annual_mean"
+      },
+      "v": 1,
+      "var": "T2M",
+      "window": {
+        "end": "latest",
+        "start": 1981
+      }
+    },
+    "s": "eyJhcmVhIjp7ImxhdCI6MzUsImxvbiI6MTM5LCJyYWRpdXNfa20iOjEwfSwia2luZCI6InRyZW5kIiwibWV0cmljIjp7ImlkIjoiYW5udWFsX21lYW4ifSwidiI6MSwidmFyIjoiVDJNIiwid2luZG93Ijp7ImVuZCI6ImxhdGVzdCIsInN0YXJ0IjoxOTgxfX0"
+  },
+  {
+    "spec": {
+      "area": {
+        "east": 131.875,
+        "north": 38.75,
+        "south": 33,
+        "west": 124.5
+      },
+      "kind": "trend",
+      "metric": {
+        "id": "annual_mean"
+      },
+      "v": 1,
+      "var": "T2M",
+      "window": {
+        "end": 2020,
+        "start": 1991
+      }
+    },
+    "s": "eyJhcmVhIjp7ImVhc3QiOjEzMS44NzUsIm5vcnRoIjozOC43NSwic291dGgiOjMzLCJ3ZXN0IjoxMjQuNX0sImtpbmQiOiJ0cmVuZCIsIm1ldHJpYyI6eyJpZCI6ImFubnVhbF9tZWFuIn0sInYiOjEsInZhciI6IlQyTSIsIndpbmRvdyI6eyJlbmQiOjIwMjAsInN0YXJ0IjoxOTkxfX0"
+  },
+  {
+    "spec": {
+      "area": {
+        "lat": 37.75,
+        "lon": 128.875,
+        "radius_km": 150.5
+      },
+      "kind": "trend",
+      "metric": {
+        "id": "threshold_days",
+        "months": [
+          12,
+          1,
+          2
+        ],
+        "op": "<",
+        "threshold": "-10"
+      },
+      "v": 1,
+      "var": "T2M_MIN",
+      "window": {
+        "end": 2025,
+        "start": 1981
+      }
+    },
+    "s": "eyJhcmVhIjp7ImxhdCI6MzcuNzUsImxvbiI6MTI4Ljg3NSwicmFkaXVzX2ttIjoxNTAuNX0sImtpbmQiOiJ0cmVuZCIsIm1ldHJpYyI6eyJpZCI6InRocmVzaG9sZF9kYXlzIiwibW9udGhzIjpbMTIsMSwyXSwib3AiOiI8IiwidGhyZXNob2xkIjoiLTEwIn0sInYiOjEsInZhciI6IlQyTV9NSU4iLCJ3aW5kb3ciOnsiZW5kIjoyMDI1LCJzdGFydCI6MTk4MX19"
+  }
+]
