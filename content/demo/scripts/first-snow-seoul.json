@@ -1,0 +1,114 @@
+{
+  "id": "first-snow-seoul",
+  "case_id": "first-snow-seoul",
+  "steps": [
+    {
+      "id": "choose-language",
+      "action": "choose_language",
+      "args": { "lang": "ko" },
+      "caption": {
+        "en": "Ask NASA data a question about your place",
+        "ko": "내가 사는 곳에 대해 NASA 자료에 물어보세요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "type-question",
+      "action": "type_question",
+      "args": { "text": "서울 첫눈이 늦어지고 있나요?" },
+      "caption": {
+        "en": "Type the question in your own words",
+        "ko": "궁금한 것을 내 말로 적어요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "submit-question",
+      "action": "submit_question",
+      "args": {},
+      "caption": {
+        "en": "The app suggests NASA variables; you decide",
+        "ko": "앱이 NASA 변수를 제안하고, 고르는 건 나예요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "confirm-variables",
+      "action": "confirm_variables",
+      "args": {
+        "var": "PRECSNO",
+        "metric": {
+          "id": "first_date",
+          "threshold": "0.1",
+          "op": ">=",
+          "season_start": "08-01"
+        }
+      },
+      "caption": {
+        "en": "Confirm the variable to test",
+        "ko": "검정할 변수를 확인해요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "set-pin",
+      "action": "set_pin",
+      "args": { "lat": 37.5665, "lon": 126.978, "radius_km": 25 },
+      "caption": {
+        "en": "Pin the place and the area around it",
+        "ko": "장소와 그 둘레를 지도에 고정해요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "set-window",
+      "action": "set_window",
+      "args": { "start": 1981, "end": "latest" },
+      "caption": {
+        "en": "Use the whole NASA POWER record",
+        "ko": "NASA POWER 기록 전체를 써요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "confirm-spec",
+      "action": "confirm_spec",
+      "args": {},
+      "caption": {
+        "en": "Nothing runs until you confirm",
+        "ko": "확인하기 전에는 아무것도 실행하지 않아요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "show-verdict",
+      "action": "show_verdict",
+      "args": {},
+      "caption": {
+        "en": "NASA POWER data, tested for a trend",
+        "ko": "NASA POWER 자료로 추세를 검정했어요"
+      },
+      "is_verdict_step": true
+    },
+    {
+      "id": "open-fallback",
+      "action": "open_fallback",
+      "args": {},
+      "caption": {
+        "en": "No trend here? It shows you where to look next",
+        "ko": "여기에 추세가 없으면, 다음에 볼 곳을 알려 줘요"
+      },
+      "is_verdict_step": false
+    },
+    {
+      "id": "closing-card",
+      "action": "closing_card",
+      "args": {},
+      "caption": {
+        "en": "NASA POWER · MERRA-2 · English and Korean · open source",
+        "ko": "NASA POWER · MERRA-2 · 영어와 한국어 · 오픈 소스"
+      },
+      "is_verdict_step": false
+    }
+  ]
+}

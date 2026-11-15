@@ -68,8 +68,8 @@
     "metric_id": "season_length",
     "intent": "duration",
     "default_months": null,
-    "default_threshold": null,
-    "op": null
+    "default_threshold": "5",
+    "op": "<"
   },
   {
     "keywords": {

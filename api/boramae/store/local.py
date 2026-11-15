@@ -1,10 +1,13 @@
 """Result store in a local folder, for development, tests and the demo bundle."""
 
 import os
+import time
 import uuid
 from pathlib import Path
 
 DRAFT_SUFFIX = ".part"
+REPLACE_RETRIES = 5
+REPLACE_WAIT_S = 0.05
 
 
 class LocalStore:
@@ -36,7 +39,17 @@ class LocalStore:
 
     def put(self, path: str, body: bytes) -> None:
         target = self.root / path
-        os.replace(_write_draft(target, body), target)
+        draft = _write_draft(target, body)
+        # Windows refuses a replace while another process still holds a target
+        # that was written a moment ago, so a refused replace is tried again.
+        for _ in range(REPLACE_RETRIES):
+            try:
+                os.replace(draft, target)
+            except PermissionError:
+                time.sleep(REPLACE_WAIT_S)
+            else:
+                return
+        os.replace(draft, target)
 
 
 def _write_draft(target: Path, body: bytes) -> Path:
