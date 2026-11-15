@@ -13,27 +13,20 @@ import sys
 from collections import Counter
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
-from statistics import fmean
 
 from pydantic import TypeAdapter
 
 from boramae import deps
-from boramae.constants import (
-    GRID_BOX_LAT_MAX,
-    GRID_BOX_LAT_MIN,
-    GRID_BOX_LON_MAX,
-    GRID_BOX_LON_MIN,
-    RESULT_KINDS,
-)
+from boramae.constants import RESULT_KINDS
 from boramae.contracts.content import DemoCase
 from boramae.contracts.http import CacheStatus
 from boramae.contracts.results_catalog import Catalog
-from boramae.contracts.spec import CanonicalSpec, RequestSpec
-from boramae.engine.types import GridDef
+from boramae.contracts.spec import RequestSpec
 from boramae.errors import ProblemError
 from boramae.ports import SeriesReader
 from boramae.services.catalog import load_catalog
 from boramae.services.content import load_content
+from boramae.services.nearby import focus_center, is_in_grid_box
 from boramae.services.trend import TrendFacts
 from boramae.spec.canonical import canonicalize, grid_path
 from boramae.spec.validate import validate_request
@@ -174,21 +167,10 @@ def _missing_grid(
     if spec.kind != SCAN_KIND:
         return None
     focus = canonicalize(validate_request(spec, catalog), catalog)
-    if not _is_in_grid_box(focus, catalog.grid):
+    if not is_in_grid_box(*focus_center(focus.cells, catalog.grid)):
         return None
     path = grid_path(focus.ds, focus.var, focus.metric)
     return None if results.store.get(path) is not None else path
-
-
-# NOTE: the box rule of select_nearby in services/nearby.py, which keeps it private:
-# the mean of the cell centers of the area lies in the grid box.
-def _is_in_grid_box(focus: CanonicalSpec, grid: GridDef) -> bool:
-    lat = grid.lat0 + grid.dlat * fmean(lat_i for lat_i, _ in focus.cells)
-    lon = grid.lon0 + grid.dlon * fmean(lon_i for _, lon_i in focus.cells)
-    return (
-        GRID_BOX_LAT_MIN <= lat <= GRID_BOX_LAT_MAX
-        and GRID_BOX_LON_MIN <= lon <= GRID_BOX_LON_MAX
-    )
 
 
 def _parser() -> argparse.ArgumentParser:

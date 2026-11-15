@@ -1,0 +1,103 @@
+{
+  "package": "W5-DEMO-BUNDLE",
+  "run_date": "2026-11-15",
+  "store": "api/.data-demo (BORAMAE_STORE_URL=file:.data-demo), a fresh folder: it did not exist before this run",
+  "engine_version": "1.0.0",
+  "catalog_version": "936767e91259",
+  "datasets": {
+    "daily": "power-merra2-daily@2026-09, power_merra2_daily_temporal_utc 10.0.0",
+    "monthly": "power-merra2-monthly@2026-09, power_merra2_monthly_temporal_utc 10.0.0"
+  },
+  "decision": "D-06 (b): demo 1 is catalog input 1 (first-snow-seoul, ko) and ends on the fallback; demo 2 is catalog input 44 (hot-days-phoenix, en) and ends on the board CB-02. No threshold and no window was tuned.",
+  "note": "seconds is the wall time of the command; bytes_fetched is what the command reports as read from POWER; null means the command reports no byte count.",
+  "steps": [
+    {
+      "step": "build-catalog",
+      "command": "BORAMAE_STORE_URL=file:.data-demo uv run --directory api python -m boramae.batch build-catalog",
+      "started_utc": "2026-11-15T07:27:50Z",
+      "seconds": 8.0,
+      "bytes_fetched": null,
+      "exit_code": 0,
+      "output": "build-catalog: stored meta/catalog.json 936767e91259"
+    },
+    {
+      "step": "grid PRECTOTCORR rx1day, months 6 to 9",
+      "command": null,
+      "skipped": "This grid served input 10, which D-06 (b) removed as a demo case (orchestrator note for wave 5).",
+      "exit_code": null
+    },
+    {
+      "step": "grid PRECSNO first_date, threshold 0.1, 1981 to latest",
+      "command": "BORAMAE_STORE_URL=file:.data-demo BORAMAE_POWER_CHUNK_TIMEOUT_S=60 uv run --directory api python -m boramae.batch grid --var PRECSNO --metric first_date --threshold 0.1 --window 1981 latest",
+      "started_utc": "2026-11-15T07:28:08Z",
+      "seconds": 38.4,
+      "bytes_fetched": 31512793,
+      "exit_code": 0,
+      "output": "grid: stored grid/power-merra2-daily@2026-09/PRECSNO/d79b0962937ea638.json: 4941 cells, 276 significant, 31512793 bytes fetched in 36.2 s",
+      "blocks": 35,
+      "failed_blocks": 0
+    },
+    {
+      "step": "warm",
+      "command": "BORAMAE_STORE_URL=file:.data-demo BORAMAE_POWER_CHUNK_TIMEOUT_S=60 uv run --directory api python -m boramae.batch warm",
+      "started_utc": "2026-11-15T07:29:38Z",
+      "seconds": 14.7,
+      "bytes_fetched": 36539698,
+      "exit_code": 0,
+      "entries": [
+        { "kind": "trend", "case": "first-snow-seoul", "key": "b5bae5463e95eff888bca78a896bf62a", "outcome": "computed", "bytes_fetched": 1249577 },
+        { "kind": "scan", "case": "first-snow-seoul", "key": "e3b59c39abe696f82d16d02d05193b61", "outcome": "computed", "bytes_fetched": 28768763 },
+        { "kind": "trend", "case": "hot-days-phoenix", "key": "7f9639c9603500c115dc90aa99101e7c", "outcome": "computed", "bytes_fetched": 5375441 },
+        { "kind": "caseboard", "case": "hot-days-phoenix", "key": "dc902a7c8af6538fd2f86ecc6423b5a9", "outcome": "computed", "bytes_fetched": 1145917 }
+      ]
+    },
+    {
+      "step": "export-demo",
+      "command": "BORAMAE_STORE_URL=file:.data-demo BORAMAE_POWER_CHUNK_TIMEOUT_S=60 uv run --directory api python -m boramae.batch export-demo",
+      "started_utc": "2026-11-15T07:31:51Z",
+      "seconds": 2.0,
+      "bytes_fetched": 0,
+      "bytes_written": 133733,
+      "files_written": 15,
+      "exit_code": 0,
+      "output": "export-demo: wrote 2 cases to ../web/public/demo"
+    },
+    {
+      "step": "lint:demo and lint-content --only demo",
+      "command": "npm --prefix web run lint:demo; uv run --directory api python -m boramae.batch lint-content --only demo",
+      "exit_code": 0,
+      "output": "lint:demo checked 2 cases, 2 scripts and the manifest, and found 0 problems; lint-content: 3 files, 0 errors"
+    }
+  ],
+  "rerun": {
+    "started_utc": "2026-11-15T07:42:28Z",
+    "result": "build-catalog stored the same version 936767e91259 (8.1 s); grid: stored, nothing to do (2.0 s); warm: 4 entries, 4 already stored, 0 bytes fetched (1.9 s); export-demo (2.4 s) wrote the same bytes: the sha256 of every bundle file was equal before and after. Every exit code was 0."
+  },
+  "verdicts": [
+    {
+      "case": "first-snow-seoul",
+      "input_id": 1,
+      "verdict": "no_trend",
+      "sen_per_decade": 1.491,
+      "sen_95": [-1.5, 4.286],
+      "mk_p": 0.328,
+      "n": 45,
+      "rate_unit": "days",
+      "opens": "scan (open_fallback)",
+      "scan": "19 variables tested, 3 hits (CDD18_3, PBLTOP, T2M), 0 nearby areas with nearby_note null",
+      "nearby_why_empty": "824 grid cells of the same metric within 1,000 km; 83 of them have a significant verdict on their own, but the smallest Benjamini-Hochberg q of the family is 0.24, above 0.10, so no cell qualifies"
+    },
+    {
+      "case": "hot-days-phoenix",
+      "input_id": 44,
+      "verdict": "significant_rise",
+      "sen_per_decade": 3.333,
+      "sen_95": [1.429, 5.0],
+      "mk_p": 0.00192,
+      "n": 45,
+      "rate_unit": "days",
+      "opens": "caseboard CB-02 (open_board)",
+      "board": "2 nodes, both links consistent: driver summer-root-zone-hot-days (r -0.337, p 0.023) and response hot-days-summer-humidity (r -0.490, p 0.00055)"
+    }
+  ]
+}

@@ -479,12 +479,12 @@
     },
     {
       "id": "NO2",
-      "names": { "en": ["NO2", "NO₂", "nitrogen dioxide"], "ko": ["이산화질소"] },
+      "names": { "en": ["NO2", "NO₂", "nitrogen dioxide", "air getting cleaner"], "ko": ["이산화질소", "공기"] },
       "nearest_var": "PBLTOP"
     },
     {
       "id": "NDVI",
-      "names": { "en": ["NDVI", "greenness", "vegetation"], "ko": ["식생지수", "식생", "녹색도"] },
+      "names": { "en": ["NDVI", "greenness", "vegetation", "greener"], "ko": ["식생지수", "식생", "녹색도", "푸르러"] },
       "nearest_var": "GWETROOT"
     },
     {
@@ -499,7 +499,7 @@
     },
     {
       "id": "MHW",
-      "names": { "en": ["marine heatwave", "marine heat wave"], "ko": ["해양 열파", "바다 폭염"] },
+      "names": { "en": ["marine heatwave", "marine heat wave"], "ko": ["해양 열파", "바다 폭염", "해양열파"] },
       "nearest_var": "TS"
     },
     {

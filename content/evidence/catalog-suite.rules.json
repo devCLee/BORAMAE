@@ -1,0 +1,2603 @@
+{
+  "counting_rule": "An input passes when both of its strings pass (TRD Q-15).",
+  "inputs": 60,
+  "passed_inputs": 23,
+  "strings": 120,
+  "passed_strings": 48,
+  "failing_inputs": [
+    2,
+    3,
+    4,
+    6,
+    7,
+    9,
+    12,
+    13,
+    14,
+    15,
+    16,
+    22,
+    23,
+    24,
+    26,
+    29,
+    31,
+    32,
+    33,
+    34,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    45,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    55,
+    57,
+    60
+  ],
+  "board_gaps": {
+    "board_not_in_this_version": [
+      14,
+      15,
+      22,
+      23,
+      24,
+      32,
+      33,
+      38,
+      40,
+      41,
+      43,
+      50,
+      55
+    ],
+    "pair_not_a_board_focus": [
+      2,
+      3,
+      4,
+      6,
+      7,
+      12,
+      26,
+      42,
+      45
+    ]
+  },
+  "not_compared": {
+    "supported": "It marks whether the engine holds a reducer for the expected metric. A parse names no such field, and metric_id covers the metric."
+  },
+  "edge_cases": {
+    "not_run": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "E17",
+      "E18",
+      "E19",
+      "E20"
+    ],
+    "reason": "The edge cases need scripted replies, which are P1 (FR-29, FR-31)."
+  },
+  "results": [
+    {
+      "input_id": 1,
+      "lang": "ko",
+      "text": "서울 첫눈이 늦어지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 1,
+      "lang": "en",
+      "text": "Is Seoul's first snow coming later?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 2,
+      "lang": "ko",
+      "text": "강원도에 눈이 덜 오나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-01",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 2,
+      "lang": "en",
+      "text": "Is it snowing less in Gangwon?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-01",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 3,
+      "lang": "ko",
+      "text": "한강이 예전처럼 안 얼어요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "서울",
+          "got": "한강 유역"
+        },
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 3,
+      "lang": "en",
+      "text": "Does the Han River freeze less than it used to?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "Seoul",
+          "got": "Han River basin"
+        },
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 4,
+      "lang": "ko",
+      "text": "겨울이 짧아지고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "한국",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 4,
+      "lang": "en",
+      "text": "Are winters getting shorter?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "South Korea",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 5,
+      "lang": "ko",
+      "text": "대구 폭염 일수가 늘었나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 5,
+      "lang": "en",
+      "text": "Are there more heat-wave days in Daegu?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 6,
+      "lang": "ko",
+      "text": "열대야가 많아졌어요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-02",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 6,
+      "lang": "en",
+      "text": "Are tropical nights more common?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-02",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 7,
+      "lang": "ko",
+      "text": "제주 여름이 더워지고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-02",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 7,
+      "lang": "en",
+      "text": "Is Jeju getting warmer in summer?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-02",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 8,
+      "lang": "ko",
+      "text": "에어컨 쓸 날이 늘었나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 8,
+      "lang": "en",
+      "text": "Are there more days that need air-conditioning?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 9,
+      "lang": "ko",
+      "text": "서울이 주변보다 빨리 더워지나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "TS",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 9,
+      "lang": "en",
+      "text": "Is Seoul warming faster than its suburbs?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "TS",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 10,
+      "lang": "ko",
+      "text": "서울 폭우가 더 세졌나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 10,
+      "lang": "en",
+      "text": "Is heavy rain in Seoul getting heavier?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 11,
+      "lang": "ko",
+      "text": "부산에 폭우 오는 날이 늘었나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 11,
+      "lang": "en",
+      "text": "Are there more heavy-rain days in Busan?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 12,
+      "lang": "ko",
+      "text": "장마가 길어지고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "한국",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-03",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 12,
+      "lang": "en",
+      "text": "Is the jangma rainy season getting longer?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "South Korea",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-03",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 13,
+      "lang": "ko",
+      "text": "태풍이 부산에 비를 더 뿌리나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 13,
+      "lang": "en",
+      "text": "Are typhoons bringing more rain to Busan?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 14,
+      "lang": "ko",
+      "text": "전남 가뭄이 잦아졌나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 14,
+      "lang": "en",
+      "text": "Are droughts more frequent in South Jeolla?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 15,
+      "lang": "ko",
+      "text": "경북의 봄철 흙이 더 말라 가나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 15,
+      "lang": "en",
+      "text": "Is spring soil getting drier in Gyeongbuk?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 16,
+      "lang": "ko",
+      "text": "한강 물이 줄었나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 16,
+      "lang": "en",
+      "text": "Is the Han River carrying less water?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 17,
+      "lang": "ko",
+      "text": "경북 봄 산불이 심해지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 17,
+      "lang": "en",
+      "text": "Are spring wildfires in Gyeongbuk getting worse?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 18,
+      "lang": "ko",
+      "text": "캘리포니아 산불이 커지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 18,
+      "lang": "en",
+      "text": "Are California wildfires getting bigger?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 19,
+      "lang": "ko",
+      "text": "서울 미세먼지가 심해지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 19,
+      "lang": "en",
+      "text": "Is fine dust in Seoul getting worse?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 20,
+      "lang": "ko",
+      "text": "황사가 더 자주 오나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 20,
+      "lang": "en",
+      "text": "Is yellow dust coming more often?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 21,
+      "lang": "ko",
+      "text": "서울의 이산화질소가 줄고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 21,
+      "lang": "en",
+      "text": "Is NO2 pollution falling in Seoul?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 22,
+      "lang": "ko",
+      "text": "한국 상공의 오존층이 회복되고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-14",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 22,
+      "lang": "en",
+      "text": "Is the ozone layer recovering over Korea?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-14",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 23,
+      "lang": "ko",
+      "text": "벚꽃이 예전보다 일찍 피나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "서울",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-06",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 23,
+      "lang": "en",
+      "text": "Do cherry blossoms bloom earlier than before?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "Seoul",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-06",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 24,
+      "lang": "ko",
+      "text": "꽃이 핀 뒤 늦서리가 잦아졌나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "한국",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-06",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 24,
+      "lang": "en",
+      "text": "Is late frost after bloom getting more common?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "South Korea",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-06",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 25,
+      "lang": "ko",
+      "text": "강원도 숲이 더 푸르러졌나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 25,
+      "lang": "en",
+      "text": "Are Gangwon's forests getting greener?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 26,
+      "lang": "ko",
+      "text": "대구가 사과 키우기엔 너무 더워졌나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 26,
+      "lang": "en",
+      "text": "Has Daegu become too warm for apples?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 27,
+      "lang": "ko",
+      "text": "단풍이 늦게 들고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 27,
+      "lang": "en",
+      "text": "Are autumn leaves turning later?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 28,
+      "lang": "ko",
+      "text": "알래스카 툰드라가 푸르러지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 28,
+      "lang": "en",
+      "text": "Is Alaska's tundra getting greener?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 29,
+      "lang": "ko",
+      "text": "제주 바다가 따뜻해지고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "TS",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 29,
+      "lang": "en",
+      "text": "Is the sea around Jeju getting warmer?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "TS",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 30,
+      "lang": "ko",
+      "text": "동해에 해양열파가 잦아졌나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 30,
+      "lang": "en",
+      "text": "Are marine heatwaves more frequent in the East Sea?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 31,
+      "lang": "ko",
+      "text": "부산 해수면이 오르고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 31,
+      "lang": "en",
+      "text": "Is sea level rising at Busan?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 32,
+      "lang": "ko",
+      "text": "알래스카 앞바다의 해빙이 줄고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "place": {
+          "expected": "추크치해와 보퍼트해",
+          "got": "축치해·보퍼트해"
+        },
+        "board": {
+          "expected": "CB-13",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 32,
+      "lang": "en",
+      "text": "Is sea ice shrinking off Alaska?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-13",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 33,
+      "lang": "ko",
+      "text": "북극 얼음이 줄면 한국 겨울이 추워지나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "cause",
+          "got": "mean_change"
+        },
+        "board": {
+          "expected": "CB-13",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 33,
+      "lang": "en",
+      "text": "Does shrinking Arctic ice make Korean winters colder?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "cause",
+          "got": "mean_change"
+        },
+        "place": {
+          "expected": "South Korea",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-13",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 34,
+      "lang": "ko",
+      "text": "한국이 미국보다 빨리 더워지나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "comparison",
+          "got": "mean_change"
+        }
+      }
+    },
+    {
+      "input_id": 34,
+      "lang": "en",
+      "text": "Is Korea warming faster than the United States?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "comparison",
+          "got": "mean_change"
+        }
+      }
+    },
+    {
+      "input_id": 35,
+      "lang": "ko",
+      "text": "서울 상공의 이산화탄소가 아직도 늘고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 35,
+      "lang": "en",
+      "text": "Is CO2 still rising over Seoul?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 36,
+      "lang": "ko",
+      "text": "알래스카 빙하가 줄고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 36,
+      "lang": "en",
+      "text": "Are Alaska's glaciers losing ice?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 37,
+      "lang": "ko",
+      "text": "대전에서 뭐가 변하고 있어?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 37,
+      "lang": "en",
+      "text": "What is changing in Daejeon?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 38,
+      "lang": "ko",
+      "text": "토양 수분을 조사하고 싶어요.",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "variable_first",
+          "got": "mean_change"
+        },
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 38,
+      "lang": "en",
+      "text": "I want to study soil moisture.",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "variable_first",
+          "got": "mean_change"
+        },
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 39,
+      "lang": "ko",
+      "text": "서울과 부산 중 어디가 더 빨리 더워지나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "comparison",
+          "got": "mean_change"
+        }
+      }
+    },
+    {
+      "input_id": 39,
+      "lang": "en",
+      "text": "Is Seoul or Busan warming faster?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "comparison",
+          "got": "mean_change"
+        }
+      }
+    },
+    {
+      "input_id": 40,
+      "lang": "ko",
+      "text": "2000년 이후 대전 봄비가 변했나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 40,
+      "lang": "en",
+      "text": "Has spring rain in Daejeon changed since 2000?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 41,
+      "lang": "ko",
+      "text": "캘리포니아 산에 쌓이는 눈이 줄고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "metric_id": {
+          "expected": "one_date_value",
+          "got": "annual_mean"
+        },
+        "place": {
+          "expected": "시에라네바다",
+          "got": "캘리포니아"
+        },
+        "board": {
+          "expected": "CB-16",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 41,
+      "lang": "en",
+      "text": "Is California's snowpack shrinking?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "metric_id": {
+          "expected": "one_date_value",
+          "got": "annual_mean"
+        },
+        "place": {
+          "expected": "Sierra Nevada",
+          "got": "California"
+        },
+        "board": {
+          "expected": "CB-16",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 42,
+      "lang": "ko",
+      "text": "오대호가 예전보다 덜 어나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "metric_id": {
+          "expected": "degree_days",
+          "got": "annual_mean"
+        },
+        "intent": {
+          "expected": "mean_change",
+          "got": "place_first"
+        },
+        "months": {
+          "expected": [
+            1,
+            2,
+            3,
+            12
+          ],
+          "got": null
+        },
+        "threshold": {
+          "expected": 0.0,
+          "got": null
+        },
+        "op": {
+          "expected": "<",
+          "got": null
+        },
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 42,
+      "lang": "en",
+      "text": "Are the Great Lakes freezing less?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "months": {
+          "expected": [
+            1,
+            2,
+            3,
+            12
+          ],
+          "got": [
+            1,
+            2,
+            12
+          ]
+        },
+        "board": {
+          "expected": "CB-07",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 43,
+      "lang": "ko",
+      "text": "로키산맥의 눈이 더 일찍 녹나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-16",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 43,
+      "lang": "en",
+      "text": "Is snow melting earlier in the Rockies?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-16",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 44,
+      "lang": "ko",
+      "text": "피닉스에 43.3 °C 넘는 날이 늘었나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 44,
+      "lang": "en",
+      "text": "Is Phoenix getting more 110-degree days?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 45,
+      "lang": "ko",
+      "text": "시카고 폭염이 더 오래 가나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "threshold": {
+          "expected": 32.2,
+          "got": 33.0
+        },
+        "board": {
+          "expected": "CB-02",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 45,
+      "lang": "en",
+      "text": "Are Chicago's heat waves lasting longer?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "threshold": {
+          "expected": 32.2,
+          "got": 33.0
+        },
+        "board": {
+          "expected": "CB-02",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 46,
+      "lang": "ko",
+      "text": "뉴욕의 도시 열섬이 커지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 46,
+      "lang": "en",
+      "text": "Is New York's urban heat island growing?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 47,
+      "lang": "ko",
+      "text": "뉴잉글랜드에 폭우가 늘었나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "threshold": {
+          "expected": 25.4,
+          "got": 20.0
+        }
+      }
+    },
+    {
+      "input_id": 47,
+      "lang": "en",
+      "text": "Are heavy downpours increasing in New England?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "threshold": {
+          "expected": 25.4,
+          "got": 20.0
+        }
+      }
+    },
+    {
+      "input_id": 48,
+      "lang": "ko",
+      "text": "휴스턴 폭우가 더 세지고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "months": {
+          "expected": null,
+          "got": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "input_id": 48,
+      "lang": "en",
+      "text": "Are Houston's wettest days getting wetter?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 49,
+      "lang": "ko",
+      "text": "멕시코만이 따뜻해지면 휴스턴 비가 더 세지나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 49,
+      "lang": "en",
+      "text": "Does a warmer Gulf of Mexico make Houston's rain heavier?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 50,
+      "lang": "ko",
+      "text": "캘리포니아에 가뭄이 잦아졌나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 50,
+      "lang": "en",
+      "text": "Is California in drought more often?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-04",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 51,
+      "lang": "ko",
+      "text": "콜로라도강 유역의 물이 줄고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "GWETROOT",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 51,
+      "lang": "en",
+      "text": "Is the Colorado River basin losing water?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "GWETROOT",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 52,
+      "lang": "ko",
+      "text": "그레이트솔트호는 왜 줄어들고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 52,
+      "lang": "en",
+      "text": "Why is the Great Salt Lake shrinking?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "PRECTOTCORR",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 53,
+      "lang": "ko",
+      "text": "산불 연기 때문에 미국 북서부의 여름 하늘이 더 뿌예지고 있나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "nearest_var": {
+          "expected": "PBLTOP",
+          "got": "GWETTOP"
+        }
+      }
+    },
+    {
+      "input_id": 53,
+      "lang": "en",
+      "text": "Is wildfire smoke making Northwest summers hazier?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "nearest_var": {
+          "expected": "PBLTOP",
+          "got": "GWETTOP"
+        }
+      }
+    },
+    {
+      "input_id": 54,
+      "lang": "ko",
+      "text": "로스앤젤레스 공기가 깨끗해지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 54,
+      "lang": "en",
+      "text": "Is Los Angeles air getting cleaner?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 55,
+      "lang": "ko",
+      "text": "워싱턴 DC 벚꽃이 더 일찍 피나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-06",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 55,
+      "lang": "en",
+      "text": "Are Washington's cherry blossoms blooming earlier?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "board": {
+          "expected": "CB-06",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 56,
+      "lang": "ko",
+      "text": "아이오와의 서리 없는 기간이 길어지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 56,
+      "lang": "en",
+      "text": "Is the frost-free season getting longer in Iowa?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 57,
+      "lang": "ko",
+      "text": "메인만이 대서양 먼바다보다 빨리 더워지나요?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "TS",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 57,
+      "lang": "en",
+      "text": "Is the Gulf of Maine warming faster than the open Atlantic?",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {
+        "reply": {
+          "expected": "not_in_this_version",
+          "got": null
+        },
+        "nearest_var": {
+          "expected": "TS",
+          "got": null
+        }
+      }
+    },
+    {
+      "input_id": 58,
+      "lang": "ko",
+      "text": "마이애미 해수면 상승이 빨라지고 있나요?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 58,
+      "lang": "en",
+      "text": "Is sea level rising faster in Miami?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "reply",
+        "nearest_var"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 59,
+      "lang": "ko",
+      "text": "덴버에서 뭐가 변하고 있어?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 59,
+      "lang": "en",
+      "text": "What is changing in Denver?",
+      "source": "rules",
+      "passed": true,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {}
+    },
+    {
+      "input_id": 60,
+      "lang": "ko",
+      "text": "적설을 조사하고 싶어요.",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "variable_first",
+          "got": "mean_change"
+        }
+      }
+    },
+    {
+      "input_id": 60,
+      "lang": "en",
+      "text": "I want to study snowpack.",
+      "source": "rules",
+      "passed": false,
+      "compared": [
+        "var",
+        "metric_id",
+        "intent",
+        "place",
+        "months",
+        "threshold",
+        "op",
+        "window_start",
+        "board"
+      ],
+      "failing": {
+        "intent": {
+          "expected": "variable_first",
+          "got": "mean_change"
+        }
+      }
+    }
+  ]
+}

@@ -15,7 +15,7 @@ from boramae.services.parser_rules import normalize
 
 # Version of the model parser prompt. W5-PARSE-LLM raises it with each prompt change,
 # so an entry of an older prompt never answers.
-PROMPT_VERSION = "1"
+PROMPT_VERSION = "2"
 MODEL_SOURCE = "model"
 
 

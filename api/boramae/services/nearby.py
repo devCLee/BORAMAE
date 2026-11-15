@@ -24,7 +24,9 @@ from boramae.contracts.results_scan import GridCell, NearbyArea, NearbyNote, Tre
 from boramae.contracts.spec import CanonicalWindow, LocalizedText
 from boramae.engine.multitest import bh_select
 from boramae.engine.types import GridDef
-from boramae.spec.cells import haversine_km
+from boramae.spec.cells import FULL_TURN_DEG, haversine_km
+
+HALF_TURN_DEG = FULL_TURN_DEG / 2
 
 
 def select_nearby(
@@ -40,14 +42,8 @@ def select_nearby(
     """
     # ponytail: the area center is the mean of its cell centers, not the pin, so the
     # stored scan holds no request fact: two pins with the same cells share one key.
-    # A plain mean breaks across the 180 meridian, which lies outside the grid box.
-    own_lats, own_lons = _centers(grid_def, focus.spec.cells)
-    lat, lon = float(own_lats.mean()), float(own_lons.mean())
-    is_in_box = (
-        GRID_BOX_LAT_MIN <= lat <= GRID_BOX_LAT_MAX
-        and GRID_BOX_LON_MIN <= lon <= GRID_BOX_LON_MAX
-    )
-    if not is_in_box:
+    lat, lon = focus_center(focus.spec.cells, grid_def)
+    if not is_in_grid_box(lat, lon):
         return [], "outside_grid"
     if grid is None:
         return [], "no_grid"
@@ -84,6 +80,31 @@ def select_nearby(
         )
         for km, index in kept[:MAX_NEARBY_AREAS]
     ], None
+
+
+def focus_center(cells: Sequence[Sequence[int]], grid: GridDef) -> tuple[float, float]:
+    """The mean of the cell centers of an area, safe across the 180 meridian.
+
+    Each longitude is unwrapped to within 180 degrees of the first cell, and the mean
+    is wrapped to [-180, 180). Off the meridian neither step moves a value, so the
+    center is the plain mean bit for bit and no stored scan changes.
+    """
+    lats, lons = _centers(grid, cells)
+    lons = lons - FULL_TURN_DEG * np.round((lons - lons[0]) / FULL_TURN_DEG)
+    lon = float(lons.mean())
+    if lon >= HALF_TURN_DEG:
+        lon -= FULL_TURN_DEG
+    elif lon < -HALF_TURN_DEG:
+        lon += FULL_TURN_DEG
+    return float(lats.mean()), lon
+
+
+def is_in_grid_box(lat: float, lon: float) -> bool:
+    """Whether a point lies in the East Asia box of the trend grid, edges included."""
+    return (
+        GRID_BOX_LAT_MIN <= lat <= GRID_BOX_LAT_MAX
+        and GRID_BOX_LON_MIN <= lon <= GRID_BOX_LON_MAX
+    )
 
 
 # ponytail: no document says which row explains "same process, opposite directions".
