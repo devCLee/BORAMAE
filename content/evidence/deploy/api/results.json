@@ -1,0 +1,50 @@
+{
+  "package": "W8-LIVE-API",
+  "run_utc": "2026-11-15T12:54:17Z/2026-11-15T13:00:00Z",
+  "public_url": "https://d3gct1libr2d5x.cloudfront.net/",
+  "release_json_status_at_start": "failed (first run; W8-RECORD rewrites it, the orchestrator verified the live state at 21:48 KST)",
+  "http_requests_sent": 10,
+  "checks": {
+    "health": {"pass": true, "url": "/health", "status": 200, "body": {"status": "ok"}, "server_timing": "total;dur=0.4", "x_cache": "Miss from cloudfront"},
+    "stored_result": {"pass": true, "url": "/r/trend/04950cfc7428ea3006fe8e654ba69bf8.json", "status": 200, "bytes": 17607, "x_result_key": "04950cfc7428ea3006fe8e654ba69bf8", "cache_control": "public, max-age=31536000, immutable", "x_cache": "Hit from cloudfront", "verdict": "significant_fall"},
+    "catalog": {"pass": true, "url": "/meta/catalog.json", "status": 200, "bytes": 20219, "variables": 20, "cache_control": "public, max-age=300, stale-while-revalidate=300", "x_cache": "Hit from cloudfront"},
+    "server_timing": {
+      "pass": true,
+      "budget": "first chart on a new area, 1981-onward monthly, <= 20 s by the server timing",
+      "requests": [
+        {"name": "monthly_new_area", "where": "Busan 35.1796, 129.0756, 25 km", "var": "T2M", "metric": "annual_mean", "key": "60121d667415d52f316bb8c21371bf63", "store": "miss (key absent from the bucket before the request)", "status": 200, "server_timing": "read;dur=329.7, stats;dur=6.0, total;dur=443.8", "x_bytes_fetched": 0, "x_cache": "Miss from cloudfront", "x_containing_cell": "true", "footprint": {"chunk_count": 1, "stored_bytes": 675982}, "verdict": "significant_rise", "note": "chunks came from the task's chunk cache, so no bytes were fetched"},
+        {"name": "monthly_new_area_repeat", "key": "60121d667415d52f316bb8c21371bf63", "store": "hit (written by the request before)", "status": 200, "server_timing": "total;dur=20.1", "x_bytes_fetched": 0, "x_cache": "Miss from cloudfront"},
+        {"name": "first_snow_new_area", "where": "Chuncheon 37.8813, 127.7298, 25 km", "var": "PRECSNO", "metric": "first_date >= 0.1 from 08-01", "key": "5e642bd1b9845c2448628790e37aa64e", "store": "miss", "status": 200, "server_timing": "read;dur=31.1, stats;dur=8.0, total;dur=91.5", "x_bytes_fetched": 0, "x_cache": "Miss from cloudfront", "footprint": {"chunk_count": 3, "stored_bytes": 1249577}, "verdict": "no_trend", "note": "same 3 daily chunks as result 246e0e4523e15f62a85a5c8d9da8247d (Seoul PRECSNO, written 21:51 KST), so they came from the chunk cache"},
+        {"name": "first_snow_seoul_demo", "where": "Seoul 37.5665, 126.978, 25 km (golden vector 1)", "key": "b5bae5463e95eff888bca78a896bf62a", "store": "hit (demo store)", "status": 200, "server_timing": "total;dur=19.7", "x_bytes_fetched": 0, "x_cache": "Miss from cloudfront", "verdict": "no_trend"},
+        {"name": "monthly_cold_area", "where": "Nairobi -1.2921, 36.8219, 25 km", "var": "T2M", "metric": "annual_mean", "key": "cd54db2171e2029e1afb04924f87a898", "store": "miss", "status": 200, "server_timing": "read;dur=82.5, stats;dur=5.8, total;dur=133.8", "x_bytes_fetched": 674578, "x_cache": "Miss from cloudfront", "footprint": {"chunk_count": 1, "stored_bytes": 674578}, "verdict": "significant_rise"},
+        {"name": "first_snow_cold_area", "where": "Sapporo 43.0618, 141.3545, 25 km", "var": "PRECSNO", "metric": "first_date >= 0.1 from 08-01", "key": "a69070a926f48b04ca7dba67923171cd", "store": "miss", "status": 200, "server_timing": "read;dur=130.6, stats;dur=7.7, total;dur=186.0", "x_bytes_fetched": 1446912, "x_cache": "Miss from cloudfront", "footprint": {"chunk_count": 3, "stored_bytes": 1446912}, "verdict": "no_trend"}
+      ],
+      "x_cache_note": "CloudFront writes its own X-Cache header, so the API value hit or miss does not reach the client (known item, deferred)"
+    },
+    "origin_lock": {"pass": true, "url": "https://bo-5cf93111162a4ce89e2798885606c03f.ecs.us-west-2.on.aws/health", "origin_header_sent": false, "status": 403, "content_type": "text/html", "body_title": "403 Forbidden", "waf_sample": {"web_acl": "EdgeOriginGuard2A455CAF-km3o2ELFDkg9", "rule": "require-edge-header", "population": 1, "action": "BLOCK", "method": "GET", "uri": "/health", "time": "2026-11-15T21:54:20+09:00"}},
+    "create_once": {
+      "pass": true,
+      "aws_write": "approved write 6",
+      "command": "aws s3api put-object --bucket boramae-databuckete3889a50-34ucz49awzhz --key r/trend/04950cfc7428ea3006fe8e654ba69bf8.json --body <scratch copy of api/.data-demo/r/trend/04950cfc7428ea3006fe8e654ba69bf8.json> --if-none-match \"*\" --profile devcdlee --region us-west-2",
+      "error": "An error occurred (PreconditionFailed) when calling the PutObject operation: At least one of the pre-conditions you specified did not hold",
+      "cli_exit_code": 254,
+      "http_status": "412 (S3 error code PreconditionFailed; the CLI does not print the status line)",
+      "object_before": {"etag": "7a1610aa4977c1b68cb1b98f525c3884", "version_id": "cGBrWqVDh2MRky0EHr8sF0Z3mwcT5VV8", "versions": 1},
+      "object_after": {"etag": "7a1610aa4977c1b68cb1b98f525c3884", "version_id": "cGBrWqVDh2MRky0EHr8sF0Z3mwcT5VV8", "versions": 1}
+    },
+    "spend_projection": {
+      "pass": true,
+      "prices_source": "TODOS.md 'Deploy session decisions' (us-west-2 list prices)",
+      "inventory": {"fargate_tasks_running": 1, "task": "ARM64, 1 vCPU, 2 GB", "scaling": "1 to 2 tasks", "load_balancers": 1, "load_balancer_azs": 2, "public_ipv4": 4, "public_ipv4_detail": "3 Elastic IPs on the Express load balancer interfaces, 1 on the task interface", "web_acls": 2, "waf_rules": 6, "waf_rules_detail": "regional: require-edge-header; edge: 3 AWS managed rule groups, rate-parse, rate-spec", "cloudfront_price_class": "PriceClass_200", "stack_resources": 26},
+      "window": {"start_utc": "2026-11-15T12:40:00Z", "end_utc": "2027-01-27T15:00:00Z", "hours": 1754.3},
+      "cases": {
+        "low (1 task, 0.1 LCU)": {"per_730h_month": 76.44, "until_2027_01_27": 183.71, "by_budget_month": {"2026-11": 38.89, "2026-12": 77.91, "2027-01": 66.91}},
+        "base (1 task, 1 LCU)": {"per_730h_month": 81.70, "until_2027_01_27": 196.34, "by_budget_month": {"2026-11": 41.56, "2026-12": 83.27, "2027-01": 71.52}},
+        "high (2 tasks all the time, 1 LCU)": {"per_730h_month": 114.19, "until_2027_01_27": 274.41, "by_budget_month": {"2026-11": 58.08, "2026-12": 116.37, "2027-01": 99.95}}
+      },
+      "budget": {"name": "MonthlyBudget-us-west-2-HQeg0rcUxCa7", "limit_usd": 100.0, "alert_at_usd": 80.0, "actual_spend_usd_at_check": 0.0},
+      "verdict": "base case stays under the 100 USD monthly budget in every month; December (83.27) passes the 80 USD alert line; 2 tasks all month would pass 100 USD in December",
+      "unpriced": ["Secrets Manager secret (1)", "CloudWatch Logs (1 log group, 0 bytes stored at the check, 90-day retention)", "S3 storage and requests (2 versioned buckets)", "ECR image storage (CDK bootstrap repository)", "Lambda of the custom resource (runs on deploy)", "WAF requests at 0.60 USD per million", "CloudFront (inside the always-free tier at this traffic)", "Express-made alarm and certificate"]
+    }
+  }
+}

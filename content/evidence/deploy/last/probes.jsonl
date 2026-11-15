@@ -1,0 +1,14 @@
+{"utc": "13:03:55Z", "path": "/health", "status": 200, "Content-Type": "application/json", "X-Cache": "Miss from cloudfront", "Server-Timing": "total;dur=0.4", "ms": 514}
+{"utc": "13:03:56Z", "path": "/meta/catalog.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Hit from cloudfront", "Age": "578", "Cache-Control": "public, max-age=300, stale-while-revalidate=300", "ms": 51}
+{"utc": "13:03:56Z", "path": "/demo/manifest.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Miss from cloudfront", "ms": 465}
+{"utc": "13:03:56Z", "path": "/ko/", "status": 200, "Content-Type": "text/html", "X-Cache": "Hit from cloudfront", "Age": "936", "ms": 93}
+{"utc": "13:03:56Z", "path": "/en/", "status": 200, "Content-Type": "text/html", "X-Cache": "Hit from cloudfront", "Age": "936", "ms": 56}
+{"utc": "13:06:11Z", "path": "/health", "status": 200, "Content-Type": "application/json", "X-Cache": "Miss from cloudfront", "Server-Timing": "total;dur=0.4", "ms": 487}
+{"utc": "13:06:12Z", "path": "/ko/", "status": 200, "Content-Type": "text/html", "X-Cache": "Hit from cloudfront", "Age": "1072", "ms": 50}
+{"utc": "13:06:12Z", "path": "/en/", "status": 200, "Content-Type": "text/html", "X-Cache": "Hit from cloudfront", "Age": "1071", "ms": 65}
+{"utc": "13:06:12Z", "path": "/meta/catalog.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Hit from cloudfront", "Age": "136", "Cache-Control": "public, max-age=300, stale-while-revalidate=300", "ms": 36}
+{"utc": "13:06:12Z", "path": "/demo/manifest.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Hit from cloudfront", "Age": "136", "ms": 39}
+{"utc": "13:06:34Z", "path": "/demo/first-snow-seoul/trend.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Miss from cloudfront", "ms": 463}
+{"utc": "13:06:35Z", "path": "/demo/first-snow-seoul/scan.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Miss from cloudfront", "ms": 490}
+{"utc": "13:06:35Z", "path": "/demo/hot-days-phoenix/trend.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Miss from cloudfront", "ms": 454}
+{"utc": "13:06:36Z", "path": "/demo/hot-days-phoenix/caseboard.json", "status": 200, "Content-Type": "application/json", "X-Cache": "Miss from cloudfront", "ms": 524}
