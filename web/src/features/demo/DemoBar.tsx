@@ -38,6 +38,8 @@ export function DemoBar() {
     // The path already holds the language (FR-01), so the link keeps it and skips the choice.
     actions.setLang(locale);
     actions.setDemoStep(verdictIndexOf(linked));
+    // The link opens on a finished case (PRD "Users & key scenarios"), so the player waits for Play.
+    actions.pauseDemo(true);
   }, [locale]);
 
   return (

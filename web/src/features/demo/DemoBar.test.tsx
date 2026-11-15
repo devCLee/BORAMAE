@@ -243,6 +243,18 @@ test("should send no live request at the judge link", async () => {
   expect(calls.map(({ url }) => url).filter((url) => !url.startsWith("/demo/"))).toEqual([]);
 });
 
+test("should hold the verdict step at the judge link", async () => {
+  vi.useFakeTimers({ shouldAdvanceTime: true });
+  window.history.replaceState(null, "", JUDGE_LINK);
+  stubFetch(serve(bundle()));
+  render(<Screen locale="ko" />);
+  await screen.findByText(messages.ko.verdict.sentences.no_trend);
+
+  act(() => vi.advanceTimersByTime(STEP_MS * 3));
+
+  expect(getState().demo?.stepIndex).toBe(VERDICT_INDEX);
+});
+
 test.each<[string, Select, unknown]>([
   ["Pause", (state) => state.demo?.isPaused, true],
   ["Next step", (state) => state.demo?.stepIndex, 1],
