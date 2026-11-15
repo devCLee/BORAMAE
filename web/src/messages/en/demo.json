@@ -1,1 +1,29 @@
-{}
+{
+  "label": "Demo player",
+  "step": "Step {current} of {total}",
+  "controls": {
+    "label": "Demo controls",
+    "pause": "Pause",
+    "play": "Play",
+    "next": "Next step",
+    "skip": "Skip to the result",
+    "leave": "Leave the demo"
+  },
+  "overlay": {
+    "language": "Choose a language",
+    "closing": "About BORAMAE"
+  },
+  "closing": {
+    "sources": "NASA POWER · MERRA-2",
+    "about": "English and Korean · open source"
+  },
+  "cases": {
+    "heading": "Watch a demo",
+    "loading": "Loading the demos…",
+    "missing": "This build holds no demo files yet.",
+    "plays_in": {
+      "en": "Plays in English",
+      "ko": "Plays in Korean"
+    }
+  }
+}

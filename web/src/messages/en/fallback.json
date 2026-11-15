@@ -1,1 +1,45 @@
-{}
+{
+  "title": "Where to look next",
+  "loading": "Scanning other variables and nearby areas",
+  "nothing_found": "Nothing found",
+  "hits": {
+    "heading": "Other variables here",
+    "empty": "No other variable here passes the scan's correction for multiple tests.",
+    "choose": "Test {variable} here"
+  },
+  "nearby": {
+    "heading": "The same variable nearby",
+    "distance": "{distance, number} km away",
+    "grid_window": "Grid trend {start} to {end}",
+    "opposite": "Same process, opposite directions",
+    "run": "Run the analysis in the area {distance, number} km away",
+    "empty": "No nearby area trends significantly.",
+    "notes": {
+      "no_grid": "No trend grid exists for this variable yet, so the app checked no nearby areas.",
+      "outside_grid": "This area lies outside the East Asia trend grid, so the app checked no nearby areas.",
+      "grid_window_differs": "The trend grid covers another time window, so the app checked no nearby areas for this one."
+    }
+  },
+  "years": {
+    "heading": "How long until this rate could be detected",
+    "more": "At this rate, about <num></num> more {count, plural, one {year} other {years}} of data could detect it.",
+    "estimate": "A detection estimate, not a forecast.",
+    "reasons": {
+      "within_record": "The record is already as long as the estimate needs, so more years alone may not settle it.",
+      "zero_slope": "The rate is exactly zero, so no record length would detect it.",
+      "no_scatter": "The yearly values do not scatter around the trend line, so the app cannot make the estimate.",
+      "phi_out_of_range": "The yearly values carry over from year to year too strongly for the estimate."
+    }
+  },
+  "checked": {
+    "heading": "What the scan checked",
+    "item": "<name></name>: {status}",
+    "tested": "tested",
+    "not_testable": "not testable here",
+    "not_testable_because": "not testable here, {reason}",
+    "reasons": {
+      "no_data": "no data for this area and window",
+      "record_too_short": "the record is too short"
+    }
+  }
+}

@@ -1,1 +1,63 @@
-{}
+{
+  "title": "사례 보드",
+  "intro": "각 화살표는 같은 장소, 같은 기간에서 연결된 변화가 이 추세와 일치하는지 검정해요. 일치한다고 해서 원인이 증명되지는 않아요.",
+  "loading": "사례 보드를 불러오는 중",
+  "retry": "사례 보드 다시 불러오기",
+  "no_board": "이 변수에는 아직 사례 보드가 없어요.",
+  "live_off": "실시간 사례 보드는 지금 꺼져 있어요. 두 데모 사례에서는 보드를 볼 수 있어요.",
+  "focus": "중심 변수",
+  "groups": {
+    "driver": "원인 후보",
+    "response": "반응"
+  },
+  "none": "이 보드에는 없어요",
+  "labels": {
+    "consistent": "일치",
+    "weak": "약함",
+    "contradicts": "반대",
+    "not_testable_here": "여기서는 검정할 수 없음"
+  },
+  "statuses": {
+    "robust": "탄탄함",
+    "contested": "논란 있음",
+    "weak": "약함",
+    "not_testable_here": "여기서는 검정할 수 없음",
+    "unsourced": "출처 없음"
+  },
+  "reasons": {
+    "registry_status": "등록부에 NASA POWER로는 검정할 수 없는 연결로 적혀 있어요.",
+    "remote_area": "멀리 떨어진 지역을 가리키는 연결이라, 이 버전에서는 아직 검정하지 않아요.",
+    "focus_differs": "중심 변수의 다른 지표를 두고 쓴 연결이에요.",
+    "too_few_overlap_years": "두 자료가 겹치는 해가 너무 적어 검정할 수 없어요.",
+    "constant_series": "두 자료 중 하나가 변하지 않아 상관을 구할 수 없어요.",
+    "n_eff_out_of_range": "해마다 값이 너무 강하게 이어져, 검정에 쓸 독립된 값이 너무 적어요.",
+    "metric_switched": "한쪽이 사건 일수 세기로 바뀌어, 같은 것끼리 비교할 수 없어요.",
+    "other": "이 연결은 여기서 검정할 수 없어요."
+  },
+  "fields": {
+    "link": "연결 검정",
+    "scale": "규모",
+    "status": "근거",
+    "source": "출처",
+    "pair": "검정한 쌍",
+    "direction": "예상 방향",
+    "lag": "시차",
+    "overlap": "겹치는 해",
+    "n_eff": "유효 표본 크기",
+    "node_rate": "{name}의 추세"
+  },
+  "directions": {
+    "same": "둘이 같은 방향으로 변해요",
+    "opposite": "둘이 반대 방향으로 변해요"
+  },
+  "years": "<num></num>년",
+  "open_inputs": "{name} 입력값",
+  "node_loading": "{name}의 추세를 불러오는 중",
+  "new_tab": "(새 탭에서 열림)",
+  "numbers": {
+    "r": "r <num></num>",
+    "p": "p <num></num>"
+  },
+  "pair_value": "{driver} → {response}",
+  "doi": "DOI {doi}"
+}

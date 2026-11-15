@@ -2,9 +2,10 @@
 
 import { cn } from "cn";
 import { ChevronDownIcon } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
+import type { Lang } from "@/contracts/types";
 import { CasePanel } from "@/features/case/CasePanel";
 import { DemoBar } from "@/features/demo/DemoBar";
 import { GuideLauncher } from "@/features/guide/GuideLauncher";
@@ -13,6 +14,7 @@ import { PlaceControls } from "@/features/places/PlaceControls";
 import { ProvenanceDrawer } from "@/features/provenance/ProvenanceDrawer";
 import { Rail } from "@/features/rail/Rail";
 import { TimeSlider } from "@/features/window/TimeSlider";
+import { actions } from "@/state/store";
 
 import { LanguageSwitch } from "./LanguageSwitch";
 
@@ -30,6 +32,13 @@ const CASE_BODY_ID = "case-panel-body";
 export function AppShell() {
   const t = useTranslations("common");
   const [isCaseOpen, setIsCaseOpen] = useState(true);
+  const locale = useLocale() as Lang;
+
+  useEffect(() => {
+    // The store starts with the stored choice, or English. The route is the language
+    // on screen (FR-01), so parse and the guide must get the language of the route.
+    actions.setLang(locale);
+  }, [locale]);
 
   return (
     <div className="flex h-dvh flex-col overflow-hidden">

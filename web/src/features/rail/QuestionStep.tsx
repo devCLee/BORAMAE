@@ -25,6 +25,12 @@ export function QuestionStep() {
   const question = useAppStore((state) => state.question);
   const center = useAppStore((state) => state.mapView?.center ?? null);
   const [text, setText] = useState(question);
+  // The demo and the guide set the question in the store after this field mounted.
+  const [syncedQuestion, setSyncedQuestion] = useState(question);
+  if (question !== syncedQuestion) {
+    setSyncedQuestion(question);
+    setText(question);
+  }
   const parse = useParse();
   const chips = pickChips(CHIPS, center, new Date());
 
