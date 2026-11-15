@@ -21,6 +21,8 @@ globalThis.matchMedia = (query: string): MediaQueryList => ({
   removeListener() {},
   dispatchEvent: () => false,
 });
+// jsdom has no scrollIntoView either, and "Open the case board" scrolls the board into view.
+Element.prototype.scrollIntoView = () => {};
 
 beforeEach(() => {
   MockMap.instances.length = 0;

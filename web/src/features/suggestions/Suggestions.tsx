@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useId, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
+import { CASE_BOARD_ID } from "@/features/board/CaseBoard";
 import type { Outcome } from "@/features/verdict/outcome";
 import { actions, useAppStore } from "@/state/store";
 import type { Step } from "@/state/types";
@@ -44,7 +45,14 @@ export function Suggestions({ outcome, recordStartYear }: SuggestionsProps) {
   const isFullRecord =
     timeWindow.start <= recordStartYear && timeWindow.end === "latest";
   const run: Record<ActionId, () => void> = {
-    open_board: () => actions.openPanel("caseboard"),
+    open_board: () => {
+      actions.openPanel("caseboard");
+      // The board already shows with a significant verdict, so the click takes the user to it.
+      // Focus alone scrolls only until the board's bottom edge shows, so the scroll is explicit.
+      const board = document.getElementById(CASE_BOARD_ID);
+      board?.focus({ preventScroll: true });
+      board?.scrollIntoView({ block: "start" });
+    },
     try_nearby: () => actions.goToStep(PLACE_STEP),
     pick_variable: () => actions.goToStep(VARIABLE_STEP),
     widen_window: () => {

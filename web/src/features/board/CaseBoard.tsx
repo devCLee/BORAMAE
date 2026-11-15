@@ -17,6 +17,8 @@ import { BoardArrow } from "./BoardArrow";
 import { type NumSource, SideTitle } from "./board-parts";
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+/** The suggestion "Open the case board" moves the focus here. */
+export const CASE_BOARD_ID = "case-board";
 
 /**
  * The case board of a significant verdict (FR-18, TR-F-026): up to 3 drivers and 3
@@ -33,6 +35,7 @@ export function CaseBoard() {
 
   return (
     <section
+      id={CASE_BOARD_ID}
       data-testid="slot-board"
       ref={rootRef}
       tabIndex={-1}

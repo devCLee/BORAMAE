@@ -264,3 +264,14 @@ test.each(TRACED)("should render the same verdict at the judge link of $id", asy
 
   expect(await screen.findByText(traced.verdict[JUDGE_LANG])).toBeInTheDocument();
 });
+
+test("should move the focus to the board with its suggestion at the judge link of hot-days-phoenix", async () => {
+  stubFetch(respondFromDisk);
+  window.history.replaceState(null, "", "/en/?demo=hot-days-phoenix&at=result");
+  render(<LocalePage locale="en" />);
+  const board = await screen.findByRole("region", { name: messages.en.board.title });
+
+  fireEvent.click(screen.getByRole("button", { name: messages.en.suggestions.actions.open_board }));
+
+  expect(board).toHaveFocus();
+});
