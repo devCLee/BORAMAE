@@ -6,6 +6,7 @@ cells come from the grid definition of the catalog. Nothing here reads POWER dat
 
 from dataclasses import dataclass
 from http import HTTPStatus
+from itertools import product
 
 from boramae.constants import RADIUS_MAX_KM, RADIUS_MIN_KM
 from boramae.contracts.results_catalog import Catalog, CatalogMetric, CatalogVariable
@@ -18,6 +19,7 @@ from boramae.contracts.spec import (
 )
 from boramae.engine.types import GridDef
 from boramae.errors import ProblemError
+from boramae.ports import Freq
 from boramae.spec.cells import Cell, cell_cap, cells_in_bbox, cells_in_circle
 
 # ponytail: the contract names only area_too_large. Every other invalid spec gets
@@ -26,6 +28,15 @@ INVALID_SPEC = "invalid_spec"
 BAD_REQUEST = HTTPStatus.BAD_REQUEST.value
 AREA_TOO_LARGE = "area_too_large"
 YEAR_DIGITS = 4
+# ponytail: the monthly T2M_MAX and T2M_MIN hold the month's hottest and coldest
+# hour (cell_methods 'time: max' and 'time: min'; at Seoul [255, 491] and Phoenix
+# [247, 109] the monthly value equals the daily extreme in all 12 months of 2020,
+# checked 2026-11-15). Their means read the daily store, so a mean is one of daily
+# highs or lows (TODOS.md wave 3 decisions, open decision 9). Add a pair here when
+# another monthly value is not a monthly mean.
+DAILY_MEAN_PAIRS = frozenset(
+    product(("T2M_MAX", "T2M_MIN"), ("annual_mean", "seasonal_mean"))
+)
 
 
 @dataclass(frozen=True)
@@ -57,10 +68,19 @@ def validate_request(spec: RequestSpec, catalog: Catalog) -> ValidatedRequest:
     if metric is None:
         raise _invalid("the metric ID is not in the catalog")
     _check_metric(spec, variable, metric)
-    pinned_month = getattr(catalog.datasets, metric.source_freq).last_valid_month
+    freq = source_freq(variable, metric)
+    pinned_month = getattr(catalog.datasets, freq).last_valid_month
     _check_window(spec.window, variable.record_start, pinned_month)
     cells, used_containing_cell = _derive_cells(spec.area, catalog.grid)
     return ValidatedRequest(spec, variable, metric, tuple(cells), used_containing_cell)
+
+
+def source_freq(variable: CatalogVariable, metric: CatalogMetric) -> Freq:
+    """The store that a metric on a variable reads. Every store or ds choice for a
+    spec goes through here, never through metric.source_freq alone."""
+    if (variable.id, metric.id) in DAILY_MEAN_PAIRS:
+        return "daily"
+    return metric.source_freq
 
 
 def _check_metric(
@@ -70,7 +90,7 @@ def _check_metric(
     # is an invalid spec, because the engine cannot run it.
     if not metric.is_available:
         raise _invalid("the metric is not available in this version")
-    if metric.source_freq not in variable.stores:
+    if source_freq(variable, metric) not in variable.stores:
         raise _invalid("the store of the metric does not hold the variable")
     # ponytail: the catalog has no "needs a threshold" mark. A default comparison
     # marks a threshold metric; add a field to the catalog metric if one must not.

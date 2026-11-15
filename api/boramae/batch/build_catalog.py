@@ -11,7 +11,7 @@ import argparse
 import hashlib
 import sys
 from collections import Counter
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from importlib import import_module
 
@@ -33,17 +33,20 @@ from boramae.engine import metrics
 from boramae.engine.definitions import ENGINE_VERSION
 from boramae.engine.series import MONTHS_IN_YEAR, present_months
 from boramae.ports import Freq, SeriesReader
-from boramae.power.reader import PROBE_CELL, PROBE_VARIABLE
+from boramae.power.reader import PROBE_CELL, PROBE_VARIABLE, read_store_identity
 from boramae.services.catalog import CATALOG_PATH
 from boramae.services.content import load_content
+from boramae.spec.validate import source_freq
 
 FREQS: tuple[Freq, ...] = ("daily", "monthly")
-# ponytail: NASA CMR holds no POWER collection (searched 2026-11-15) and the reader
-# port gives no store attributes, so the ID is the name in ds and the version is the
-# pinned month. Read the store attributes 'id' and 'version' once the port has them.
-DATASET_ID = "power-merra2-{freq}"
+# The ds of a canonical spec names the store and the pinned month. The dataset ID and
+# version come from the store attributes (user decision of 2026-11-15).
+DS_NAME = "power-merra2-{freq}"
 AXIS_START = "1900-01"  # before the first step of every POWER store
 VERSION_HEX_LEN = 12
+
+# (dataset ID, dataset version) of the store of a freq.
+StoreIdentity = Callable[[Freq], tuple[str, str]]
 
 
 @dataclass(frozen=True)
@@ -76,11 +79,17 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
-def build_catalog(reader: SeriesReader, seed: CatalogSeed) -> tuple[Catalog, list[str]]:
+def build_catalog(
+    reader: SeriesReader, seed: CatalogSeed, identity: StoreIdentity | None = None
+) -> tuple[Catalog, list[str]]:
     """The catalog and one report line for each thing that the stores lack.
 
-    Raises ValueError for a seed that does not hold each variable and metric ID once.
+    identity gives the dataset ID and version of each store; by default it reads them
+    from the store attributes. Raises ValueError for a seed that does not hold each
+    variable and metric ID once.
     """
+    # Looked up at call time, so a test can replace the reader function.
+    identity = identity or read_store_identity
     _check_ids("variable", [item.id for item in seed.variables], VARIABLE_IDS)
     _check_ids("metric", [item.id for item in seed.metrics], METRIC_IDS)
     grid = reader.grid()
@@ -95,8 +104,10 @@ def build_catalog(reader: SeriesReader, seed: CatalogSeed) -> tuple[Catalog, lis
     draft = Catalog(
         version="",
         datasets=Datasets(
-            daily=_dataset("daily", stores.record_end["daily"]),
-            monthly=_dataset("monthly", stores.record_end["monthly"]),
+            daily=_dataset("daily", stores.record_end["daily"], identity("daily")),
+            monthly=_dataset(
+                "monthly", stores.record_end["monthly"], identity("monthly")
+            ),
         ),
         eng=ENGINE_VERSION,
         grid=grid,
@@ -136,7 +147,7 @@ def _record_start(reader: SeriesReader, freq: Freq) -> str:
 def _variables(
     seed: CatalogSeed, stores: _Stores
 ) -> tuple[list[CatalogVariable], list[str]]:
-    source = {item.id: item.source_freq for item in seed.metrics}
+    metric_of = {item.id: item for item in seed.metrics}
     variables: list[CatalogVariable] = []
     report: list[str] = []
     for item in seed.variables:
@@ -144,7 +155,7 @@ def _variables(
         if not carried:
             report.append(f"{item.id}: in the seed and in no store; left out")
             continue
-        default_freq = source[item.default_metric]
+        default_freq = source_freq(item, metric_of[item.default_metric])
         if item.scan_set and default_freq not in carried:
             report.append(
                 f"{item.id}: scan_set false; its default metric "
@@ -208,11 +219,11 @@ def _metric(item: SeedMetric, registered: set[str]) -> CatalogMetric:
     )
 
 
-def _dataset(freq: Freq, last_month: str) -> DatasetVersion:
-    dataset_id = DATASET_ID.format(freq=freq)
+def _dataset(freq: Freq, last_month: str, identity: tuple[str, str]) -> DatasetVersion:
+    dataset_id, dataset_version = identity
     return DatasetVersion(
-        ds=f"{dataset_id}@{last_month}",
+        ds=f"{DS_NAME.format(freq=freq)}@{last_month}",
         dataset_id=dataset_id,
-        dataset_version=last_month,
+        dataset_version=dataset_version,
         last_valid_month=last_month,
     )

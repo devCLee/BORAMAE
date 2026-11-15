@@ -1,0 +1,36 @@
+[
+  {
+    "id": "CB-01",
+    "title": { "en": "Snow", "ko": "눈" },
+    "focus": [{ "var": "PRECSNO", "metric_id": "first_date" }],
+    "drivers": ["autumn-t2m-first-snow", "winter-t2m-snow-share"],
+    "responses": ["first-snow-winter-snow-cover", "first-snow-spring-topsoil"]
+  },
+  {
+    "id": "CB-02",
+    "title": { "en": "Heat", "ko": "더위" },
+    "focus": [
+      { "var": "T2M_MAX", "metric_id": "threshold_days" },
+      { "var": "CDD18_3", "metric_id": "degree_days" }
+    ],
+    "drivers": ["summer-root-zone-hot-days"],
+    "responses": ["hot-days-summer-humidity"]
+  },
+  {
+    "id": "CB-03",
+    "title": { "en": "Heavy rain", "ko": "호우" },
+    "focus": [
+      { "var": "PRECTOTCORR", "metric_id": "rx1day" },
+      { "var": "PRECTOTCORR", "metric_id": "threshold_days" }
+    ],
+    "drivers": ["summer-t2m-wettest-day", "summer-vapour-wettest-day"],
+    "responses": ["wettest-day-summer-topsoil"]
+  },
+  {
+    "id": "CB-07",
+    "title": { "en": "Seasons", "ko": "계절" },
+    "focus": [{ "var": "T2M_MIN", "metric_id": "frost_free_length" }],
+    "drivers": ["t2m-frost-free-season"],
+    "responses": ["frost-free-season-first-snow"]
+  }
+]

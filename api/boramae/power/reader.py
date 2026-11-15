@@ -5,6 +5,7 @@ and never the POWER API (TR-D-001).
 """
 
 import asyncio
+import re
 import threading
 from collections import OrderedDict
 from collections.abc import Iterator, Mapping, Sequence
@@ -19,7 +20,7 @@ from zarr.abc.store import ByteRequest
 from zarr.core.buffer import Buffer, BufferPrototype
 from zarr.storage import FsspecStore, WrapperStore
 
-from boramae.config import Settings
+from boramae.config import Settings, load_settings
 from boramae.engine.series import present_months
 from boramae.engine.types import CellSeries, Footprint, GridDef
 from boramae.errors import PowerUnavailable
@@ -36,6 +37,10 @@ PROBE_CELL = (255, 491)  # Seoul: the pinned month is read from this cell
 # The decimal digits that a variable holds. Each data variable of both stores declares
 # them, and its fixed-scale filter has the scale 10**digits (metadata of 2026-11-15).
 DIGITS_ATTRIBUTE = "significant_digits"
+# The group attributes 'id' and 'version' name the dataset of a store, such as
+# 'power_merra2_daily_temporal_utc.zarr' and 'POWER Version 10.0.0' (2026-11-15).
+STORE_ID_SUFFIX = ".zarr"
+DOTTED_VERSION = re.compile(r"\d+(?:\.\d+)+")
 
 
 @dataclass
@@ -273,6 +278,30 @@ class PowerReader:
                 f"{GRID_DLAT} x {GRID_DLON} degree grid"
             )
         return dataset
+
+
+def read_store_identity(freq: Freq) -> tuple[str, str]:
+    """The dataset ID and version of a store, from its consolidated group attributes.
+
+    It opens the store as a read does, so a failed open raises PowerUnavailable.
+    """
+    # ponytail: a second open of the store beside the reader of build-catalog, one
+    # more metadata fetch per catalog build. Share the open dataset if that ever counts.
+    return store_identity(PowerReader(load_settings())._open(freq).attrs)
+
+
+def store_identity(attributes: Mapping[str, object]) -> tuple[str, str]:
+    """The store attributes 'id' and 'version' as (dataset ID, dataset version).
+
+    Raises ValueError for a version text with no dotted version number.
+    """
+    version_text = str(attributes["version"])
+    found = DOTTED_VERSION.search(version_text)
+    if found is None:
+        raise ValueError(
+            f"the store version {version_text!r} holds no dotted version number"
+        )
+    return str(attributes["id"]).removesuffix(STORE_ID_SUFFIX), found.group()
 
 
 @contextmanager

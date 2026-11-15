@@ -1,0 +1,338 @@
+[
+  {
+    "keywords": {
+      "en": ["first snow", "first snowfall"],
+      "ko": ["첫눈"]
+    },
+    "var": "PRECSNO",
+    "metric_id": "first_date",
+    "intent": "timing",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["snowing", "snowfall", "less snow", "more snow"],
+      "ko": ["눈이 덜", "눈이 많이", "눈이 오", "눈이 내", "강설"]
+    },
+    "var": "PRECSNO",
+    "metric_id": "seasonal_total",
+    "intent": "mean_change",
+    "default_months": [12, 1, 2],
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["snowpack", "snow depth"],
+      "ko": ["적설", "쌓이는 눈", "눈 깊이"]
+    },
+    "var": "SNODP",
+    "metric_id": "annual_mean",
+    "intent": "mean_change",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["snowmelt", "snow melt", "snow melting"],
+      "ko": ["눈이 녹", "눈 녹", "눈이 더 일찍 녹"]
+    },
+    "var": "SNODP",
+    "metric_id": "snow_free_date",
+    "intent": "timing",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["freeze", "freezing", "frozen"],
+      "ko": ["얼어", "얼지", "결빙"]
+    },
+    "var": "T2M",
+    "metric_id": "degree_days",
+    "intent": "mean_change",
+    "default_months": [12, 1, 2],
+    "default_threshold": "0",
+    "op": "<"
+  },
+  {
+    "keywords": {
+      "en": ["winters getting shorter", "winters getting longer", "shorter winter", "longer winter", "winter length"],
+      "ko": ["겨울이 짧", "겨울이 길", "겨울 길이"]
+    },
+    "var": "T2M",
+    "metric_id": "season_length",
+    "intent": "duration",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["heat wave", "heatwave", "heat-wave", "hot day"],
+      "ko": ["폭염"]
+    },
+    "var": "T2M_MAX",
+    "metric_id": "threshold_days",
+    "intent": "extremes_count",
+    "default_months": [6, 7, 8, 9],
+    "default_threshold": "33",
+    "op": ">="
+  },
+  {
+    "keywords": {
+      "en": ["heat waves lasting", "heat waves last", "heat wave lasting", "hot spell"],
+      "ko": ["폭염이 더 오래", "폭염이 오래", "폭염 기간"]
+    },
+    "var": "T2M_MAX",
+    "metric_id": "spell_length",
+    "intent": "duration",
+    "default_months": [6, 7, 8, 9],
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["-degree day"],
+      "ko": ["넘는 날", "이상인 날"]
+    },
+    "var": "T2M_MAX",
+    "metric_id": "threshold_days",
+    "intent": "extremes_count",
+    "default_months": [5, 6, 7, 8, 9, 10],
+    "default_threshold": null,
+    "op": ">="
+  },
+  {
+    "keywords": {
+      "en": ["tropical night"],
+      "ko": ["열대야"]
+    },
+    "var": "T2M_MIN",
+    "metric_id": "threshold_days",
+    "intent": "extremes_count",
+    "default_months": [7, 8],
+    "default_threshold": "25",
+    "op": ">="
+  },
+  {
+    "keywords": {
+      "en": ["late frost"],
+      "ko": ["늦서리"]
+    },
+    "var": "T2M_MIN",
+    "metric_id": "threshold_days",
+    "intent": "extremes_count",
+    "default_months": [3, 4, 5],
+    "default_threshold": "0",
+    "op": "<"
+  },
+  {
+    "keywords": {
+      "en": ["frost-free", "frost free"],
+      "ko": ["서리 없는", "무상 기간", "무상기간"]
+    },
+    "var": "T2M_MIN",
+    "metric_id": "frost_free_length",
+    "intent": "duration",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["cherry blossom", "blossom", "spring onset"],
+      "ko": ["벚꽃", "꽃이 피", "개화"]
+    },
+    "var": "T2M",
+    "metric_id": "season_onset",
+    "intent": "timing",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["apple", "growing degree", "growing season", "crop"],
+      "ko": ["사과", "생육", "재배", "농사"]
+    },
+    "var": "T2M",
+    "metric_id": "degree_days",
+    "intent": "mean_change",
+    "default_months": [4, 5, 6, 7, 8, 9, 10],
+    "default_threshold": "10",
+    "op": ">"
+  },
+  {
+    "keywords": {
+      "en": ["air-conditioning", "air conditioning", "cooling degree"],
+      "ko": ["에어컨", "냉방"]
+    },
+    "var": "CDD18_3",
+    "metric_id": "seasonal_total",
+    "intent": "mean_change",
+    "default_months": [5, 6, 7, 8, 9],
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["heavy rain", "heavy rainfall", "extreme rain"],
+      "ko": ["폭우"]
+    },
+    "var": "PRECTOTCORR",
+    "metric_id": "rx1day",
+    "intent": "extremes_intensity",
+    "default_months": [6, 7, 8, 9],
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["wettest day"],
+      "ko": ["가장 비가 많이 온 날", "최대 일강수"]
+    },
+    "var": "PRECTOTCORR",
+    "metric_id": "rx1day",
+    "intent": "extremes_intensity",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["heavy-rain day", "heavy rain day", "downpour"],
+      "ko": ["폭우 오는 날", "폭우가 늘", "폭우가 잦", "호우일", "호우 일수"]
+    },
+    "var": "PRECTOTCORR",
+    "metric_id": "threshold_days",
+    "intent": "extremes_count",
+    "default_months": null,
+    "default_threshold": "20",
+    "op": ">="
+  },
+  {
+    "keywords": {
+      "en": ["jangma", "rainy season", "monsoon"],
+      "ko": ["장마"]
+    },
+    "var": "PRECTOTCORR",
+    "metric_id": "rainy_season_length",
+    "intent": "duration",
+    "default_months": [6, 7, 8],
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["drought"],
+      "ko": ["가뭄"]
+    },
+    "var": "PRECTOTCORR",
+    "metric_id": "spi3_months",
+    "intent": "extremes_count",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["drought"],
+      "ko": ["가뭄"]
+    },
+    "var": "GWETROOT",
+    "metric_id": "annual_mean",
+    "intent": "extremes_count",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["spring rain"],
+      "ko": ["봄비"]
+    },
+    "var": "PRECTOTCORR",
+    "metric_id": "seasonal_total",
+    "intent": "mean_change",
+    "default_months": [3, 4, 5],
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["rain", "rainfall", "precipitation"],
+      "ko": ["강수", "강우", "빗물", "비가", "비를"]
+    },
+    "var": "PRECTOTCORR",
+    "metric_id": "annual_total",
+    "intent": "mean_change",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["soil moisture", "soil wetness", "topsoil"],
+      "ko": ["토양 수분", "토양수분", "표층 토양"]
+    },
+    "var": "GWETTOP",
+    "metric_id": "annual_mean",
+    "intent": "mean_change",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["soil getting drier", "drier soil", "dry soil", "root zone", "root-zone"],
+      "ko": ["흙", "뿌리층"]
+    },
+    "var": "GWETROOT",
+    "metric_id": "annual_mean",
+    "intent": "mean_change",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["ozone"],
+      "ko": ["오존"]
+    },
+    "var": "TO3",
+    "metric_id": "annual_mean",
+    "intent": "mean_change",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["sea ice", "sea-ice"],
+      "ko": ["해빙", "바다 얼음"]
+    },
+    "var": "FRSEAICE",
+    "metric_id": "seasonal_mean",
+    "intent": "mean_change",
+    "default_months": [9],
+    "default_threshold": null,
+    "op": null
+  },
+  {
+    "keywords": {
+      "en": ["warmer", "warming", "warm", "hotter", "colder", "temperature"],
+      "ko": ["더워", "따뜻", "기온", "추워", "온난화"]
+    },
+    "var": "T2M",
+    "metric_id": "annual_mean",
+    "intent": "mean_change",
+    "default_months": null,
+    "default_threshold": null,
+    "op": null
+  }
+]
